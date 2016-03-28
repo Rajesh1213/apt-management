@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rental no:</strong>
+  <%= @rental.rental_no %>
+</p>
+
+<p>
+  <strong>Rental date:</strong>
+  <%= @rental.rental_date %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @rental.status %>
+</p>
+
+<p>
+  <strong>Cancel date:</strong>
+  <%= @rental.cancel_date %>
+</p>
+
+<p>
+  <strong>Lease type:</strong>
+  <%= @rental.lease_type %>
+</p>
+
+<p>
+  <strong>Lease start:</strong>
+  <%= @rental.lease_start %>
+</p>
+
+<p>
+  <strong>Lease end:</strong>
+  <%= @rental.lease_end %>
+</p>
+
+<p>
+  <strong>Renewal date:</strong>
+  <%= @rental.renewal_date %>
+</p>
+
+<%= link_to 'Edit', edit_rental_path(@rental) %> |
+<%= link_to 'Back', rentals_path %>

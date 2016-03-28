@@ -1,0 +1,49 @@
+<%= form_for(@rental) do |f| %>
+  <% if @rental.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rental.errors.count, "error") %> prohibited this rental from being saved:</h2>
+
+      <ul>
+      <% @rental.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :rental_no %><br>
+    <%= f.number_field :rental_no %>
+  </div>
+  <div class="field">
+    <%= f.label :rental_date %><br>
+    <%= f.date_select :rental_date %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :cancel_date %><br>
+    <%= f.date_select :cancel_date %>
+  </div>
+  <div class="field">
+    <%= f.label :lease_type %><br>
+    <%= f.text_field :lease_type %>
+  </div>
+  <div class="field">
+    <%= f.label :lease_start %><br>
+    <%= f.date_select :lease_start %>
+  </div>
+  <div class="field">
+    <%= f.label :lease_end %><br>
+    <%= f.date_select :lease_end %>
+  </div>
+  <div class="field">
+    <%= f.label :renewal_date %><br>
+    <%= f.date_select :renewal_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

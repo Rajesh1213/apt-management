@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Apt type:</strong>
+  <%= @apartment.apt_type %>
+</p>
+
+<p>
+  <strong>Apt status:</strong>
+  <%= @apartment.apt_status %>
+</p>
+
+<p>
+  <strong>Apt utility:</strong>
+  <%= @apartment.apt_utility %>
+</p>
+
+<p>
+  <strong>Apt deposit amt:</strong>
+  <%= @apartment.apt_deposit_amt %>
+</p>
+
+<p>
+  <strong>Apt rent amt:</strong>
+  <%= @apartment.apt_rent_amt %>
+</p>
+
+<%= link_to 'Edit', edit_apartment_path(@apartment) %> |
+<%= link_to 'Back', apartments_path %>

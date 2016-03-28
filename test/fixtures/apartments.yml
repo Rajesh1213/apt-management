@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  apt_type: 1
+  apt_status: 1
+  apt_utility: false
+  apt_deposit_amt: 
+  apt_rent_amt: 
+
+two:
+  apt_type: 1
+  apt_status: 1
+  apt_utility: false
+  apt_deposit_amt: 
+  apt_rent_amt: 

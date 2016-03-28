@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rental_no: 1
+  rental_date: 2016-03-27
+  status: MyString
+  cancel_date: 2016-03-27
+  lease_type: MyString
+  lease_start: 2016-03-27
+  lease_end: 2016-03-27
+  renewal_date: 2016-03-27
+
+two:
+  rental_no: 1
+  rental_date: 2016-03-27
+  status: MyString
+  cancel_date: 2016-03-27
+  lease_type: MyString
+  lease_start: 2016-03-27
+  lease_end: 2016-03-27
+  renewal_date: 2016-03-27

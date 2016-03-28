@@ -1,0 +1,37 @@
+<%= form_for(@apartment) do |f| %>
+  <% if @apartment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@apartment.errors.count, "error") %> prohibited this apartment from being saved:</h2>
+
+      <ul>
+      <% @apartment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :apt_type %><br>
+    <%= f.number_field :apt_type %>
+  </div>
+  <div class="field">
+    <%= f.label :apt_status %><br>
+    <%= f.number_field :apt_status %>
+  </div>
+  <div class="field">
+    <%= f.label :apt_utility %><br>
+    <%= f.check_box :apt_utility %>
+  </div>
+  <div class="field">
+    <%= f.label :apt_deposit_amt %><br>
+    <%= f.text_field :apt_deposit_amt %>
+  </div>
+  <div class="field">
+    <%= f.label :apt_rent_amt %><br>
+    <%= f.text_field :apt_rent_amt %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
