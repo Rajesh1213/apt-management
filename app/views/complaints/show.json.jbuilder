@@ -1,1 +1,1 @@
-json.extract! @complaint, :id, :complaint_date, :rental_complaint, :apt_complaint, :status, :created_at, :updated_at
+json.extract! @complaint, :id, :date_filed, :rental_complaint, :apartment_complaint, :status, :complaintable_id, :complaintable_type, :created_at, :updated_at

@@ -21,11 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :position %><br>
-    <%= f.text_field :position %>
+    <%= f.number_field :position %>
   </div>
   <div class="field">
     <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
+    <%= f.number_field :gender %>
   </div>
   <div class="field">
     <%= f.label :dob %><br>
@@ -33,11 +33,15 @@
   </div>
   <div class="field">
     <%= f.label :salary %><br>
-    <%= f.text_field :salary %>
+    <%= f.number_field :salary %>
   </div>
   <div class="field">
     <%= f.label :username %><br>
     <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.text_field :password %>
   </div>
   <div class="actions">
     <%= f.submit %>

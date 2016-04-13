@@ -18,7 +18,7 @@ class ComplaintsControllerTest < ActionController::TestCase
 
   test "should create complaint" do
     assert_difference('Complaint.count') do
-      post :create, complaint: { apt_complaint: @complaint.apt_complaint, complaint_date: @complaint.complaint_date, rental_complaint: @complaint.rental_complaint, status: @complaint.status }
+      post :create, complaint: { apartment_complaint: @complaint.apartment_complaint, complaintable_id: @complaint.complaintable_id, complaintable_type: @complaint.complaintable_type, date_filed: @complaint.date_filed, rental_complaint: @complaint.rental_complaint, status: @complaint.status }
     end
 
     assert_redirected_to complaint_path(assigns(:complaint))
@@ -35,7 +35,7 @@ class ComplaintsControllerTest < ActionController::TestCase
   end
 
   test "should update complaint" do
-    patch :update, id: @complaint, complaint: { apt_complaint: @complaint.apt_complaint, complaint_date: @complaint.complaint_date, rental_complaint: @complaint.rental_complaint, status: @complaint.status }
+    patch :update, id: @complaint, complaint: { apartment_complaint: @complaint.apartment_complaint, complaintable_id: @complaint.complaintable_id, complaintable_type: @complaint.complaintable_type, date_filed: @complaint.date_filed, rental_complaint: @complaint.rental_complaint, status: @complaint.status }
     assert_redirected_to complaint_path(assigns(:complaint))
   end
 

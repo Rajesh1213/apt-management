@@ -18,7 +18,7 @@ class RentalInvoicesControllerTest < ActionController::TestCase
 
   test "should create rental_invoice" do
     assert_difference('RentalInvoice.count') do
-      post :create, rental_invoice: { cc_amt: @rental_invoice.cc_amt, cc_exp_date: @rental_invoice.cc_exp_date, cc_no: @rental_invoice.cc_no, cc_type: @rental_invoice.cc_type, invoice_date: @rental_invoice.invoice_date, invoice_due_date: @rental_invoice.invoice_due_date, invoice_no: @rental_invoice.invoice_no }
+      post :create, rental_invoice: { cc_amount_charged: @rental_invoice.cc_amount_charged, cc_expiration_date: @rental_invoice.cc_expiration_date, cc_number: @rental_invoice.cc_number, cc_type: @rental_invoice.cc_type, invoice_date: @rental_invoice.invoice_date, invoice_due: @rental_invoice.invoice_due }
     end
 
     assert_redirected_to rental_invoice_path(assigns(:rental_invoice))
@@ -35,7 +35,7 @@ class RentalInvoicesControllerTest < ActionController::TestCase
   end
 
   test "should update rental_invoice" do
-    patch :update, id: @rental_invoice, rental_invoice: { cc_amt: @rental_invoice.cc_amt, cc_exp_date: @rental_invoice.cc_exp_date, cc_no: @rental_invoice.cc_no, cc_type: @rental_invoice.cc_type, invoice_date: @rental_invoice.invoice_date, invoice_due_date: @rental_invoice.invoice_due_date, invoice_no: @rental_invoice.invoice_no }
+    patch :update, id: @rental_invoice, rental_invoice: { cc_amount_charged: @rental_invoice.cc_amount_charged, cc_expiration_date: @rental_invoice.cc_expiration_date, cc_number: @rental_invoice.cc_number, cc_type: @rental_invoice.cc_type, invoice_date: @rental_invoice.invoice_date, invoice_due: @rental_invoice.invoice_due }
     assert_redirected_to rental_invoice_path(assigns(:rental_invoice))
   end
 

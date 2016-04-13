@@ -1,0 +1,41 @@
+<%= form_for(@tenant_family_member) do |f| %>
+  <% if @tenant_family_member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tenant_family_member.errors.count, "error") %> prohibited this tenant_family_member from being saved:</h2>
+
+      <ul>
+      <% @tenant_family_member.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ss %><br>
+    <%= f.text_field :ss %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :member_type %><br>
+    <%= f.number_field :member_type %>
+  </div>
+  <div class="field">
+    <%= f.label :marital_status %><br>
+    <%= f.number_field :marital_status %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.number_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :dob %><br>
+    <%= f.date_select :dob %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -69,6 +69,6 @@ class RentalInvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rental_invoice_params
-      params.require(:rental_invoice).permit(:invoice_no, :invoice_date, :invoice_due_date, :cc_no, :cc_type, :cc_exp_date, :cc_amt)
+      params.require(:rental_invoice).permit(:invoice_date, :invoice_due, :cc_number, :cc_type, :cc_expiration_date, :cc_amount_charged)
     end
 end

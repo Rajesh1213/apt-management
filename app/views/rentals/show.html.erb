@@ -1,13 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Rental no:</strong>
-  <%= @rental.rental_no %>
-</p>
-
-<p>
-  <strong>Rental date:</strong>
-  <%= @rental.rental_date %>
+  <strong>Sign date:</strong>
+  <%= @rental.sign_date %>
 </p>
 
 <p>
@@ -38,6 +33,21 @@
 <p>
   <strong>Renewal date:</strong>
   <%= @rental.renewal_date %>
+</p>
+
+<p>
+  <strong>Has utility:</strong>
+  <%= @rental.has_utility %>
+</p>
+
+<p>
+  <strong>Deposit amount:</strong>
+  <%= @rental.deposit_amount %>
+</p>
+
+<p>
+  <strong>Rent amount:</strong>
+  <%= @rental.rent_amount %>
 </p>
 
 <%= link_to 'Edit', edit_rental_path(@rental) %> |

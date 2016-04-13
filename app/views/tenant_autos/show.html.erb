@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>License number:</strong>
+  <%= @tenant_auto.license_number %>
+</p>
+
+<p>
+  <strong>Auto make:</strong>
+  <%= @tenant_auto.auto_make %>
+</p>
+
+<p>
+  <strong>Auto model:</strong>
+  <%= @tenant_auto.auto_model %>
+</p>
+
+<p>
+  <strong>Auto year:</strong>
+  <%= @tenant_auto.auto_year %>
+</p>
+
+<p>
+  <strong>Auto color:</strong>
+  <%= @tenant_auto.auto_color %>
+</p>
+
+<%= link_to 'Edit', edit_tenant_auto_path(@tenant_auto) %> |
+<%= link_to 'Back', tenant_autos_path %>

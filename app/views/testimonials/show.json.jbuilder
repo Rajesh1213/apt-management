@@ -1,1 +1,1 @@
-json.extract! @testimonial, :id, :date, :content, :created_at, :updated_at
+json.extract! @testimonial, :id, :date_entered, :content, :created_at, :updated_at

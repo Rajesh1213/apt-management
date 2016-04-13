@@ -5,10 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>Complaint date</th>
+      <th>Date filed</th>
       <th>Rental complaint</th>
-      <th>Apt complaint</th>
+      <th>Apartment complaint</th>
       <th>Status</th>
+      <th>Complaintable</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +17,11 @@
   <tbody>
     <% @complaints.each do |complaint| %>
       <tr>
-        <td><%= complaint.complaint_date %></td>
+        <td><%= complaint.date_filed %></td>
         <td><%= complaint.rental_complaint %></td>
-        <td><%= complaint.apt_complaint %></td>
+        <td><%= complaint.apartment_complaint %></td>
         <td><%= complaint.status %></td>
+        <td><%= complaint.complaintable %></td>
         <td><%= link_to 'Show', complaint %></td>
         <td><%= link_to 'Edit', edit_complaint_path(complaint) %></td>
         <td><%= link_to 'Destroy', complaint, method: :delete, data: { confirm: 'Are you sure?' } %></td>

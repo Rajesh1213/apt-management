@@ -3,17 +3,19 @@
 one:
   first_name: MyString
   last_name: MyString
-  position: 
-  gender: MyString
-  dob: 2016-03-27
-  salary: 
+  position: 1
+  gender: 1
+  dob: 2016-04-13
+  salary: 1
   username: MyString
+  password: MyString
 
 two:
   first_name: MyString
   last_name: MyString
-  position: 
-  gender: MyString
-  dob: 2016-03-27
-  salary: 
+  position: 1
+  gender: 1
+  dob: 2016-04-13
+  salary: 1
   username: MyString
+  password: MyString

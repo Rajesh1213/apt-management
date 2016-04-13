@@ -12,20 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :complaint_date %><br>
-    <%= f.date_select :complaint_date %>
+    <%= f.label :date_filed %><br>
+    <%= f.date_select :date_filed %>
   </div>
   <div class="field">
     <%= f.label :rental_complaint %><br>
     <%= f.text_area :rental_complaint %>
   </div>
   <div class="field">
-    <%= f.label :apt_complaint %><br>
-    <%= f.text_area :apt_complaint %>
+    <%= f.label :apartment_complaint %><br>
+    <%= f.text_area :apartment_complaint %>
   </div>
   <div class="field">
     <%= f.label :status %><br>
-    <%= f.text_field :status %>
+    <%= f.number_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :complaintable_id %><br>
+    <%= f.text_field :complaintable_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

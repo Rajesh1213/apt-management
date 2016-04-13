@@ -18,7 +18,7 @@ class ApartmentsControllerTest < ActionController::TestCase
 
   test "should create apartment" do
     assert_difference('Apartment.count') do
-      post :create, apartment: { apt_deposit_amt: @apartment.apt_deposit_amt, apt_rent_amt: @apartment.apt_rent_amt, apt_status: @apartment.apt_status, apt_type: @apartment.apt_type, apt_utility: @apartment.apt_utility }
+      post :create, apartment: { apartment_type: @apartment.apartment_type, status: @apartment.status }
     end
 
     assert_redirected_to apartment_path(assigns(:apartment))
@@ -35,7 +35,7 @@ class ApartmentsControllerTest < ActionController::TestCase
   end
 
   test "should update apartment" do
-    patch :update, id: @apartment, apartment: { apt_deposit_amt: @apartment.apt_deposit_amt, apt_rent_amt: @apartment.apt_rent_amt, apt_status: @apartment.apt_status, apt_type: @apartment.apt_type, apt_utility: @apartment.apt_utility }
+    patch :update, id: @apartment, apartment: { apartment_type: @apartment.apartment_type, status: @apartment.status }
     assert_redirected_to apartment_path(assigns(:apartment))
   end
 

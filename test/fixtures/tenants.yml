@@ -3,19 +3,23 @@
 one:
   first_name: MyString
   last_name: MyString
-  dob: 2016-03-27
-  marital_status: MyString
+  dob: 2016-04-13
+  marital_status: 1
   work_phone: MyString
   home_phone: MyString
   employer: MyString
-  gender: MyString
+  gender: 1
+  username: MyString
+  password: MyString
 
 two:
   first_name: MyString
   last_name: MyString
-  dob: 2016-03-27
-  marital_status: MyString
+  dob: 2016-04-13
+  marital_status: 1
   work_phone: MyString
   home_phone: MyString
   employer: MyString
-  gender: MyString
+  gender: 1
+  username: MyString
+  password: MyString

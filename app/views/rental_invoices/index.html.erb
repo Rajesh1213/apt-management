@@ -5,13 +5,12 @@
 <table>
   <thead>
     <tr>
-      <th>Invoice no</th>
       <th>Invoice date</th>
-      <th>Invoice due date</th>
-      <th>Cc no</th>
+      <th>Invoice due</th>
+      <th>Cc number</th>
       <th>Cc type</th>
-      <th>Cc exp date</th>
-      <th>Cc amt</th>
+      <th>Cc expiration date</th>
+      <th>Cc amount charged</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,13 +18,12 @@
   <tbody>
     <% @rental_invoices.each do |rental_invoice| %>
       <tr>
-        <td><%= rental_invoice.invoice_no %></td>
         <td><%= rental_invoice.invoice_date %></td>
-        <td><%= rental_invoice.invoice_due_date %></td>
-        <td><%= rental_invoice.cc_no %></td>
+        <td><%= rental_invoice.invoice_due %></td>
+        <td><%= rental_invoice.cc_number %></td>
         <td><%= rental_invoice.cc_type %></td>
-        <td><%= rental_invoice.cc_exp_date %></td>
-        <td><%= rental_invoice.cc_amt %></td>
+        <td><%= rental_invoice.cc_expiration_date %></td>
+        <td><%= rental_invoice.cc_amount_charged %></td>
         <td><%= link_to 'Show', rental_invoice %></td>
         <td><%= link_to 'Edit', edit_rental_invoice_path(rental_invoice) %></td>
         <td><%= link_to 'Destroy', rental_invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>

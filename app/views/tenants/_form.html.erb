@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :marital_status %><br>
-    <%= f.text_field :marital_status %>
+    <%= f.number_field :marital_status %>
   </div>
   <div class="field">
     <%= f.label :work_phone %><br>
@@ -41,7 +41,15 @@
   </div>
   <div class="field">
     <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
+    <%= f.number_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.text_field :password %>
   </div>
   <div class="actions">
     <%= f.submit %>

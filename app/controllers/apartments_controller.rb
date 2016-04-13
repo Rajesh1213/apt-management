@@ -69,6 +69,6 @@ class ApartmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apartment_params
-      params.require(:apartment).permit(:apt_type, :apt_status, :apt_utility, :apt_deposit_amt, :apt_rent_amt)
+      params.require(:apartment).permit(:apartment_type, :status)
     end
 end

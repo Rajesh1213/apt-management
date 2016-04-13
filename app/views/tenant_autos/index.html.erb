@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tenant Autos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>License number</th>
+      <th>Auto make</th>
+      <th>Auto model</th>
+      <th>Auto year</th>
+      <th>Auto color</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tenant_autos.each do |tenant_auto| %>
+      <tr>
+        <td><%= tenant_auto.license_number %></td>
+        <td><%= tenant_auto.auto_make %></td>
+        <td><%= tenant_auto.auto_model %></td>
+        <td><%= tenant_auto.auto_year %></td>
+        <td><%= tenant_auto.auto_color %></td>
+        <td><%= link_to 'Show', tenant_auto %></td>
+        <td><%= link_to 'Edit', edit_tenant_auto_path(tenant_auto) %></td>
+        <td><%= link_to 'Destroy', tenant_auto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tenant auto', new_tenant_auto_path %>

@@ -12,32 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :invoice_no %><br>
-    <%= f.number_field :invoice_no %>
-  </div>
-  <div class="field">
     <%= f.label :invoice_date %><br>
     <%= f.date_select :invoice_date %>
   </div>
   <div class="field">
-    <%= f.label :invoice_due_date %><br>
-    <%= f.date_select :invoice_due_date %>
+    <%= f.label :invoice_due %><br>
+    <%= f.date_select :invoice_due %>
   </div>
   <div class="field">
-    <%= f.label :cc_no %><br>
-    <%= f.text_field :cc_no %>
+    <%= f.label :cc_number %><br>
+    <%= f.text_field :cc_number %>
   </div>
   <div class="field">
     <%= f.label :cc_type %><br>
     <%= f.text_field :cc_type %>
   </div>
   <div class="field">
-    <%= f.label :cc_exp_date %><br>
-    <%= f.text_field :cc_exp_date %>
+    <%= f.label :cc_expiration_date %><br>
+    <%= f.text_field :cc_expiration_date %>
   </div>
   <div class="field">
-    <%= f.label :cc_amt %><br>
-    <%= f.text_field :cc_amt %>
+    <%= f.label :cc_amount_charged %><br>
+    <%= f.text_field :cc_amount_charged %>
   </div>
   <div class="actions">
     <%= f.submit %>

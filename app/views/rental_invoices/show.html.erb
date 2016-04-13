@@ -1,23 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Invoice no:</strong>
-  <%= @rental_invoice.invoice_no %>
-</p>
-
-<p>
   <strong>Invoice date:</strong>
   <%= @rental_invoice.invoice_date %>
 </p>
 
 <p>
-  <strong>Invoice due date:</strong>
-  <%= @rental_invoice.invoice_due_date %>
+  <strong>Invoice due:</strong>
+  <%= @rental_invoice.invoice_due %>
 </p>
 
 <p>
-  <strong>Cc no:</strong>
-  <%= @rental_invoice.cc_no %>
+  <strong>Cc number:</strong>
+  <%= @rental_invoice.cc_number %>
 </p>
 
 <p>
@@ -26,13 +21,13 @@
 </p>
 
 <p>
-  <strong>Cc exp date:</strong>
-  <%= @rental_invoice.cc_exp_date %>
+  <strong>Cc expiration date:</strong>
+  <%= @rental_invoice.cc_expiration_date %>
 </p>
 
 <p>
-  <strong>Cc amt:</strong>
-  <%= @rental_invoice.cc_amt %>
+  <strong>Cc amount charged:</strong>
+  <%= @rental_invoice.cc_amount_charged %>
 </p>
 
 <%= link_to 'Edit', edit_rental_invoice_path(@rental_invoice) %> |

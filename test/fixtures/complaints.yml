@@ -1,13 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  complaint_date: 2016-03-27
+  date_filed: 2016-04-13
   rental_complaint: MyText
-  apt_complaint: MyText
-  status: MyString
+  apartment_complaint: MyText
+  status: 1
+  complaintable_id: 
+  complaintable_type: Complaintable
 
 two:
-  complaint_date: 2016-03-27
+  date_filed: 2016-04-13
   rental_complaint: MyText
-  apt_complaint: MyText
-  status: MyString
+  apartment_complaint: MyText
+  status: 1
+  complaintable_id: 
+  complaintable_type: Complaintable

@@ -40,5 +40,15 @@
   <%= @tenant.gender %>
 </p>
 
+<p>
+  <strong>Username:</strong>
+  <%= @tenant.username %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @tenant.password %>
+</p>
+
 <%= link_to 'Edit', edit_tenant_path(@tenant) %> |
 <%= link_to 'Back', tenants_path %>

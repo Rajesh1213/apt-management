@@ -1,19 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  invoice_no: 1
-  invoice_date: 2016-03-27
-  invoice_due_date: 2016-03-27
-  cc_no: 
+  invoice_date: 2016-04-13
+  invoice_due: 2016-04-13
+  cc_number: MyString
   cc_type: MyString
-  cc_exp_date: MyString
-  cc_amt: 1.5
+  cc_expiration_date: MyString
+  cc_amount_charged: 9.99
 
 two:
-  invoice_no: 1
-  invoice_date: 2016-03-27
-  invoice_due_date: 2016-03-27
-  cc_no: 
+  invoice_date: 2016-04-13
+  invoice_due: 2016-04-13
+  cc_number: MyString
   cc_type: MyString
-  cc_exp_date: MyString
-  cc_amt: 1.5
+  cc_expiration_date: MyString
+  cc_amount_charged: 9.99
