@@ -11,108 +11,127 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328013131) do
+ActiveRecord::Schema.define(version: 20160413093005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "apartments", force: :cascade do |t|
-    t.integer  "apt_type"
-    t.integer  "apt_status"
-    t.boolean  "apt_utility"
-    t.float    "apt_deposit_amt"
-    t.float    "apt_rent_amt"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "apartment_type"
+    t.integer  "status"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
+
+  add_index "apartments", ["apartment_type"], name: "index_apartments_on_apartment_type", using: :btree
+  add_index "apartments", ["status"], name: "index_apartments_on_status", using: :btree
 
   create_table "complaints", force: :cascade do |t|
-    t.date     "complaint_date"
+    t.date     "date_filed"
     t.text     "rental_complaint"
-    t.text     "apt_complaint"
-    t.string   "status"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.text     "apartment_complaint"
+    t.integer  "status"
+    t.integer  "complaintable_id"
+    t.string   "complaintable_type"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
+  add_index "complaints", ["complaintable_type", "complaintable_id"], name: "index_complaints_on_complaintable_type_and_complaintable_id", using: :btree
+  add_index "complaints", ["status"], name: "index_complaints_on_status", using: :btree
+
   create_table "rental_invoices", force: :cascade do |t|
-    t.integer  "invoice_no"
     t.date     "invoice_date"
-    t.date     "invoice_due_date"
-    t.string   "cc_no"
+    t.date     "invoice_due"
+    t.string   "cc_number"
     t.string   "cc_type"
-    t.string   "cc_exp_date"
-    t.float    "cc_amt"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.string   "cc_expiration_date"
+    t.decimal  "cc_amount_charged"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "rentals", force: :cascade do |t|
-    t.integer  "rental_no"
-    t.date     "rental_date"
-    t.string   "status"
+    t.date     "sign_date"
+    t.integer  "status"
     t.date     "cancel_date"
-    t.string   "lease_type"
+    t.integer  "lease_type"
     t.date     "lease_start"
     t.date     "lease_end"
     t.date     "renewal_date"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.boolean  "has_utility"
+    t.decimal  "deposit_amount"
+    t.decimal  "rent_amount"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
+
+  add_index "rentals", ["lease_type"], name: "index_rentals_on_lease_type", using: :btree
+  add_index "rentals", ["status"], name: "index_rentals_on_status", using: :btree
 
   create_table "staffs", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "position"
-    t.string   "gender"
+    t.integer  "gender"
     t.date     "dob"
     t.integer  "salary"
     t.string   "username"
+    t.string   "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "tenant_families", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "spouse"
-    t.string   "child"
-    t.boolean  "divorced"
-    t.boolean  "single"
-    t.string   "gender"
-    t.date     "dob"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  add_index "staffs", ["gender"], name: "index_staffs_on_gender", using: :btree
+  add_index "staffs", ["position"], name: "index_staffs_on_position", using: :btree
 
-  create_table "tenantautos", force: :cascade do |t|
-    t.string   "license_no"
+  create_table "tenant_autos", force: :cascade do |t|
+    t.string   "license_number"
     t.string   "auto_make"
     t.string   "auto_model"
     t.string   "auto_year"
     t.string   "auto_color"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
+
+  create_table "tenant_family_members", force: :cascade do |t|
+    t.string   "ss"
+    t.string   "name"
+    t.integer  "member_type"
+    t.integer  "marital_status"
+    t.integer  "gender"
+    t.date     "dob"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "tenant_family_members", ["gender"], name: "index_tenant_family_members_on_gender", using: :btree
+  add_index "tenant_family_members", ["marital_status"], name: "index_tenant_family_members_on_marital_status", using: :btree
+  add_index "tenant_family_members", ["member_type"], name: "index_tenant_family_members_on_member_type", using: :btree
 
   create_table "tenants", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.date     "dob"
-    t.string   "marital_status"
+    t.integer  "marital_status"
     t.string   "work_phone"
     t.string   "home_phone"
     t.string   "employer"
-    t.string   "gender"
+    t.integer  "gender"
+    t.string   "username"
+    t.string   "password"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
 
+  add_index "tenants", ["marital_status"], name: "index_tenants_on_marital_status", using: :btree
+
   create_table "testimonials", force: :cascade do |t|
-    t.date     "date"
+    t.date     "date_entered"
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end
