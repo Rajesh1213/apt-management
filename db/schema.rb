@@ -47,9 +47,12 @@ ActiveRecord::Schema.define(version: 20160413093005) do
     t.string   "cc_type"
     t.string   "cc_expiration_date"
     t.decimal  "cc_amount_charged"
+    t.integer  "rental_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
+
+  add_index "rental_invoices", ["rental_id"], name: "index_rental_invoices_on_rental_id", using: :btree
 
   create_table "rentals", force: :cascade do |t|
     t.date     "sign_date"
@@ -62,12 +65,16 @@ ActiveRecord::Schema.define(version: 20160413093005) do
     t.boolean  "has_utility"
     t.decimal  "deposit_amount"
     t.decimal  "rent_amount"
+    t.integer  "tenant_id"
+    t.integer  "apartment_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
 
+  add_index "rentals", ["apartment_id"], name: "index_rentals_on_apartment_id", using: :btree
   add_index "rentals", ["lease_type"], name: "index_rentals_on_lease_type", using: :btree
   add_index "rentals", ["status"], name: "index_rentals_on_status", using: :btree
+  add_index "rentals", ["tenant_id"], name: "index_rentals_on_tenant_id", using: :btree
 
   create_table "staffs", force: :cascade do |t|
     t.string   "first_name"
@@ -93,7 +100,10 @@ ActiveRecord::Schema.define(version: 20160413093005) do
     t.string   "auto_color"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "rental_id"
   end
+
+  add_index "tenant_autos", ["rental_id"], name: "index_tenant_autos_on_rental_id", using: :btree
 
   create_table "tenant_family_members", force: :cascade do |t|
     t.string   "ss"
@@ -104,11 +114,13 @@ ActiveRecord::Schema.define(version: 20160413093005) do
     t.date     "dob"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "rental_id"
   end
 
   add_index "tenant_family_members", ["gender"], name: "index_tenant_family_members_on_gender", using: :btree
   add_index "tenant_family_members", ["marital_status"], name: "index_tenant_family_members_on_marital_status", using: :btree
   add_index "tenant_family_members", ["member_type"], name: "index_tenant_family_members_on_member_type", using: :btree
+  add_index "tenant_family_members", ["rental_id"], name: "index_tenant_family_members_on_rental_id", using: :btree
 
   create_table "tenants", force: :cascade do |t|
     t.string   "first_name"
@@ -130,8 +142,11 @@ ActiveRecord::Schema.define(version: 20160413093005) do
   create_table "testimonials", force: :cascade do |t|
     t.date     "date_entered"
     t.text     "content"
+    t.integer  "rental_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  add_index "testimonials", ["rental_id"], name: "index_testimonials_on_rental_id", using: :btree
 
 end
