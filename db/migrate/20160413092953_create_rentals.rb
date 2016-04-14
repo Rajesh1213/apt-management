@@ -12,8 +12,21 @@ class CreateRentals < ActiveRecord::Migration
       t.decimal :deposit_amount
       t.decimal :rent_amount
 
+      t.belongs_to :tenant, index: true
+      t.belongs_to :apartment, index: true
+
       t.timestamps null: false
     end
+
+    change_table :tenant_autos do |t|
+      t.belongs_to :rental, index: true
+    end
+
+    change_table :tenant_family_members do |t|
+      t.belongs_to :rental, index: true
+    end
+
+
     add_index :rentals, :status
     add_index :rentals, :lease_type
   end
