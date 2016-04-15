@@ -26,7 +26,19 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
-matt-dickens - matt's branch
-\nstefan-theard - Stefan's branch\n
-\nbrandon-guyton - Brandon's branch
-\njiacheng-mo - Jiacheng's branch\n
+
+#Branch Configuration
+
+* production - This branch serves as the live version of the application. Working version of the app.
+* master - Stores working versions of the application, before being deployed to production. It cannot be a broken version of the app.
+* development - Stores the working copy / devleopment version of our application, before deployment to staging. It may be broken, and this is the branch we will all merge from.
+
+## Use your respective branch to work on features.
+
+* ai
+* aarti-bhasker
+* brandon-ghuyton
+* jiacheng-mo
+* khoi-pham
+* matt-dickens
+* stefan-theard
