@@ -27,3 +27,4 @@ Things you may want to cover:
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 \nproduction:branch - deploys to server
+\ndevelopment - development branch, this branch contains the latest development version of the project. If you're going to merge your changes, do it here.
