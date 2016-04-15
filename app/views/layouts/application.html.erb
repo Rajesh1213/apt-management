@@ -48,14 +48,29 @@
                 <li>
                     <a href="/testimonials">Testimonials</a>
                 </li>
+                <li>
+                  <% if user_signed_in? %>
+                    <li>
+                    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+                    </li>
+                  <% else %>
+                    <li>
+                    <%= link_to('Login', new_user_session_path)  %>
+                    </li>
+                  <% end %>
+                </li>
             </ul>
         </div>
     </div>
     <div class="container">
+      <% if user_signed_in? %>
       <div class="row login-bar">
         <div class="col-sm-6 col-sm-6-offsetuser-information">
           <div class="welcome-user">
-            <span>Welcome John Doe! <span class="label label-success">Active Tenant</span> <span class="label label-default">SuperUser</span></span>
+            <span>Welcome Joe Doe<%= current_user %>! <span class="label label-success">Active Tenant</span> <span class="label label-default">SuperUser</span></span>
+
+            <span><%= link_to "Log Out", destroy_user_session_path, method: :delete %></span>
+
           </div>
 
           <div class="profile-options">
@@ -64,9 +79,12 @@
 
         </div>
       </div>
+      <% end %>
       <div class="row">
         <div class="alerts">
           <div class="alert alert-success" role="alert">
+            <p class="notice"><%= notice %></p>
+            <p><%= alert %></p>
             Heads up! There's an update on your complaint.<br/>
             There's an update on your account. <a href="#" class="alert-link">View It Here</a><br/>
             Heads up! You have an upcoming invoice due.<br/>
