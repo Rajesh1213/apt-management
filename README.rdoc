@@ -1,3 +1,4 @@
+{<img alt='Stories in Ready' src='https://badge.waffle.io/team1-oars/apt-management.png?label=ready&title=Ready' />}[https://waffle.io/team1-oars/apt-management]
 == README
 
 This README would normally document whatever steps are necessary to get the
@@ -5,7 +6,7 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 2.2.4
 
 * System dependencies
 
