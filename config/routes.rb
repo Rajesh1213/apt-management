@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :users
+
+  authenticate :user do
+    resources :testimonials, only: [:new, :create, :edit, :update, :destroy]
+  end
   resources :testimonials
   resources :complaints
   resources :rental_invoices
