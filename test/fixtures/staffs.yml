@@ -7,8 +7,6 @@ one:
   gender: 1
   dob: 2016-04-13
   salary: 1
-  username: MyString
-  password: MyString
 
 two:
   first_name: MyString
@@ -17,5 +15,3 @@ two:
   gender: 1
   dob: 2016-04-13
   salary: 1
-  username: MyString
-  password: MyString
