@@ -9,9 +9,6 @@ one:
   home_phone: MyString
   employer: MyString
   gender: 1
-  username: MyString
-  password: MyString
-
 two:
   first_name: MyString
   last_name: MyString
@@ -21,5 +18,3 @@ two:
   home_phone: MyString
   employer: MyString
   gender: 1
-  username: MyString
-  password: MyString
