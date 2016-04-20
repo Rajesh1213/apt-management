@@ -57,7 +57,7 @@
 						- John Doe
 					</footer>
 				</blockquote>
-				<% if current_user.role.name == "supervisor" %>
+				<% if user_signed_in? && current_user.role.name == "supervisor" %>
 				<div class="testimonial-admin-options">
 					<%= link_to 'Edit', edit_testimonial_path(testimonial), class: 'btn btn-sm btn-primary', style: "color: #FFF;" %>
 					<%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-primary', style: "color: #FFF;" %>
