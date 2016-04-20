@@ -2,8 +2,13 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  get ':controller(/:action(/:id))', controller: 'dashboards'
+  resources :dashboards do
+    get ':action(/:action(/:id))'
+  end
   authenticate :user do
     resources :testimonials, only: [:new, :create, :edit, :update, :destroy]
+    resources :dashboards, only: [:index ]
   end
   resources :testimonials
   resources :complaints
@@ -14,6 +19,8 @@ Rails.application.routes.draw do
   resources :tenants
   resources :apartments
   resources :staffs
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
