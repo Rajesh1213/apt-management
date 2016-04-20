@@ -1,29 +1,88 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Testimonials</h1>
+<% if user_signed_in? %>
+<div class="row add-testimonial call-to-action jumbotron">
+	<h3>Hey there!</h3>
+	<p>Satisfied with your apartment and management so far, leave a testimonial!</p>
+	<%= link_to 'Leave Testimonial &rsaquo;'.html_safe , new_testimonial_path, class: "btn btn-large btn-success", style: "color: white;" %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Date entered</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+</div>
+<% end %>
+<div class="row testimonials-search">
+	<form class="form-horizontal col-md-12 ng-pristine ng-valid">
+		<div class="form-group-lg">
+			<input class="form-control pull-left" placeholder="Seach for Testimonials by Keyword or All" style="width: 80%;" type="text">
+			<div class="input-group-btn"></div>
+		</div>
+	</form>
+</div>
 
-  <tbody>
-    <% @testimonials.each do |testimonial| %>
-      <tr>
-        <td><%= testimonial.date_entered %></td>
-        <td><%= testimonial.content %></td>
-        <td><%= link_to 'Show', testimonial %></td>
-        <td><%= link_to 'Edit', edit_testimonial_path(testimonial) %></td>
-        <td><%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="featured-testimonial row ng-scope">
+	<div class="col-xs-12 col-md-12">
+		<h3>
+			Featured Testimonial
+		</h3>
+	</div>
+	<!-- Start Featured Testimonial Item -->
+	<div class="featured-testimonial-item">
+		<div class="featured-image col-xs-4">
+			<img alt="FeaturedTestimonial" src="<%= image_path 'testimonials/testimonials-featured-00.jpg' %>" style="width: 100%;">
+		</div>
+		<div class="col-xs-8">
+			<blockquote>
+				<span class="primary-quote">One of the most exquisite places that I've ever stayed at.</span>
+				<footer>
+					- Xoxo The Cat, "Breathing Intensifies"
+				</footer>
+			</blockquote>
+		</div>
+	</div>
+	<!-- End Featured Testimonial Item -->
 
-<br>
+</div>
 
-<%= link_to 'New Testimonial', new_testimonial_path %>
+<% if !@testimonials.blank? %>
+<div class="testimonials row">
+	<div class="col-xs-12">
+		<h3>Other Testimonials</h3>
+	</div>
+	<% @testimonials.each do |testimonial| %>
+		<div class="col-xs-12 col-md-6 col-lg-3">
+			<div class="testimonial-item" data-entered="<%= testimonial.date_entered %>">
+				<a href="<% link_to_url 'Edit', edit_testimonial_path(testimonial) %>">Edit Testimonial</a>
+				<button><%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+				<h3>John Doe</h3>
+				<blockquote>
+					<span class="primary-quote"><%= testimonial.content %></span>
+					<footer>
+						- John Doe
+					</footer>
+				</blockquote>
+			</div>
+		</div>
+	<% end %>
+
+</div>
+<% end %>
+
+      <div class="row available-apts ng-scope">
+      				<div class="col-md-12">
+      					<h3>
+      						Featured Apartments
+      					</h3>
+      				</div>
+      				<div class="apartment-photos">
+      					<div class="col-xs-3">
+      						<img alt="featured apt1" src="<%= image_path "apartments/apartment-block-004.jpg" %>" style="width:100%">
+      					</div>
+      					<div class="col-xs-3">
+      						<img alt="featured apt1" src="<%= image_path "apartments/apartment-block-002.jpg" %>" style="width:100%">
+      					</div>
+      					<div class="col-xs-3">
+      						<img alt="featured apt1" src="<%= image_path "apartments/apartment-block-001.jpg" %>" style="width:100%">
+      					</div>
+      					<div class="col-xs-3">
+      						<img alt="featured apt1" src="<%= image_path "apartments/apartment-block-003.jpg" %>" style="width:100%">
+      					</div>
+      				</div>
+      			</div>
