@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>OARS Team 1</title>
+    <title>OARS Team 1 - Apartment Management System</title>
     <meta name="description" content="{% block description %}{% endblock %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
@@ -36,7 +36,7 @@
                 style="width: 100%"></a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active">
+                <li>
                     <a href="/">Home</a>
                 </li>
                 <li>
@@ -65,9 +65,9 @@
     <div class="container">
       <% if user_signed_in? %>
       <div class="row login-bar">
-        <div class="col-sm-6 col-sm-6-offsetuser-information">
+        <div class="col-sm-12 user-information">
           <div class="welcome-user">
-            <span>Welcome Joe Doe<%= current_user %>! <span class="label label-success">Active Tenant</span> <span class="label label-default">SuperUser</span></span>
+            <span>Welcome <%= current_user.email %>! <%= raw generate_activity_user_labels %> <span class="label label-default">SuperUser</span></span>
 
             <span><%= link_to "Log Out", destroy_user_session_path, method: :delete %></span>
 
@@ -82,16 +82,9 @@
       <% end %>
       <div class="row">
         <div class="alerts">
-          <div class="alert alert-success" role="alert">
+          <div class="alert alert-success" style="display:none;" role="alert">
             <p class="notice"><%= notice %></p>
             <p><%= alert %></p>
-            Heads up! There's an update on your complaint.<br/>
-            There's an update on your account. <a href="#" class="alert-link">View It Here</a><br/>
-            Heads up! You have an upcoming invoice due.<br/>
-            Heads up! You account is overdue.<br/>
-            Oh snap! One of your rentals is about to be closed soon.<br/>
-            Thanks for signing up! Read our Terms and Conditions here.<br/>
-            Thanks for payment.<br/>
           </div>
         </div>
       </div>
