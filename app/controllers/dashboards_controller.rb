@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
 
-  #before_action :validate_role
+  before_action :validate_role
 
   def index
 
@@ -14,9 +14,18 @@ class DashboardsController < ApplicationController
     title = "Welcome tenant."
   end
 
+  def manager
+    title = "Welcome manager"
+  end
+
+  def assistant
+    title = "Welcome assistant"
+  end
+
+
   private
   def validate_role
-    if Role.pluck(:name).include?(current_user.role.name)
+    if Role.pluck(:name).include?(current_user.role.name) && current_user.role.name != action_name
       redirect_to action: current_user.role.name.to_s
     end
   end

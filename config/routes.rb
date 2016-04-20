@@ -2,10 +2,21 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  get ':controller(/:action(/:id))', controller: 'dashboards'
-  resources :dashboards do
-    get ':action(/:action(/:id))'
-  end
+  # You can have the root of your site routed with "root"
+  root 'static#index'
+
+  get 'about' => 'static#about'
+  get 'contact' => 'static#contact'
+  get 'dashboards/tenant', controller: 'dashboards', action: 'tenant'
+  get 'dashboards/assistant', controller: 'dashboards', action: 'assistant'
+  get 'dashboards/supervisor', controller: 'dashboards', action: 'supervisor'
+  get 'dashboards/manager', controller: 'dashboards', action: 'manager'
+
+
+  #get ':controller(/:action(/:id))', controller: 'dashboards'
+  # resources :dashboards do
+  #   match "/users/:id"
+  # end
   authenticate :user do
     resources :testimonials, only: [:new, :create, :edit, :update, :destroy]
     resources :dashboards, only: [:index ]
@@ -24,11 +35,7 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  root 'static#index'
 
-  get 'about' => 'static#about'
-  get 'contact' => 'static#contact'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

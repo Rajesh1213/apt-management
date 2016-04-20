@@ -49,8 +49,7 @@
 	<% @testimonials.each do |testimonial| %>
 		<div class="col-xs-12 col-md-6 col-lg-3">
 			<div class="testimonial-item" data-entered="<%= testimonial.date_entered %>">
-				<a href="<% link_to_url 'Edit', edit_testimonial_path(testimonial) %>">Edit Testimonial</a>
-				<button><%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+
 				<h3>John Doe</h3>
 				<blockquote>
 					<span class="primary-quote"><%= testimonial.content %></span>
@@ -58,6 +57,12 @@
 						- John Doe
 					</footer>
 				</blockquote>
+				<% if current_user.role.name == "supervisor" %>
+				<div class="testimonial-admin-options">
+					<%= link_to 'Edit', edit_testimonial_path(testimonial), class: 'btn btn-sm btn-primary', style: "color: #FFF;" %>
+					<%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-primary', style: "color: #FFF;" %>
+				</div>
+				<% end %>
 			</div>
 		</div>
 	<% end %>
