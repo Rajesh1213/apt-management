@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   # end
   authenticate :user do
     resources :testimonials, only: [:new, :create, :edit, :update, :destroy]
+    resources :rentals
     resources :dashboards, only: [:index ]
   end
   resources :testimonials

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419045641) do
+ActiveRecord::Schema.define(version: 20160421044538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,10 +91,12 @@ ActiveRecord::Schema.define(version: 20160419045641) do
     t.integer  "salary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   add_index "staffs", ["gender"], name: "index_staffs_on_gender", using: :btree
   add_index "staffs", ["position"], name: "index_staffs_on_position", using: :btree
+  add_index "staffs", ["user_id"], name: "index_staffs_on_user_id", using: :btree
 
   create_table "tenant_autos", force: :cascade do |t|
     t.string   "license_number"
@@ -137,9 +139,11 @@ ActiveRecord::Schema.define(version: 20160419045641) do
     t.integer  "gender"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "user_id"
   end
 
   add_index "tenants", ["marital_status"], name: "index_tenants_on_marital_status", using: :btree
+  add_index "tenants", ["user_id"], name: "index_tenants_on_user_id", using: :btree
 
   create_table "testimonials", force: :cascade do |t|
     t.date     "date_entered"
@@ -166,16 +170,15 @@ ActiveRecord::Schema.define(version: 20160419045641) do
     t.datetime "updated_at",                          null: false
     t.integer  "role_id"
     t.integer  "staff_id"
-    t.integer  "tenant_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
   add_index "users", ["staff_id"], name: "index_users_on_staff_id", using: :btree
-  add_index "users", ["tenant_id"], name: "index_users_on_tenant_id", using: :btree
 
+  add_foreign_key "staffs", "users"
+  add_foreign_key "tenants", "users"
   add_foreign_key "users", "roles"
   add_foreign_key "users", "staffs"
-  add_foreign_key "users", "tenants"
 end

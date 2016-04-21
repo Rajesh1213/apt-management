@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :role
-  belongs_to :staff
-  belongs_to :tenant
+  has_one :staff
+  has_one :tenant
 
   before_create :set_default_role
 

@@ -1,0 +1,31 @@
+.home-sliders {
+  position: relative;
+}
+
+.main-slider {
+  margin-bottom: 24px;
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+}
+
+.apt-preview {
+  padding: 0;
+}
+
+.apt-preview img,
+.leadership-profile img {
+  width: 100%;
+  vertical-align: initial;
+}
+
+.available-apts .call-to-action {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  overflow: none;
+  color: white;
+}

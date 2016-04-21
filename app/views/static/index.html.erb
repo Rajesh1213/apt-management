@@ -1,50 +1,37 @@
-    <!-- ngView:  -->
-    <div class="ng-scope">
-        <div class="row marketing ng-scope">
-            <div class="primary-content col-md-8">
-                <div class="row main-slider">
-                    <div class="home-sliders">
-                      <img src="<%= image_path 'slides/slide-01.jpg' %>" style="width: 100%;" alt="">
-                      <div class="slide-caption">
-                        <h2>TEAM1OARS Apartments</h2>
-                        <h3>Action Item Here</h3>
-                      </div>
-                    </div>
 
-                    <div class="row available-apts">
-                            <div class="col-xs-3 apt-preview"><img alt="featured apt1"
-                            src="<%= image_path 'apartments/apartment-block-001.jpg' %>"></div>
-                            <div class="col-xs-3 apt-preview"><img alt="featured apt1"
-                            src="<%= image_path 'apartments/apartment-block-002.jpg' %>"></div>
-                            <div class="col-xs-3 apt-preview"><img alt="featured apt1"
-                            src="<%= image_path 'apartments/apartment-block-003.jpg' %>"></div>
-                            <div class="col-xs-3 apt-preview"><img alt="featured apt1"
-                            src="<%= image_path 'apartments/apartment-block-004.jpg' %>"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="sidebar col-xs-12 col-md-4">
-                <div class="neighborhood-news">
-                    <h4 class="sidebar-header">Neighborhood News</h4>
-                    <ul class="news-items list-unstyled">
-                        <li class="news-item">
-                            <h5>Mr. Nuts gets arrested after assaulting
-                            Trump ›</h5>
-                            <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus distinctio, eos consequatur quae.</h6>
-                        </li>
-                        <li class="news-item">
-                            <h5>Mr. Nuts gets arrested after assaulting
-                            Trump ›</h5>
-                            <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus distinctio, eos consequatur quae.</h6>
-                        </li>
-                        <li class="news-item">
-                            <h5>Mr. Nuts gets arrested after assaulting
-                            Trump ›</h5>
-                            <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus distinctio, eos consequatur quae.</h6>
-                        </li>
-                    </ul>
-                </div>
-                
+<div class="row marketing">
+    <div class="primary-content col-md-8">
+        <div class="row main-slider">
+            <div class="home-sliders">
+              <img src="<%= image_path 'slides/slide-01.jpg' %>" style="width: 100%;" alt="">
+              <div class="slide-caption">
+                <h2>TEAM1OARS Apartments</h2>
+                <h3>Action Item Here</h3>
+              </div>
             </div>
         </div>
+        <%= render "static/shared/featured_apartments" %>
     </div>
+    <div class="sidebar col-xs-12 col-md-4">
+        <div class="neighborhood-news">
+            <h3 class="sidebar-header">Neighborhood News</h4>
+            <ul class="news-items list-unstyled">
+                <li class="news-item">
+                    <h5>2016 Neighborhood Plans ›</h5>
+                    <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus distinctio, eos consequatur quae.</h6>
+                </li>
+                <li class="news-item">
+                    <h5>Mr. Nuts gets arrested after assaulting
+                    Trump ›</h5>
+                    <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus distinctio, eos consequatur quae.</h6>
+                </li>
+                <li class="news-item">
+                    <h5>Mr. Nuts gets arrested after assaulting
+                    Trump ›</h5>
+                    <h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus distinctio, eos consequatur quae.</h6>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>

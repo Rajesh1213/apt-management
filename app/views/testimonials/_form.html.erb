@@ -1,4 +1,4 @@
-<%= form_for(@testimonial) do |f| %>
+<%= form_for @testimonial, html: { class: 'form-horizontal' } do |f| %>
   <% if @testimonial.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@testimonial.errors.count, "error") %> prohibited this testimonial from being saved:</h2>
@@ -12,14 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :date_entered %><br>
-    <%= f.date_select :date_entered %>
-  </div>
-  <div class="field">
     <%= f.label :content %><br>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, class: 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save Testimonial', class: 'btn btn-default' %>
   </div>
 <% end %>

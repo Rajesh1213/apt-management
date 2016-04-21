@@ -1,13 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<!-- Start Jumbotron: Testimonial Call To Action -->
 <% if user_signed_in? %>
 <div class="row add-testimonial call-to-action jumbotron">
 	<h3>Hey there!</h3>
 	<p>Satisfied with your apartment and management so far, leave a testimonial!</p>
 	<%= link_to 'Leave Testimonial &rsaquo;'.html_safe , new_testimonial_path, class: "btn btn-large btn-success", style: "color: white;" %>
-
 </div>
 <% end %>
+<!-- End Jumbotron: Testimonial Call To Action -->
+
 <div class="row testimonials-search">
 	<form class="form-horizontal col-md-12 ng-pristine ng-valid">
 		<div class="form-group-lg">
@@ -19,9 +21,7 @@
 
 <div class="featured-testimonial row ng-scope">
 	<div class="col-xs-12 col-md-12">
-		<h3>
-			Featured Testimonial
-		</h3>
+		<h3>Featured Testimonial</h3>
 	</div>
 	<!-- Start Featured Testimonial Item -->
 	<div class="featured-testimonial-item">
@@ -38,7 +38,6 @@
 		</div>
 	</div>
 	<!-- End Featured Testimonial Item -->
-
 </div>
 
 <% if !@testimonials.blank? %>
@@ -66,28 +65,7 @@
 			</div>
 		</div>
 	<% end %>
-
 </div>
 <% end %>
 
-      <div class="row available-apts ng-scope">
-      				<div class="col-md-12">
-      					<h3>
-      						Featured Apartments
-      					</h3>
-      				</div>
-      				<div class="apartment-photos">
-      					<div class="col-xs-3">
-      						<img alt="featured apt1" src="<%= image_path "apartments/apartment-block-004.jpg" %>" style="width:100%">
-      					</div>
-      					<div class="col-xs-3">
-      						<img alt="featured apt1" src="<%= image_path "apartments/apartment-block-002.jpg" %>" style="width:100%">
-      					</div>
-      					<div class="col-xs-3">
-      						<img alt="featured apt1" src="<%= image_path "apartments/apartment-block-001.jpg" %>" style="width:100%">
-      					</div>
-      					<div class="col-xs-3">
-      						<img alt="featured apt1" src="<%= image_path "apartments/apartment-block-003.jpg" %>" style="width:100%">
-      					</div>
-      				</div>
-      			</div>
+<%= render "static/shared/featured_apartments" %>
