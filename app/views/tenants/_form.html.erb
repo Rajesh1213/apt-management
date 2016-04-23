@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <%= form_for @tenant , html: { class: 'form-horizontal col-md-12' } do |f| %>
+    <%= form_for @tenant , html: { class: 'form' } do |f| %>
       <%= csrf_meta_tags %>
 
       <% if @tenant.errors.any? %>
@@ -16,46 +16,51 @@
 
       <%= f.hidden_field :user_id, value: current_user.id %>
 
-      <div class="form-group">
-        <%= f.label :first_name %><br>
-        <%= f.text_field :first_name, class: 'form-control' %>
+      <div class="row form-group">
+        <div class="col-xs-6 col-md-3">
+          <%= f.label :first_name %><br>
+          <%= f.text_field :first_name, class: 'form-control input-sm', placeholder: "First Name" %>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <%= f.label :last_name %><br>
+          <%= f.text_field :last_name, class: 'form-control input-sm', placeholder: "Last Name" %>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <%= f.label :dob %><br>
+          <%= f.date_select :dob, class: 'form-control'  %>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <%= f.label :marital_status %><br>
+          <select name="tenant[marital_status]" class="form-control">
+            <option value="">Please select</option>
+            <option value="single" selected="selected">Single</option>
+            <option value="married">Married</option>
+            <option value="divorced">Divorced</option>
+          </select>
+        </div>
       </div>
-      <div class="form-group">
-        <%= f.label :last_name %><br>
-        <%= f.text_field :last_name, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :dob %><br>
-        <%= f.date_select :dob, class: 'form-control'  %>
+      <div class="row">
+        <div class="col-xs-6">
+          <%= f.label :work_phone %><br>
+          <%= f.text_field :work_phone, class: 'form-control' %>
+        </div>
+        <div class="col-xs-6">
+          <%= f.label :home_phone %><br>
+          <%= f.text_field :home_phone, class: 'form-control' %>
+        </div>
       </div>
 
-
-
-      <div class="form-group">
-        <%= f.label :marital_status %><br>
-        <select name="tenant[marital_status]" class="form-control">
-          <option value="">Please select</option>
-          <option value="0" selected="selected">Single</option>
-          <option value="1">Married</option>
-          <option value="2">Divorced</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :work_phone %><br>
-        <%= f.text_field :work_phone, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :home_phone %><br>
-        <%= f.text_field :home_phone, class: 'form-control' %>
-      </div>
       <div class="form-group">
         <%= f.label :employer %><br>
         <%= f.text_field :employer, class: 'form-control' %>
       </div>
       <div class="form-group">
         <%= f.label :gender %><br>
-        <%= f.number_field :gender, class: 'form-control' %>
+        <select name="tenant[gender]" class="form-control">
+          <option value="">Please select</option>
+          <option value="male" selected="selected">Male</option>
+          <option value="female">Female</option>
+        </select>
       </div>
 
       <div class="actions">

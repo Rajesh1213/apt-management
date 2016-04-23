@@ -14,7 +14,8 @@ class TenantsController < ApplicationController
 
   # GET /tenants/new
   def new
-    @tenant = Tenant.new
+    @tenant = Tenant.new unless !current_user.tenant.nil?
+    redirect_to edit_tenant_path(current_user.tenant)
   end
 
   # GET /tenants/1/edit
@@ -69,6 +70,6 @@ class TenantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tenant_params
-      params.require(:tenant).permit(:first_name, :last_name, :dob, :marital_status, :work_phone, :home_phone, :employer, :gender, :username, :password)
+      params.require(:tenant).permit(:first_name, :last_name, :dob, :marital_status, :work_phone, :home_phone, :employer, :gender, :username, :password, :user_id)
     end
 end

@@ -14,11 +14,17 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'devise'
+gem 'devise', '4.0.0'
 
 gem "bower-rails", "~> 0.10.0"
 
 gem 'faker'
+
+gem 'byebug'
+
+group :development do
+  gem 'meta_request'
+end
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

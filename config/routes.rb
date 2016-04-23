@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   get 'about' => 'static#about'
   get 'contact' => 'static#contact'
+  get 'staff-login' => 'static#staff_login'
+  get 'dashboards/supervisor/new-staff' => 'static#new_staff'
+
   get 'dashboards/tenant', controller: 'dashboards', action: 'tenant'
   get 'dashboards/assistant', controller: 'dashboards', action: 'assistant'
   get 'dashboards/supervisor', controller: 'dashboards', action: 'supervisor'

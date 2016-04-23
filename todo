@@ -8,3 +8,11 @@ Heads up! You account is overdue.<br/>
 Oh snap! One of your rentals is about to be closed soon.<br/>
 Thanks for signing up! Read our Terms and Conditions here.<br/>
 Thanks for payment.<br/>
+
+
+On implementing devise authentication with username:
+
+https://github.com/plataformatec/devise/wiki/How-To:-Allow-users-to-sign-in-with-something-other-than-their-email-address
+https://groups.google.com/forum/?fromgroups#!topic/plataformatec-devise/Fr2TgDQcYmA
+
+Note that if you aren’t using e-mail as your authentication key, then it may be the case that users can have multiple accounts with the same e-mail address. This will cause the “recoverable” module not to work well, as it will only include a link in the password reset e-mail to the first account for which it finds a matching e-mail. Here is a thread on the Google Group about how to implement adding all the accounts information into the password reset email.
