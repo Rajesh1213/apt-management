@@ -13,23 +13,31 @@
 end
 
 #Generate Users
-supervisor = User.create( email: "supervisor@oars.com", password: "password", password_confirmation: "password", role_id: 4)
-manager = User.create( email: "manager@oars.com", password: "password", password_confirmation: "password", role_id: 3)
-assistant = User.create( email: "assistant@oars.com", password: "password", password_confirmation: "password", role_id: 2)
+supervisor = User.create( username: "supervisor", email: "supervisor@oars.com", password: "password", password_confirmation: "password", role_id: 4)
+manager = User.create( username: "manager", email: "manager@oars.com", password: "password", password_confirmation: "password", role_id: 3)
+assistant = User.create( username: "assistant", email: "assistant@oars.com", password: "password", password_confirmation: "password", role_id: 2)
+
+staff_supervisor = Staff.create( first_name: "Sully", last_name: "Supervisor", position: Staff.positions[:supervisor], gender: Staff.genders[:male], dob: "1990-01-01", salary: 50_000, user: supervisor)
+
+staff_manager = Staff.create( first_name: "Mary", last_name: "Manager", position: Staff.positions[:manager], gender: Staff.genders[:female], dob: "1990-01-02", salary: 40_000, user: manager)
+
+staff_assistant = Staff.create( first_name: "Alex", last_name: "Assistant", position: Staff.positions[:assistant], gender: Staff.genders[:male], dob: "1990-01-03", salary: 30_000, user: assistant)
 
 #Generate Tenants
-tenant_one = Tenant.create( first_name: "Tenant", last_name: "One", dob: "1990-01-01", marital_status: Tenant.marital_status.single, work_phone: "555-555-5555", home_phone: "555-555-6666", employer: "TenantOne Corp", gender: Tenant.gender.male )
-tenant_two = Tenant.create( first_name: "Tenant", last_name: "Two", dob: "1990-01-01", marital_status: Tenant.marital_status.single, work_phone: "555-555-5555", home_phone: "555-555-6666", employer: "TenantTwo Corp", gender: Tenant.gender.male )
-tenant_three = Tenant.create( first_name: "Tenant", last_name: "Three", dob: "1990-01-01", marital_status: Tenant.marital_status.single, work_phone: "555-555-5555", home_phone: "555-555-6666", employer: "TenantThree Corp", gender: Tenant.gender.male )
+tenant_one = Tenant.create( first_name: "Tenant", last_name: "One", dob: "1990-01-01", marital_status: Tenant.marital_statuses[:single], work_phone: "555-555-5555", home_phone: "555-555-6666", employer: "TenantOne Corp", gender: Tenant.genders[:male] )
+tenant_two = Tenant.create( first_name: "Tenant", last_name: "Two", dob: "1990-01-01", marital_status: Tenant.marital_statuses[:single], work_phone: "555-555-5555", home_phone: "555-555-6666", employer: "TenantTwo Corp", gender: Tenant.genders[:male] )
+tenant_three = Tenant.create( first_name: "Tenant", last_name: "Three", dob: "1990-01-01", marital_status: Tenant.marital_statuses[:single], work_phone: "555-555-5555", home_phone: "555-555-6666", employer: "TenantThree Corp", gender: Tenant.genders[:male] )
 
 #Generate Apartments
-
-30.times do |i|
-  Apartment.create(
-    apartment_type: rand(0..3),
-    apartment_status: Apartment.apartment_status.vacant
-  )
-end
+#
+# 30.times do |i|
+#   rental = Rental.create(sign_date: "2015-01-01", )
+#   apartment = Apartment.create(
+#     apartment_type: rand(0..3),
+#     apartment_status: Apartment.apartment_status.vacant
+#   )
+#
+# end
 
 
 
