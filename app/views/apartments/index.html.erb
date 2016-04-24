@@ -1,29 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Apartments</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Apartment type</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @apartments.each do |apartment| %>
+<div class="col-md-12">
+  <h3>Apartments Overview</h3>
+</div>
+<div class="col-md-12">
+  <table class="table table-striped table-hover table-condensed">
+    <thead>
       <tr>
-        <td><%= apartment.apartment_type %></td>
-        <td><%= apartment.status %></td>
-        <td><%= link_to 'Show', apartment %></td>
-        <td><%= link_to 'Edit', edit_apartment_path(apartment) %></td>
-        <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Apt ID/Number</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @apartments.each do |apartment| %>
+      <tr>
+        <td><%= apartment.id %></td>
+        <td><%= apartment.apartment_type %></td>
+        <td><%= apartment.status %> <%= apartment.tenants.first.first_name %></td>
+        <td>
+          <td><%= link_to 'Show', apartment %></td>
+          <td><%= link_to 'Edit', edit_apartment_path(apartment) %></td>
+          <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
 
-<br>
 
 <%= link_to 'New Apartment', new_apartment_path %>

@@ -24,20 +24,62 @@ staff_manager = Staff.create( first_name: "Mary", last_name: "Manager", position
 staff_assistant = Staff.create( first_name: "Alex", last_name: "Assistant", position: Staff.positions[:assistant], gender: Staff.genders[:male], dob: "1990-01-03", salary: 30_000, user: assistant)
 
 #Generate Tenants
-tenant_one = Tenant.create( first_name: "Tenant", last_name: "One", dob: "1990-01-01", marital_status: Tenant.marital_statuses[:single], work_phone: "555-555-5555", home_phone: "555-555-6666", employer: "TenantOne Corp", gender: Tenant.genders[:male] )
-tenant_two = Tenant.create( first_name: "Tenant", last_name: "Two", dob: "1990-01-01", marital_status: Tenant.marital_statuses[:single], work_phone: "555-555-5555", home_phone: "555-555-6666", employer: "TenantTwo Corp", gender: Tenant.genders[:male] )
-tenant_three = Tenant.create( first_name: "Tenant", last_name: "Three", dob: "1990-01-01", marital_status: Tenant.marital_statuses[:single], work_phone: "555-555-5555", home_phone: "555-555-6666", employer: "TenantThree Corp", gender: Tenant.genders[:male] )
+tenant_one = Tenant.create( first_name: "Juan", last_name: "One", dob: "1990-01-01", marital_status: Tenant.marital_statuses[:single], work_phone: "555-555-5555", home_phone: "555-555-6666", employer: "TenantOne Corp", gender: Tenant.genders[:male] )
+tenant_two = Tenant.create( first_name: "Juan Dos", last_name: "Two", dob: "1990-01-01", marital_status: Tenant.marital_statuses[:single], work_phone: "555-555-5555", home_phone: "555-555-6666", employer: "TenantTwo Corp", gender: Tenant.genders[:male] )
+tenant_three = Tenant.create( first_name: "Juan Dos Tres", last_name: "Three", dob: "1990-01-01", marital_status: Tenant.marital_statuses[:single], work_phone: "555-555-5555", home_phone: "555-555-6666", employer: "TenantThree Corp", gender: Tenant.genders[:male] )
+
+tenants = [tenant_one, tenant_two, tenant_three]
 
 #Generate Apartments
-#
-# 30.times do |i|
-#   rental = Rental.create(sign_date: "2015-01-01", )
-#   apartment = Apartment.create(
-#     apartment_type: rand(0..3),
-#     apartment_status: Apartment.apartment_status.vacant
-#   )
-#
-# end
+
+30.times do |i|
+  apartment = Apartment.create(
+    apartment_type: rand(0..3),
+    status: Apartment.apartment_statuses[:vacant]
+  )
+
+  rental = Rental.create(
+    sign_date: "2015-01-#{format('%02d', i)}",
+    status: Rental.statuses[:signed_not_occupied],
+    lease_type: Rental.lease_types[:one],
+    lease_start: "2015-01-#{format('%02d', i)}",
+    lease_end: "2016-01-#{format('%02d', i)}",
+    renewal_date: "2016-01-#{format('%02d', i)}",
+    has_utility: true,
+    deposit_amount: 1_000,
+    rent_amount: 1_000,
+    tenant: tenants[rand(0..tenants.count-1)],
+    apartment: apartment
+  )
+
+  tenant_family_member = TenantFamilyMember.create(
+    ss: "000-00-000",
+    name: Faker::Name.name,
+    member_type: TenantFamilyMember.member_types[:relative],
+    marital_status: TenantFamilyMember.marital_statuses[:single],
+    gender: TenantFamilyMember.genders[:male],
+    dob: "1992-02-01",
+    rental: rental
+  )
+
+  tenant_auto = TenantAuto.create(
+    license_number: "xxx-xxxx",
+    auto_make: "Tesla",
+    auto_model: "Sedan",
+    auto_year: 2016,
+    auto_color: "Black",
+    rental: rental
+  )
+
+  rental_invoice = RentalInvoice.create(
+    invoice_date: rental.lease_start,
+    invoice_due: "2015-01-#{format('%02d', i)}",
+    cc_number: Faker::Business.credit_card_number,
+    cc_type: Faker::Business.credit_card_type,
+    cc_expiration_date: Faker::Business.credit_card_expiry_date,
+    rental: rental
+  )
+end
 
 
 
