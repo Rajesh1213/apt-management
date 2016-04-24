@@ -14,8 +14,11 @@ class TenantsController < ApplicationController
 
   # GET /tenants/new
   def new
-    @tenant = Tenant.new unless !current_user.tenant.nil?
-    redirect_to edit_tenant_path(current_user.tenant)
+    if current_user.tenant.nil?
+      @tenant = Tenant.new
+    else
+      redirect_to edit_tenant_path(current_user.tenant)
+    end
   end
 
   # GET /tenants/1/edit
