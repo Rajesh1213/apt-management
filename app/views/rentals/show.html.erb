@@ -1,14 +1,56 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3>Rental Information</h3>
+    <h5>Rental ID: <%= @rental.id %></h5>
+    <h4>Apartment #<%= @rental.apartment.id %> : <%= @rental.lease_start %> to <%= @rental.lease_end %></h4>
+    <h4><%= @rental.lease_type.titlecase %> Lease</h4>
+  </div>
+</div>
+
 <p id="notice"><%= notice %></p>
 
+
+<div class="row">
+
+  <div class="col-md-4">
+    <h3>Jane Doe</h3>
+    <h5>jane / jane@mail.com</h5>
+    <h6>Acme Corp</h6>
+    <span>DOB: 1999-01-01</span><br/>
+    <span>Gender: Female</span>
+    <span>Marital Status: Single</span><br/>
+    <span>Work: (555) 555-5555</span><br/>
+    <span>Home: (555) 555-5555</span><br/>
+  </div>
+
+  <div class="col-md-8">
+    <h4>Apartment: <%= @rental.apartment.id %> / Lease Type: <%= @rental.lease_type.titlecase %></h4>
+    <h4>Rent: <%= number_to_currency(@rental.rent_amount) %> | Deposit: <%= number_to_currency(@rental.deposit_amount) %></h4>
+    <h5>Has Utility: <%= @rental.has_utility.to_s.titlecase %></h5>
+    <h5>Status: <%= @rental.status.to_s.titlecase %> / Signed Date: <%= @rental.sign_date %></h5>
+    <h6>Cancel Date: NA</h6>
+    <span>Lease Start: 1999-01-02</span><br/>
+    <span>Lease End: 1999-01-02</span><br/>
+    <span>Remewal Date: 1999-01-02</span><br/>
+
+  </div>
+</div>
 <p>
-  <strong>Sign date:</strong>
-  <%= @rental.sign_date %>
+  <strong>Tenant</strong>
+  <a href="<%= tenant_path(@rental.tenant) %>"><%= "#{@rental.tenant.first_name} #{@rental.tenant.last_name} : #{@rental.tenant.user.username}" %></a>
+
 </p>
 
 <p>
   <strong>Status:</strong>
   <%= @rental.status %>
 </p>
+
+<p>
+  <strong>Sign date:</strong>
+  <%= @rental.sign_date %>
+</p>
+
 
 <p>
   <strong>Cancel date:</strong>

@@ -2,6 +2,17 @@
 
 The content found in this document contains todo items and vague descriptions of what we're workign on. It is supposed to be a simple explanation of what people are running into.
 
+- tenant
+  - View my rentals
+  - View Rental
+    - See invoice history
+    - see rental information
+        - tenant autos
+        - tenant members
+    - see associated complaints
+    - update rental information
+    
+
 
 Add Alerts:
 

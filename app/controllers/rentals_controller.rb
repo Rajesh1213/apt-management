@@ -4,17 +4,26 @@ class RentalsController < ApplicationController
   # GET /rentals
   # GET /rentals.json
   def index
-    @rentals = Rental.all
+      @rentals = Rental.all
+      if current_user.role.name == "tenant" && !current_user.tenant.nil?
+        @rentals = Rental.all.where( tenant: @current_user.tenant)
+      end
+      if !current_user.tenant.nil?
+        @rentals = []
+      end
   end
 
   # GET /rentals/1
   # GET /rentals/1.json
   def show
+
   end
 
   # GET /rentals/new
   def new
     @rental = Rental.new
+    @apartments = Apartment.all.where( status: Apartment.statuses[:vacant])
+    @tenants = Tenant.all
   end
 
   # GET /rentals/1/edit
@@ -69,6 +78,6 @@ class RentalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rental_params
-      params.require(:rental).permit(:sign_date, :status, :cancel_date, :lease_type, :lease_start, :lease_end, :renewal_date, :has_utility, :deposit_amount, :rent_amount)
+      params.require(:rental).permit(:sign_date, :status, :cancel_date, :lease_type, :lease_start, :lease_end, :renewal_date, :has_utility, :deposit_amount, :rent_amount, :tenant_id, :apartment_id)
     end
 end
