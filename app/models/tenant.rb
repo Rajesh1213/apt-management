@@ -3,8 +3,12 @@ class Tenant < ActiveRecord::Base
   enum gender: { male: 0, female: 1 }
 
   belongs_to :user
-  
+
   has_many :rentals
   has_many :apartments, through: :rentals
   has_many :complaints, as: :complaintable
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
 end
