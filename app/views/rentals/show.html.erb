@@ -13,14 +13,14 @@
 <div class="row">
 
   <div class="col-md-4">
-    <h3>Jane Doe</h3>
-    <h5>jane / jane@mail.com</h5>
-    <h6>Acme Corp</h6>
-    <span>DOB: 1999-01-01</span><br/>
-    <span>Gender: Female</span>
-    <span>Marital Status: Single</span><br/>
-    <span>Work: (555) 555-5555</span><br/>
-    <span>Home: (555) 555-5555</span><br/>
+    <h3><%= @rental.tenant.full_name %></h3>
+    <h5><%= @rental.tenant.user.email%></h5>
+    <h6><%= @rental.tenant.employer %></h6>
+    <span>DOB: <%= @rental.tenant.dob %></span><br/>
+    <span>Gender: <%= @rental.tenant.gender %></span>
+    <span>Marital Status: <%= @rental.tenant.marital_status %></span><br/>
+    <span>Work: <%= @rental.tenant.work_phone %></span><br/>
+    <span>Home: <%= @rental.tenant.home_phone %></span><br/>
   </div>
 
   <div class="col-md-8">
@@ -28,10 +28,10 @@
     <h4>Rent: <%= number_to_currency(@rental.rent_amount) %> | Deposit: <%= number_to_currency(@rental.deposit_amount) %></h4>
     <h5>Has Utility: <%= @rental.has_utility.to_s.titlecase %></h5>
     <h5>Status: <%= @rental.status.to_s.titlecase %> / Signed Date: <%= @rental.sign_date %></h5>
-    <h6>Cancel Date: NA</h6>
-    <span>Lease Start: 1999-01-02</span><br/>
-    <span>Lease End: 1999-01-02</span><br/>
-    <span>Remewal Date: 1999-01-02</span><br/>
+    <h6>Cancel Date: <%= @rental.cancel_date %> </h6>
+    <span>Lease Start: <%= @rental.lease_start %></span><br/>
+    <span>Lease End: <%= @rental.lease_end %> </span><br/>
+    <span>Renewal Date: <%= @rental.renewal_date %> </span><br/>
 
   </div>
 </div>
