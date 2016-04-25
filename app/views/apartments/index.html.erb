@@ -11,23 +11,27 @@
         <th>Apt ID</th>
         <th>Type</th>
         <th>Status</th>
+        <th>Lease Starts</th>
+        <th>Lease Ends</th>
         <th>Tenant Info</th>
         <th colspan="3"></th>
       </tr>
     </thead>
     <tbody>
       <% @apartments.each do |apartment| %>
-      <tr>
+      <tr class="<%= apartment.status %>">
         <td><%= apartment.id %></td>
-        <td><%= apartment.apartment_type %></td>
-        <td><%= apartment.status %> </td>
+        <td><%= apartment.apartment_type.titlecase %></td>
+        <td><%= apartment.status.titlecase %> </td>
+        <td><%= apartment.rentals.last.lease_start %></td>
+        <td><%= apartment.rentals.last.lease_end %></td>
         <td>
-          <span class="tenant-name"><%= apartment.tenants.last.full_name %> / Lease Ends: <%= apartment.rentals.last.lease_end %></span><br/>
+          <span class="tenant-name"><%= apartment.tenants.last.full_name %><br/>
           <span class="label label-sm label-default">jane</span> <span class="label label-sm label-default">jane@mail.com</span> </td>
         <td>
-          <td><%= link_to 'Show', apartment %></td>
-          <td><%= link_to 'Edit', edit_apartment_path(apartment) %></td>
-          <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <span><%= link_to 'View Rental', rental_path(apartment.rentals.last) %></span><br/>
+          <span><%= link_to 'Edit Apartment', edit_apartment_path(apartment) %></span><br/>
+          <span><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></span>
         </td>
       </tr>
       <% end %>
