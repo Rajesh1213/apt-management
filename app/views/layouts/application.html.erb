@@ -69,7 +69,6 @@
                       <li><a href="#">Tenant Auto Information</a></li>
                       <li><a href="#">Tenant Family Information</a></li>
                       <li role="separator" class="divider"></li>
-                      <% if user_role == "tenant" && !current_user.tenant.nil? %>
                       <li><a href="<%= rentals_path %>">View Rentals</a></li>
                       <li><%= link_to 'Add Testimonials', new_testimonial_path %></li>
                       <li><a href="#">View Pending Complaints</a></li>
@@ -89,12 +88,11 @@
                       <li><a href="#">Feature 1</a></li>
                       <li><a href="#">Feature 2</a></li>
                       <% end %>
+
                       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
                     </ul>
                   </li>
                 </ul>
-              <% else %>
-
            <% end %>
         </div>
     </div>
