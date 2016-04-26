@@ -1,5 +1,6 @@
 class ComplaintsController < ApplicationController
   before_action :set_complaint, only: [:show, :edit, :update, :destroy]
+  before_action :force_profile
 
   # GET /complaints
   # GET /complaints.json
@@ -24,11 +25,13 @@ class ComplaintsController < ApplicationController
   # POST /complaints
   # POST /complaints.json
   def create
-    @complaint = Complaint.new(complaint_params)
-
+    logger.debug "Complaint Controller: #{@complaintable.class}"
+    @complaint = @complaintable.complaints.new complaint_params
+    @complaint.user = current_user
+    @complaint.save
     respond_to do |format|
       if @complaint.save
-        format.html { redirect_to @complaint, notice: 'Complaint was successfully created.' }
+        format.html { redirect_to @complaintable, notice: 'Complaint was successfully created.' }
         format.json { render :show, status: :created, location: @complaint }
       else
         format.html { render :new }
@@ -66,9 +69,8 @@ class ComplaintsController < ApplicationController
     def set_complaint
       @complaint = Complaint.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def complaint_params
-      params.require(:complaint).permit(:date_filed, :rental_complaint, :apartment_complaint, :status, :complaintable_id, :complaintable_type)
+      params.require(:complaint).permit(:date_filed, :content, :status)
     end
 end

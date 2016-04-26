@@ -1,0 +1,7 @@
+<h3>Complaints</h3>
+<% complaintable.complaints.each do |complaint| %>
+  <div class="well">
+    <%= complaint.content %>
+    by: <%= complaint.user %>
+  </div>
+<% end %>

@@ -3,4 +3,5 @@ class Apartment < ActiveRecord::Base
   enum status: { vacant: 0, rented: 1 }
   has_many :rentals
   has_many :tenants, through: :rentals
+  has_many :complaints, as: :complaintable
 end

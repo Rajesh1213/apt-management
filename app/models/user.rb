@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   def confirmation_required?
     !confirmed?
   end
-  
+
   private
 
   def set_default_role

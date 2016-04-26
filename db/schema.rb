@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421224249) do
+ActiveRecord::Schema.define(version: 20160426073137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,13 +28,13 @@ ActiveRecord::Schema.define(version: 20160421224249) do
 
   create_table "complaints", force: :cascade do |t|
     t.date     "date_filed"
-    t.text     "rental_complaint"
-    t.text     "apartment_complaint"
     t.integer  "status"
     t.integer  "complaintable_id"
     t.string   "complaintable_type"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.text     "content"
+    t.integer  "user_id"
   end
 
   add_index "complaints", ["complaintable_type", "complaintable_id"], name: "index_complaints_on_complaintable_type_and_complaintable_id", using: :btree

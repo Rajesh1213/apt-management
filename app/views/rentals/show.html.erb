@@ -92,5 +92,8 @@
   <%= @rental.rent_amount %>
 </p>
 
+<%= render partial: "complaints/shared/form", locals: {complaintable: @rental} %>
+<%= render partial: "complaints/shared/complaints", locals: {complaintable: @rental} %>
+
 <%= link_to 'Edit', edit_rental_path(@rental) %> |
 <%= link_to 'Back', rentals_path %>

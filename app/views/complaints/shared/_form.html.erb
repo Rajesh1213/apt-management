@@ -1,0 +1,45 @@
+<div class="row">
+  <%= form_for [complaintable, @complaint = Complaint.new ], class: "form" do |f| %>
+  <% if @complaint.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@complaint.errors.count, "error") %> prohibited this complaint from being saved:</h2>
+
+      <ul>
+      <% @complaint.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= @complaint.complaintable_type %>
+
+  <div class="form-group">
+    <div class="col-xs-12">
+    <%= f.label :date_filed %><br>
+    <%= f.date_select :date_filed %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-xs-12">
+      <%= f.label :content %><br>
+      <%= f.text_area :content, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-xs-12">
+      <%= f.label :status %><br>
+      <%= f.collection_select :status, Complaint.statuses.map { |c| [ c.first, c.first.to_s.titlecase ] }, :first, :second, {}, { class: "form-control" } %>
+    </div>
+  </div>
+
+  <div class="form-group actions">
+    <div class="col-xs-12">
+    <%= f.submit %>
+    </div>
+  </div>
+<% end %>
+
+</div>

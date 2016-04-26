@@ -71,4 +71,5 @@ class ApartmentsController < ApplicationController
     def apartment_params
       params.require(:apartment).permit(:apartment_type, :status)
     end
+
 end

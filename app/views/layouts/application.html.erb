@@ -65,10 +65,11 @@
                       <% end %>
                       <li><a href="<%= user_dashboard_url %>">View Dashboard</a></li>
                       <li role="separator" class="divider"></li>
+                      <% if user_role == "tenant" && !current_user.tenant.nil? %>
                       <li><a href="<%= rentals_path %>">View Rentals</a></li>
                       <li><%= link_to 'Add Testimonials', new_testimonial_path %></li>
-                      <li><a href="#">File Complaint</a></li>
                       <li><a href="#">View Pending Complaints</a></li>
+                      <% end %>
                       <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
                     </ul>
                   </li>

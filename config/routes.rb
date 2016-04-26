@@ -26,13 +26,17 @@ Rails.application.routes.draw do
     resources :dashboards, only: [:index ]
   end
   resources :testimonials
-  resources :complaints
   resources :rental_invoices
-  resources :rentals
+  resources :rentals do
+    resources :complaints, module: :rentals
+  end
+  resources :apartments do
+    resources :complaints, module: :apartments
+  end
   resources :tenant_family_members
   resources :tenant_autos
   resources :tenants
-  resources :apartments
+
   resources :staffs
 
 

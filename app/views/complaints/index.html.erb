@@ -4,8 +4,7 @@
   <thead>
     <tr>
       <th>Date filed</th>
-      <th>Rental complaint</th>
-      <th>Apartment complaint</th>
+      <th>Complaint</th>
       <th>Status</th>
       <th>Complaintable</th>
       <th colspan="3"></th>
@@ -16,8 +15,7 @@
     <% @complaints.each do |complaint| %>
       <tr>
         <td><%= complaint.date_filed %></td>
-        <td><%= complaint.rental_complaint %></td>
-        <td><%= complaint.apartment_complaint %></td>
+        <td><%= complaint.content %></td>
         <td><%= complaint.status %></td>
         <td><%= complaint.complaintable %></td>
         <td><%= link_to 'Show', complaint %></td>
