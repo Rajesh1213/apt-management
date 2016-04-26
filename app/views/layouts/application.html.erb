@@ -56,11 +56,12 @@
                         <div style="padding: 3px 20px;">
                           <%= user_role %>
                           <%= raw generate_activity_user_labels %>
-                          <span class="label label-default">SuperUser</span>
+                          <%# <span class="label label-default">SuperUser</span> %>
                         </div>
                       </li>
                       <% if user_role == "tenant" && !current_user.tenant.nil? %>
                       <li><a href="<%= edit_tenant_path(current_user.tenant) %>">Edit Profile</a></li>
+                      <li><a href="<%= tenant_path(current_user.tenant) %>">See Tenant Information</a></li>
                       <% end %>
                       <li><a href="<%= user_dashboard_url %>">View Dashboard</a></li>
                       <li role="separator" class="divider"></li>

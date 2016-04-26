@@ -30,8 +30,8 @@
         <td><%= tenant.home_phone %></td>
         <td><%= tenant.employer %></td>
         <td><%= tenant.gender %></td>
-        <td><%= tenant.username %></td>
-        <td><%= tenant.password %></td>
+        <td><%= tenant.user.username %></td>
+        <td><%= tenant.user.password %></td>
         <td><%= link_to 'Show', tenant %></td>
         <td><%= link_to 'Edit', edit_tenant_path(tenant) %></td>
         <td><%= link_to 'Destroy', tenant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
