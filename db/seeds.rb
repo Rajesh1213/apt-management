@@ -1,3 +1,6 @@
+# Author: Aileen Tran
+# 4/20/2016
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -13,30 +16,43 @@
 end
 
 #Generate Users
-supervisor = User.create( username: "supervisor", email: "supervisor@oars.com", password: "password", password_confirmation: "password", role_id: 4)
-manager = User.create( username: "manager", email: "manager@oars.com", password: "password", password_confirmation: "password", role_id: 3)
-assistant = User.create( username: "assistant", email: "assistant@oars.com", password: "password", password_confirmation: "password", role_id: 2)
+supervisor = User.create( username: "SUPERVISOR", email: "supervisor@oars.com", password: "SUPERVISOR#", password_confirmation: "SUPERVISOR#", role_id: 4)
+manager = User.create( username: "MANAGER", email: "manager@oars.com", password: "MANAGER#", password_confirmation: "MANAGER#", role_id: 3)
+assistant_one = User.create( username: "ASSISTANT1", email: "assistant1@oars.com", password: "ASSISTANT1#", password_confirmation: "ASSISTANT1#", role_id: 2)
+assistant_two = User.create( username: "ASSISTANT2", email: "assistant2@oars.com", password: "ASSISTANT2#", password_confirmation: "ASSISTANT2#", role_id: 2)
+assistant_three = User.create( username: "ASSISTANT3", email: "assistant3@oars.com", password: "ASSISTANT3#", password_confirmation: "ASSISTANT3#", role_id: 2)
 
-staff_supervisor = Staff.create( first_name: "Sully", last_name: "Supervisor", position: Staff.positions[:supervisor], gender: Staff.genders[:male], dob: "1990-01-01", salary: 50_000, user: supervisor)
 
-staff_manager = Staff.create( first_name: "Mary", last_name: "Manager", position: Staff.positions[:manager], gender: Staff.genders[:female], dob: "1990-01-02", salary: 40_000, user: manager)
+staff_supervisor = Staff.create( first_name: "Susan", last_name: "Brandon", position: Staff.positions[:supervisor], gender: Staff.genders[:female], dob: "1977-03-10", salary: 46_000, user: supervisor)
 
-staff_assistant = Staff.create( first_name: "Alex", last_name: "Assistant", position: Staff.positions[:assistant], gender: Staff.genders[:male], dob: "1990-01-03", salary: 30_000, user: assistant)
+staff_manager = Staff.create( first_name: "Terry", last_name: "Ford", position: Staff.positions[:manager], gender: Staff.genders[:male], dob: "1967-10-20", salary: 53_000, user: manager)
 
+staff_assistant_one = Staff.create( first_name: "Joe", last_name: "White", position: Staff.positions[:assistant], gender: Staff.genders[:male], dob: "1982-07-08", salary: 24_000, user: assistant_one)
+
+staff_assistant_two = Staff.create( first_name: "Ann", last_name: "Tremble", position: Staff.positions[:assistant], gender: Staff.genders[:female], dob: "1981-06-12", salary: 26_000, user: assistant_two)
+
+staff_assistant_three = Staff.create( first_name: "Julia", last_name: "Roberts", position: Staff.positions[:assistant], gender: Staff.genders[:female], dob: "1982-09-12", salary: 28_000, user: assistant_three)
 
 # Create User Tenants
-user_tenant_one = User.create( username: "TENANT1", email: "jack@gmail.com", password: "TENANT1#", password_confirmation: "TENANT1#", role_id: Role.find_by_name("tenant") )
+user_tenant_one = User.create( username: "TENANT1", email: "jack.robin@email.com", password: "TENANT1#", password_confirmation: "TENANT1#", role_id: Role.find_by_name("tenant") )
 
-user_tenant_two = User.create( username: "TENANT2", email: "mary@gmail.com", password: "TENANT2#", password_confirmation: "TENANT2#", role_id: Role.find_by_name("tenant") )
+user_tenant_two = User.create( username: "TENANT2", email: "mary.stackles@email.com", password: "TENANT2#", password_confirmation: "TENANT2#", role_id: Role.find_by_name("tenant") )
 
-user_tenant_three = User.create( username: "TENANT3", email: "ramu@gmail.com", password: "TENANT3#", password_confirmation: "TENANT3#", role_id: Role.find_by_name("tenant") )
+user_tenant_three = User.create( username: "TENANT3", email: "ramu.reddy@email.com", password: "TENANT3#", password_confirmation: "TENANT3#", role_id: Role.find_by_name("tenant") )
+
+user_tenant_four = User.create( username: "TENANT4", email: "marion.black@email.com", password: "TENANT4#", password_confirmation: "TENANT4#", role_id: Role.find_by_name("tenant") )
+
+user_tenant_five = User.create( username: "TENANT5", email: "venessa.williams@gmail.com", password: "TENANT5#", password_confirmation: "TENANT5#", role_id: Role.find_by_name("tenant") )
+
 
 #Generate Tenants
 tenant_one = Tenant.create( first_name: "Jack", last_name: "Robin", dob: "1960-06-21", marital_status: Tenant.marital_statuses[:married], work_phone: "417-345-2323", home_phone: "417-555-6565", employer: "Kraft Inc", gender: Tenant.genders[:male], user: user_tenant_one)
 tenant_two = Tenant.create( first_name: "Mary", last_name: "Stackles", dob: "1980-08-02", marital_status: Tenant.marital_statuses[:single], work_phone: "417-545-3320", home_phone: "417-666-7565", employer: "Kraft Inc", gender: Tenant.genders[:female], user: user_tenant_two)
 tenant_three = Tenant.create( first_name: "Ramu", last_name: "Reddy", dob: "1962-04-02", marital_status: Tenant.marital_statuses[:married], work_phone: "417-836-2323", home_phone: "417-222-0565", employer: "SMSU", gender: Tenant.genders[:male], user: user_tenant_three )
+tenant_four = Tenant.create( first_name: "Marion", last_name: "Black", dob: "1981-05-25", marital_status: Tenant.marital_statuses[:single], work_phone: "417-425-7766", home_phone: "417-677-2364", employer: "SMSU", gender: Tenant.genders[:male], user: user_tenant_four )
+tenant_five = Tenant.create( first_name: 'Venessa', last_name: "Williams", dob: "1970-03-12", marital_status: Tenant.marital_statuses[:married], work_phone: "417-555-7878", home_phone: "417-677-2364", employer: "Kraft Inc", gender: Tenant.genders[:female], user: user_tenant_five )
 
-tenants = [tenant_one, tenant_two, tenant_three]
+tenants = [tenant_one, tenant_two, tenant_three, tenant_four, tenant_five]
 
 #Generate Apartments
 
