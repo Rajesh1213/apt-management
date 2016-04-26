@@ -1,15 +1,13 @@
 class RentalsController < ApplicationController
   before_action :set_rental, only: [:show, :edit, :update, :destroy]
+  before_action :force_profile
 
   # GET /rentals
   # GET /rentals.json
   def index
       @rentals = Rental.all
-      if current_user.role.name == "tenant" && !current_user.tenant.nil?
+      if current_user.role.name == "tenant"
         @rentals = Rental.all.where( tenant: @current_user.tenant)
-      end
-      if !current_user.tenant.nil?
-        @rentals = []
       end
   end
 
@@ -21,13 +19,15 @@ class RentalsController < ApplicationController
 
   # GET /rentals/new
   def new
-    @rental = Rental.new
+    @rental = Rental.new(params[:apartment])
     @apartments = Apartment.all.where( status: Apartment.statuses[:vacant])
     @tenants = Tenant.all
   end
 
   # GET /rentals/1/edit
   def edit
+    @apartments = Apartment.all
+    @tenants = Tenant.all
   end
 
   # POST /rentals

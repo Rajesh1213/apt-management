@@ -1,6 +1,7 @@
 class DashboardsController < ApplicationController
 
   before_action :validate_role
+  before_action :force_profile
 
   def index
 

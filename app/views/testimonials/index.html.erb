@@ -1,7 +1,7 @@
-<p id="notice"><%= notice %></p>
+
 
 <!-- Start Jumbotron: Testimonial Call To Action -->
-<% if user_signed_in? %>
+<% if user_signed_in? && !current_user.tenant.nil? && !current_user.tenant.rentals.nil? %>
 <div class="row add-testimonial call-to-action jumbotron">
 	<h3>Hey there!</h3>
 	<p>Satisfied with your apartment and management so far, leave a testimonial!</p>

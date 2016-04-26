@@ -1,5 +1,6 @@
 class TestimonialsController < ApplicationController
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
+  before_action :force_profile
   skip_before_filter :authenticate_user!
 
   # GET /testimonials

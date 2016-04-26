@@ -30,6 +30,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def force_profile
+    if current_user.tenant.nil? && current_user.role.name == "tenant"
+      flash[:notice] = "You must complete your profile"
+      redirect_to new_tenant_url
+    end
+  end
+
   helper_method :resource, :resource_name, :devise_mapping
 
 end
