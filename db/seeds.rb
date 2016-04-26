@@ -25,16 +25,16 @@ staff_assistant = Staff.create( first_name: "Alex", last_name: "Assistant", posi
 
 
 # Create User Tenants
-user_tenant_one = User.create( username: "john", email: "john@mail.com", password: "password", password_confirmation: "password", role_id: Role.find_by_name("tenant") )
+user_tenant_one = User.create( username: "TENANT1", email: "jack@gmail.com", password: "TENANT1#", password_confirmation: "TENANT1#", role_id: Role.find_by_name("tenant") )
 
-user_tenant_two = User.create( username: "jane", email: "jane@mail.com", password: "password", password_confirmation: "password", role_id: Role.find_by_name("tenant") )
+user_tenant_two = User.create( username: "TENANT2", email: "mary@gmail.com", password: "TENANT2#", password_confirmation: "TENANT2#", role_id: Role.find_by_name("tenant") )
 
-user_tenant_three = User.create( username: "personmcperson", email: "person-mcperson@mail.com", password: "password", password_confirmation: "password", role_id: Role.find_by_name("tenant") )
+user_tenant_three = User.create( username: "TENANT3", email: "ramu@gmail.com", password: "TENANT3#", password_confirmation: "TENANT3#", role_id: Role.find_by_name("tenant") )
 
 #Generate Tenants
-tenant_one = Tenant.create( first_name: "John", last_name: "Knowles", dob: "1990-01-01", marital_status: Tenant.marital_statuses[:single], work_phone: "555-555-5555", home_phone: "555-555-6666", employer: "TenantOne Corp", gender: Tenant.genders[:male], user: user_tenant_one)
-tenant_two = Tenant.create( first_name: "Jane", last_name: "Smith", dob: "1990-01-01", marital_status: Tenant.marital_statuses[:single], work_phone: "555-555-5555", home_phone: "555-555-6666", employer: "TenantTwo Corp", gender: Tenant.genders[:male], user: user_tenant_two)
-tenant_three = Tenant.create( first_name: "Person", last_name: "McPerson", dob: "1990-01-01", marital_status: Tenant.marital_statuses[:single], work_phone: "555-555-5555", home_phone: "555-555-6666", employer: "TenantThree Corp", gender: Tenant.genders[:male], user: user_tenant_three )
+tenant_one = Tenant.create( first_name: "Jack", last_name: "Robin", dob: "1960-06-21", marital_status: Tenant.marital_statuses[:married], work_phone: "417-345-2323", home_phone: "417-555-6565", employer: "Kraft Inc", gender: Tenant.genders[:male], user: user_tenant_one)
+tenant_two = Tenant.create( first_name: "Mary", last_name: "Stackles", dob: "1980-08-02", marital_status: Tenant.marital_statuses[:single], work_phone: "417-545-3320", home_phone: "417-666-7565", employer: "Kraft Inc", gender: Tenant.genders[:female], user: user_tenant_two)
+tenant_three = Tenant.create( first_name: "Ramu", last_name: "Reddy", dob: "1962-04-02", marital_status: Tenant.marital_statuses[:married], work_phone: "417-836-2323", home_phone: "417-222-0565", employer: "SMSU", gender: Tenant.genders[:male], user: user_tenant_three )
 
 tenants = [tenant_one, tenant_two, tenant_three]
 
