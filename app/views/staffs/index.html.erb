@@ -26,8 +26,8 @@
         <td><%= staff.gender %></td>
         <td><%= staff.dob %></td>
         <td><%= staff.salary %></td>
-        <td><%= staff.username %></td>
-        <td><%= staff.password %></td>
+        <td><%= staff.user.username %></td>
+        <td><%= staff.user.password %></td>
         <td><%= link_to 'Show', staff %></td>
         <td><%= link_to 'Edit', edit_staff_path(staff) %></td>
         <td><%= link_to 'Destroy', staff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
