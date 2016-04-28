@@ -6,7 +6,8 @@
       <th>Date filed</th>
       <th>Complaint</th>
       <th>Status</th>
-      <th>Complaintable</th>
+      <th>Complaintable id</th>
+      <th>Complaintable type</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +18,8 @@
         <td><%= complaint.date_filed %></td>
         <td><%= complaint.content %></td>
         <td><%= complaint.status %></td>
-        <td><%= complaint.complaintable %></td>
+        <td><%= complaint.complaintable_id %></td>
+        <td><%= complaint.complaintable_type %></td>
         <td><%= link_to 'Show', complaint %></td>
         <td><%= link_to 'Edit', edit_complaint_path(complaint) %></td>
         <td><%= link_to 'Destroy', complaint, method: :delete, data: { confirm: 'Are you sure?' } %></td>

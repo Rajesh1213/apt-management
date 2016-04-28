@@ -23,6 +23,11 @@ class DashboardsController < ApplicationController
     title = "Welcome assistant"
   end
 
+  def pending_complaints
+    title = "Pending Complaints"
+
+  end
+
 
   private
   def validate_role

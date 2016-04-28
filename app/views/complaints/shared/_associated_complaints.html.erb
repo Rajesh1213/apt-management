@@ -1,8 +1,7 @@
 <h3>Complaints</h3>
-<% Complaint.where(user: current_user).each do |complaint| %>
+<% complaintable.complaints.each do |complaint| %>
   <div class="well">
     <%= complaint.content %>
-    <%= complaint.status %>
     by: <%= complaint.user %>
   </div>
 <% end %>

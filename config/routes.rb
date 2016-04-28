@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'dashboards/assistant', controller: 'dashboards', action: 'assistant'
   get 'dashboards/supervisor', controller: 'dashboards', action: 'supervisor'
   get 'dashboards/manager', controller: 'dashboards', action: 'manager'
+  get 'dashboards/tenant/pending_complaints', controller: 'dashboards', action: 'pending_complaints'
 
 
   #get ':controller(/:action(/:id))', controller: 'dashboards'
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
   authenticate :user do
     resources :testimonials, only: [:new, :create, :edit, :update, :destroy]
     resources :rentals
+    resources :complaints
     resources :dashboards, only: [:index ]
   end
   resources :testimonials
