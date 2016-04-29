@@ -14,9 +14,15 @@
 </p>
 
 <p>
-  <strong>Complaintable:</strong>
-  <%= @complaint.complaintable %>
+  <strong>Complaintable id:</strong>
+  <%= @complaint.complaintable.id %>
 </p>
+
+<p>
+  <strong>Complaintable type:</strong>
+  <%= @complaint.complaintable_type %>
+</p>
+
 
 <%= link_to 'Edit', edit_complaint_path(@complaint) %> |
 <%= link_to 'Back', complaints_path %>
