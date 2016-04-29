@@ -15,8 +15,8 @@
       </tr>
     </thead>
     <tbody>
-      <% @rental_invoices.each do |rental_invoice| %>
-        <tr>
+      <% rental_invoices.each do |rental_invoice| %>
+        <tr class="<%= status_row_class( rental_invoice ) %>">
           <td><%= rental_invoice.rental.id %></td>
           <td><%= rental_invoice.rental.apartment.id %></td>
           <td><%= rental_invoice.rental.tenant.full_name %></td>
@@ -31,5 +31,3 @@
     </tbody>
   </table>
 </div>
-
-<%= link_to 'New Rental invoice', new_rental_invoice_path %>

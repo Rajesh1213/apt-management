@@ -1,0 +1,33 @@
+<%= form_for(rental_invoice) do |f| %>
+  <% if rental_invoice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rental_invoice.errors.count, "error") %> prohibited this rental_invoice from being saved:</h2>
+
+      <ul>
+      <% rental_invoice.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cc_number, "Credit Card Number" %><br>
+    <%= f.text_field :cc_number %>
+  </div>
+  <div class="field">
+    <%= f.label :cc_type, "Type" %><br>
+    <%= f.text_field :cc_type %>
+  </div>
+  <div class="field">
+    <%= f.label :cc_expiration_date, "Expiration Date" %><br>
+    <%= f.text_field :cc_expiration_date %>
+  </div>
+  <div class="field">
+    <%= f.label :cc_amount_charged, "Amount Paid" %><br>
+    <%= f.text_field :cc_amount_charged %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Pay Invoice", class: "btn btn-lg btn-success" %>
+  </div>
+<% end %>

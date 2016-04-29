@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
   end
 
   def has_tenant_profile
-    !current_user.tenant.nil?
+    !current_user.tenant.nil? unless current_user.nil?
   end
 
   helper_method :resource, :resource_name, :devise_mapping

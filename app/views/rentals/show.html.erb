@@ -7,20 +7,10 @@
   </div>
 </div>
 
-
-
-
 <div class="row">
 
   <div class="col-md-4">
-    <h3><%= @rental.tenant.full_name %></h3>
-    <h5><%= @rental.tenant.user.email%></h5>
-    <h6><%= @rental.tenant.employer %></h6>
-    <span>DOB: <%= @rental.tenant.dob %></span><br/>
-    <span>Gender: <%= @rental.tenant.gender %></span>
-    <span>Marital Status: <%= @rental.tenant.marital_status %></span><br/>
-    <span>Work: <%= @rental.tenant.work_phone %></span><br/>
-    <span>Home: <%= @rental.tenant.home_phone %></span><br/>
+    <%= render partial: "tenants/shared/tenant", locals: { tenant: @rental.tenant } %>
   </div>
 
   <div class="col-md-8">
@@ -32,65 +22,13 @@
     <span>Lease Start: <%= @rental.lease_start %></span><br/>
     <span>Lease End: <%= @rental.lease_end %> </span><br/>
     <span>Renewal Date: <%= @rental.renewal_date %> </span><br/>
-
   </div>
 </div>
-<p>
-  <strong>Tenant</strong>
-  <a href="<%= tenant_path(@rental.tenant) %>"><%= "#{@rental.tenant.first_name} #{@rental.tenant.last_name} : #{@rental.tenant.user.username}" %></a>
 
-</p>
+<div class="row">
+  <%= render partial: "rental_invoices/shared/rental_invoices", locals: { rental_invoices: @rental.rental_invoices } %>
 
-<p>
-  <strong>Status:</strong>
-  <%= @rental.status %>
-</p>
-
-<p>
-  <strong>Sign date:</strong>
-  <%= @rental.sign_date %>
-</p>
-
-
-<p>
-  <strong>Cancel date:</strong>
-  <%= @rental.cancel_date %>
-</p>
-
-<p>
-  <strong>Lease type:</strong>
-  <%= @rental.lease_type %>
-</p>
-
-<p>
-  <strong>Lease start:</strong>
-  <%= @rental.lease_start %>
-</p>
-
-<p>
-  <strong>Lease end:</strong>
-  <%= @rental.lease_end %>
-</p>
-
-<p>
-  <strong>Renewal date:</strong>
-  <%= @rental.renewal_date %>
-</p>
-
-<p>
-  <strong>Has utility:</strong>
-  <%= @rental.has_utility %>
-</p>
-
-<p>
-  <strong>Deposit amount:</strong>
-  <%= @rental.deposit_amount %>
-</p>
-
-<p>
-  <strong>Rent amount:</strong>
-  <%= @rental.rent_amount %>
-</p>
+</div>
 
 <%= render partial: "complaints/shared/form", locals: {complaintable: @rental} %>
 <%= render partial: "complaints/shared/complaints", locals: {complaintable: @rental} %>
