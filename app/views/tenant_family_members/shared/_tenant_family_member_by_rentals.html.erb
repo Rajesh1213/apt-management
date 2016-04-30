@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3>Related Family Members By Rentals</h3>
+  </div>
+  <div class="col-md-12">
+
+    <table class="table table-hover table-condensed">
+      <thead>
+        <tr>
+          <th>Rental ID</th>
+          <th>Status</th>
+          <th>Lease Type</th>
+          <th>Lease Starts</th>
+          <th>Lease Ends</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% tenant.rentals.each do |rental| %>
+        <tr>
+            <td><%= rental.id %></td>
+            <td><%= rental.status %></td>
+            <td><%= rental.lease_type %></td>
+            <td><%= rental.lease_start %></td>
+            <td><%= rental.lease_end %></td>
+            <td><%= link_to 'View Rental', rental %></td>
+            <td><%= link_to 'Edit Rental', edit_rental_path(rental) %></td>
+            <tr>
+              <td colspan="1"></td>
+              <td colspan="7">
+                  <%= render partial: "tenant_family_members/shared/simple_tenant_family_members", locals: { rental: rental } %>
+            </td>
+            </tr
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>
