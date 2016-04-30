@@ -1,29 +1,10 @@
 
+<%= render partial: "tenants/shared/tenant", locals: { tenant: @tenant_auto.rental.tenant } %>
 
-<p>
-  <strong>License number:</strong>
-  <%= @tenant_auto.license_number %>
-</p>
+<%= render partial: "rentals/shared/rental", locals: { rental: @tenant_auto.rental } %>
 
-<p>
-  <strong>Auto make:</strong>
-  <%= @tenant_auto.auto_make %>
-</p>
+<%= render partial: "tenant_autos/shared/tenant_auto", locals: { tenant_auto: @tenant_auto } %>
 
-<p>
-  <strong>Auto model:</strong>
-  <%= @tenant_auto.auto_model %>
-</p>
-
-<p>
-  <strong>Auto year:</strong>
-  <%= @tenant_auto.auto_year %>
-</p>
-
-<p>
-  <strong>Auto color:</strong>
-  <%= @tenant_auto.auto_color %>
-</p>
 
 <%= link_to 'Edit', edit_rental_tenant_auto_path(@rental, @tenant_auto) %> |
 <%= link_to 'Back', rental_tenant_autos_path %>

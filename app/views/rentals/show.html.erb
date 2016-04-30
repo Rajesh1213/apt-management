@@ -26,11 +26,9 @@
 </div>
 
 <div class="row">
-
     <%= render partial: "rental_invoices/shared/rental_invoices", locals: { rental_invoices: @rental.rental_invoices } %>
-
-
 </div>
+
 
 <div class="row">
   <div class="col-md-12">
@@ -42,6 +40,15 @@
 </div>
 
 # Please Do Registered Family Members for Rental
+<div class="row">
+  <div class="col-md-12">
+    <h3>Registered Family Members for Rental</h3>
+  </div>
+  <div class="col-md-12">
+    <%= render partial: "tenant_family_members/shared/simple_tenant_family_members", locals: { rental: @rental, tenant_autos: @rental.tenant_autos } %>
+    </div>
+</div>
+
 
 <div class="row">
   <div class="col-md-12">

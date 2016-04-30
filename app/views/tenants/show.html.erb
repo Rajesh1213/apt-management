@@ -1,4 +1,16 @@
+
 <%= render partial: "tenants/shared/tenant", locals: { tenant: @tenant } %>
+
+<div class="row">
+  <div class="col-md-12">
+    <h3>Rentals and Registrations</h3>
+  </div>
+  <div class="col-md-12">
+    <%= render partial: "rentals/shared/rental_registrations", locals: { tenant: @tenant } %>
+  </div>
+</div>
+
+
 <%= render partial: "tenant_family_members/shared/tenant_family_member_by_rentals", locals: { tenant: @tenant } %>
 
 <%= render partial: "tenant_autos/shared/tenant_autos_by_rentals", locals: { tenant: @tenant } %>

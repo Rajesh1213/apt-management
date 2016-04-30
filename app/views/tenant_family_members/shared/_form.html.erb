@@ -12,30 +12,30 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :ss %><br>
+    <%= f.label :ss, "Social Security Number" %><br>
     <%= f.text_field :ss %>
   </div>
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name, "Full Name" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :member_type %><br>
-    <%= f.number_field :member_type %>
+    <%= f.label :member_type, "Member Type" %><br>
+    <%= f.collection_select :member_type, TenantFamilyMember.member_types.map { |m| [ m.first, m.first.titlecase ] }, :first, :second %>
   </div>
   <div class="field">
     <%= f.label :marital_status %><br>
-    <%= f.number_field :marital_status %>
+    <%= f.collection_select :marital_status, TenantFamilyMember.marital_statuses.map { |m| [ m.first, m.first.titlecase ] }, :first, :second %>
   </div>
   <div class="field">
     <%= f.label :gender %><br>
-    <%= f.number_field :gender %>
+    <%= f.collection_select :gender, TenantFamilyMember.genders.map { |m| [ m.first, m.first.titlecase ] }, :first, :second %>
   </div>
   <div class="field">
-    <%= f.label :dob %><br>
+    <%= f.label :dob, "Date of Birth" %><br>
     <%= f.date_select :dob %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Add Family Member", class: "btn btn-default" %>
   </div>
 <% end %>
