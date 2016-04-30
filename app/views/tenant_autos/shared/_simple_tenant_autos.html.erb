@@ -23,14 +23,12 @@
       <td><%= link_to 'Show', rental_tenant_auto_path(rental, tenant_auto) %></td>
       <td><%= link_to 'Edit', edit_rental_tenant_auto_path(rental, tenant_auto) %></td>
       <td><%= link_to 'Destroy', [rental, tenant_auto], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
     </tr>
 
     <% end %>
     <tr>
       <td colspan="9">
-        <%= link_to 'New Car'
-        <a href="#" class="btn btn-default">New Car</a>
+        <%= link_to 'New Car', new_rental_tenant_auto_path(rental), class: "btn btn-default"%>
       </td>
     </tr>
   </tbody>

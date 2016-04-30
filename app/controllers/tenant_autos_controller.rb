@@ -18,6 +18,7 @@ class TenantAutosController < ApplicationController
 
   # GET /tenant_autos/new
   def new
+    @rental = Rental.find(params[:rental_id])
     @tenant_auto = TenantAuto.new
   end
 
@@ -28,11 +29,13 @@ class TenantAutosController < ApplicationController
   # POST /tenant_autos
   # POST /tenant_autos.json
   def create
+    @rental = Rental.find(params[:rental_id])
     @tenant_auto = TenantAuto.new(tenant_auto_params)
+    @tenant_auto.rental = @rental
 
     respond_to do |format|
       if @tenant_auto.save
-        format.html { redirect_to @tenant_auto, notice: 'Tenant auto was successfully created.' }
+        format.html { redirect_to @rental, notice: 'Tenant auto was successfully created.' }
         format.json { render :show, status: :created, location: @tenant_auto }
       else
         format.html { render :new }
@@ -60,7 +63,7 @@ class TenantAutosController < ApplicationController
   def destroy
     @tenant_auto.destroy
     respond_to do |format|
-      format.html { redirect_to @rental, notice: 'Tenant auto was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Tenant auto was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
