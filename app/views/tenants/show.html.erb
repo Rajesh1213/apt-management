@@ -1,4 +1,5 @@
 <%= render partial: "tenants/shared/tenant", locals: { tenant: @tenant } %>
+<%= render partial: "tenant_family_members/shared/tenant_family_member_by_rentals", locals: { tenant: @tenant } %>
 
 <%= render partial: "tenant_autos/shared/tenant_autos_by_rentals", locals: { tenant: @tenant } %>
 <%= link_to 'Edit', edit_tenant_path(@tenant), class: "btn btn-lg btn-default" %>

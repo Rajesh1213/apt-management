@@ -1,4 +1,5 @@
 # Author: Aileen Tran
+# Verified by: Aarti Bhasker
 # 4/20/2016
 
 # This file should contain all the record creation needed to seed the database with its default values.
@@ -54,7 +55,28 @@ tenant_five = Tenant.create( first_name: 'Venessa', last_name: "Williams", dob: 
 
 tenants = [tenant_one, tenant_two, tenant_three, tenant_four, tenant_five]
 
-#Generate Apartments
+# Generate Apartments
+
+
+# Generate Rental
+
+
+# Generate Complaints
+
+
+# Generate Auto
+
+
+# Generate Family
+
+
+# Generate Rental invoice due
+
+
+# Generate Testimonial
+
+
+# Generate Apartments
 
 30.times do |i|
   apartment = Apartment.create(

@@ -64,14 +64,10 @@
 
                       <% if user_role == "tenant" && !current_user.tenant.nil? %>
                       <li><a href="<%= edit_tenant_path(current_user.tenant) %>">Edit Profile</a></li>
-                      <li role="separator" class="divider"></li>
                       <li><a href="<%= tenant_path(current_user.tenant) %>">Tenant Information</a></li>
-                      <li><a href="#">Tenant Auto Information</a></li>
-                      <li><a href="#">Tenant Family Information</a></li>
-                      <li role="separator" class="divider"></li>
                       <li><a href="<%= rentals_path %>">View Rentals</a></li>
                       <li><%= link_to 'Add Testimonials', new_testimonial_path %></li>
-                      <li><a href="#">View Pending Complaints</a></li>
+
                       <% end %>
 
                       <% if user_role == "manager" && !current_user.staff.nil? %>
