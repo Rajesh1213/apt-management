@@ -1,6 +1,6 @@
 <h1>Editing Tenant Auto</h1>
 
-<%= render 'form' %>
+<%= render partial: 'tenant_autos/shared/form', locals: { rental: @rental, tenant_auto: @tenant_auto } %>
 
-<%= link_to 'Show', @tenant_auto %> |
-<%= link_to 'Back', tenant_autos_path %>
+<%= link_to 'Show', rental_tenant_autos_path(@rental, @tenant_auto)  %> |
+<%= link_to 'Back', rental_tenant_autos_path %>

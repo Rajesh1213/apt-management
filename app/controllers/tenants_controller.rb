@@ -23,6 +23,7 @@ class TenantsController < ApplicationController
 
   # GET /tenants/1/edit
   def edit
+    @tenant_auto = TenantAuto.new
   end
 
   # POST /tenants

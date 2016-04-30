@@ -1,10 +1,14 @@
 class TenantAutosController < ApplicationController
   before_action :set_tenant_auto, only: [:show, :edit, :update, :destroy]
+  before_action :set_rental, only: [ :show, :edit, :destroy]
 
   # GET /tenant_autos
   # GET /tenant_autos.json
   def index
-    @tenant_autos = TenantAuto.all
+    @rental = Rental.find(params[:rental_id])
+    logger.debug @rental
+    logger.debug params
+    @tenant_autos = TenantAuto.where(rental: @rental)
   end
 
   # GET /tenant_autos/1
@@ -56,7 +60,7 @@ class TenantAutosController < ApplicationController
   def destroy
     @tenant_auto.destroy
     respond_to do |format|
-      format.html { redirect_to tenant_autos_url, notice: 'Tenant auto was successfully destroyed.' }
+      format.html { redirect_to @rental, notice: 'Tenant auto was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +69,10 @@ class TenantAutosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_tenant_auto
       @tenant_auto = TenantAuto.find(params[:id])
+    end
+
+    def set_rental
+      @rental = @tenant_auto.rental
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
