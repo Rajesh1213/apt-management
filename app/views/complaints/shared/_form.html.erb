@@ -1,5 +1,5 @@
-<div class="row">
-  <%= form_for [complaintable, @complaint = Complaint.new ], class: "form" do |f| %>
+
+  <%= form_for [complaintable, @complaint = Complaint.new ], class: "form col-md-12" do |f| %>
   <% if @complaint.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@complaint.errors.count, "error") %> prohibited this complaint from being saved:</h2>
@@ -37,9 +37,7 @@
 
   <div class="form-group actions">
     <div class="col-xs-12">
-    <%= f.submit %>
+    <%= f.submit "File Complaint", class: "btn btn-default col-md-12" %>
     </div>
   </div>
 <% end %>
-
-</div>

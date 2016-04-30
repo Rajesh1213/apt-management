@@ -6,8 +6,6 @@ class TenantAutosController < ApplicationController
   # GET /tenant_autos.json
   def index
     @rental = Rental.find(params[:rental_id])
-    logger.debug @rental
-    logger.debug params
     @tenant_autos = TenantAuto.where(rental: @rental)
   end
 
