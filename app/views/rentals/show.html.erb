@@ -26,12 +26,40 @@
 </div>
 
 <div class="row">
-  <%= render partial: "rental_invoices/shared/rental_invoices", locals: { rental_invoices: @rental.rental_invoices } %>
+
+    <%= render partial: "rental_invoices/shared/rental_invoices", locals: { rental_invoices: @rental.rental_invoices } %>
+
 
 </div>
 
-<%= render partial: "complaints/shared/form", locals: {complaintable: @rental} %>
-<%= render partial: "complaints/shared/associated_complaints", locals: {complaintable: @rental} %>
+<div class="row">
+  <div class="col-md-12">
+    <h3>Registered Autos for Rental</h3>
+  </div>
+  <div class="col-md-12">
+    <%= render partial: "tenant_autos/shared/simple_tenant_autos", locals: { rental: @rental, tenant_autos: @rental.tenant_autos } %>
+    </div>
+</div>
+
+# Please Do Registered Family Members for Rental
+
+<div class="row">
+  <div class="col-md-12">
+    <h3>Pending Complaints for Rental</h3>
+  </div>
+  <div class="col-md-12">
+    <%= render partial: "complaints/shared/associated_complaints", locals: {complaintable: @rental} %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h3>File A Complaint</h3>
+  </div>
+
+    <%= render partial: "complaints/shared/form", locals: {complaintable: @rental} %>
+</div>
+
 
 <%= link_to 'Edit', edit_rental_path(@rental) %> |
 <%= link_to 'Back', rentals_path %>

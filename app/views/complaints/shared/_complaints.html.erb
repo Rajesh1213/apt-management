@@ -1,8 +1,21 @@
-<h3>Complaints</h3>
-<% Complaint.where(user: current_user).each do |complaint| %>
-  <div class="well">
-    <%= complaint.content %>
-    <%= complaint.status %>
-    by: <%= complaint.user %>
-  </div>
-<% end %>
+
+<table class="table table-hover table-striped table-condensed">
+  <thead>
+    <th>Complaint ID</th>
+    <th>Status</th>
+    <th>Date/Time</th>
+    <th>Complaint</th>
+    <th>Complaintee</th>
+  </thead>
+  <tbody>
+    <% Complaint.where(user: current_user).each do |complaint| %>
+    <tr>
+      <th><%= complaint.id %></th>
+      <th><%= complaint.status %></th>
+      <th><%= complaint.created_date %></th>
+      <th colspan="3"><%= complaint.content %></th>
+      <th><%= complaint.user %></th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
