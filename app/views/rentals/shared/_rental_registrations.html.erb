@@ -1,8 +1,9 @@
 
-<table class="table table-hover table-condensed">
+<table class="table table-condensed">
   <thead>
     <tr>
       <th>Rental ID</th>
+      <th>Apartment ID</th>
       <th>Status</th>
       <th>Lease Type</th>
       <th>Lease Starts</th>
@@ -14,23 +15,24 @@
     <% tenant.rentals.each do |rental| %>
     <tr>
         <td><%= rental.id %></td>
+        <td><%= rental.apartment.id %></td>
         <td><%= rental.status %></td>
         <td><%= rental.lease_type %></td>
         <td><%= rental.lease_start %></td>
         <td><%= rental.lease_end %></td>
         <td><%= link_to 'View Rental', rental %></td>
         <td><%= link_to 'Edit Rental', edit_rental_path(rental) %></td>
-        <tr>
+        <tr class="active">
           <td colspan="1"></td>
           <td colspan="7">
-            <h5 style="line-height: 2em; border-bottom: 4px solid #000;">Registered Autos For Rental</h5>
+            <h5 style="line-height: 2em; border-bottom: 4px solid #000;">Registered Autos for Rental</h5>
             <%= render partial: "tenant_autos/shared/simple_tenant_autos", locals: { rental: rental } %>
           </td>
         </tr>
-        <tr>
+        <tr class="active">
           <td colspan="1"></td>
           <td colspan="7">
-            <h3>Registered Family Members For Rental</h3>
+            <h5 style="line-height: 2em; border-bottom: 4px solid #000;">Registered Family Members for Rental</h5>
             <%= render partial: "tenant_family_members/shared/simple_tenant_family_members", locals: { rental: rental } %>
           </td>
         </tr>

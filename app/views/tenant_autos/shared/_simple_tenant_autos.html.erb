@@ -26,8 +26,14 @@
     </tr>
     <% end %>
     <tr>
-      <td colspan="9">
-        <%= link_to 'New Car', new_rental_tenant_auto_path(rental), class: "btn btn-default"%>
+      <td colspan="10">
+        <div class="col-md-12 well">
+          <div class="text-center">
+            <%= link_to "Register Car for Apartment  #{}#{rental.apartment.id}", new_rental_tenant_auto_path(rental), class: "btn btn-default"%>
+          </div>
+
+        </div>
+
       </td>
     </tr>
   </tbody>
