@@ -5,7 +5,7 @@ module RentalInvoicesHelper
     if rental_invoice.paid?
       html_classes += "success"
       label = "Paid"
-    elsif rental_invoice.invoice_due < Date.today
+    elsif rental_invoice.invoice_date < Date.today
       label = "Overdue"
       html_classes += "danger"
     else
@@ -21,7 +21,7 @@ module RentalInvoicesHelper
 
     if rental_invoice.paid?
       html_classes += "success"
-    elsif rental_invoice.invoice_due < Date.today
+    elsif rental_invoice.invoice_date < Date.today
       html_classes += "danger"
     else
       html_classes += "warning"

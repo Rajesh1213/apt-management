@@ -113,37 +113,37 @@ tenant_family_member_two = TenantFamilyMember.create( ss: "111-444-663", name: "
 tenant_family_member_two = TenantFamilyMember.create( ss: "232-446-634", name: "Tom Williams", member_type: TenantFamilyMember.member_types[:spouse], marital_status: TenantFamilyMember.marital_statuses[:married], gender: TenantFamilyMember.genders[:male], dob: "1991-05-20", rental: rental_five )
 
 # Generate Rental invoice due
-rental_invoice_one = RentalInvoice.create( invoice_date: "2001-03-12", invoice_due: nil,  cc_number: "1234567890123450", cc_type: "visa", cc_expiration_date: "1-Dec-02", rental: rental_one )
-rental_invoice_two = RentalInvoice.create( invoice_date: "2001-04-30", invoice_due: nil,  cc_number: "1234567890123450", cc_type: "visa", cc_expiration_date: "1-Dec-02", rental: rental_one )
-rental_invoice_three = RentalInvoice.create( invoice_date: "2001-05-30", invoice_due: nil,  cc_number: "1234567890123450", cc_type: "visa", cc_expiration_date: "1-Dec-02", rental: rental_one )
-rental_invoice_four = RentalInvoice.create( invoice_date: "2001-06-30", invoice_due: nil,  cc_number: "1234567890123450", cc_type: "visa", cc_expiration_date: "1-Dec-02", rental: rental_one )
-rental_invoice_five = RentalInvoice.create( invoice_date: "2001-07-30", invoice_due: nil,  cc_number: "1234567890123450", cc_type: "mastercard", cc_expiration_date: "1-Dec-02", rental: rental_one )
-rental_invoice_six = RentalInvoice.create( invoice_date: "2001-08-30", invoice_due: nil,  cc_number: "1234567890123450", cc_type: "mastercard", cc_expiration_date: "1-Dec-02", rental: rental_one )
-rental_invoice_seven = RentalInvoice.create( invoice_date: "2001-07-30", invoice_due: nil,  cc_number: "1234567890123450", cc_type: "visa", cc_expiration_date: "1-Dec-02", rental: rental_one )
-rental_invoice_eight = RentalInvoice.create( invoice_date: "2001-10-30", invoice_due: nil,  cc_number: "1234567890123450", cc_type: "visa", cc_expiration_date: "1-Dec-02", rental: rental_one )
-rental_invoice_nine = RentalInvoice.create( invoice_date: "2001-11-30", invoice_due: nil,  cc_number: "1234567890123450", cc_type: "visa", cc_expiration_date: "1-Dec-02", rental: rental_one )
+rental_invoice_one = RentalInvoice.create( invoice_date: "2001-03-12",  cc_number: "1234567890123450", cc_type: "visa", cc_expiration_date: "1-Dec-02", rental: rental_one, note: "Rental Invoice")
+rental_invoice_two = RentalInvoice.create( invoice_date: "2001-04-30",  cc_number: "1234567890123450", cc_type: "visa", cc_expiration_date: "1-Dec-02", rental: rental_one, note: "Rental Invoice" )
+rental_invoice_three = RentalInvoice.create( invoice_date: "2001-05-30",  cc_number: "1234567890123450", cc_type: "visa", cc_expiration_date: "1-Dec-02", rental: rental_one, note: "Rental Invoice" )
+rental_invoice_four = RentalInvoice.create( invoice_date: "2001-06-30",  cc_number: "1234567890123450", cc_type: "visa", cc_expiration_date: "1-Dec-02", rental: rental_one, note: "Rental Invoice" )
+rental_invoice_five = RentalInvoice.create( invoice_date: "2001-07-30",  cc_number: "1234567890123450", cc_type: "mastercard", cc_expiration_date: "1-Dec-02", rental: rental_one, note: "Rental Invoice" )
+rental_invoice_six = RentalInvoice.create( invoice_date: "2001-08-30",  cc_number: "1234567890123450", cc_type: "mastercard", cc_expiration_date: "1-Dec-02", rental: rental_one, note: "Rental Invoice" )
+rental_invoice_seven = RentalInvoice.create( invoice_date: "2001-07-30",  cc_number: "1234567890123450", cc_type: "visa", cc_expiration_date: "1-Dec-02", rental: rental_one, note: "Rental Invoice" )
+rental_invoice_eight = RentalInvoice.create( invoice_date: "2001-10-30",  cc_number: "1234567890123450", cc_type: "visa", cc_expiration_date: "1-Dec-02", rental: rental_one, note: "Rental Invoice" )
+rental_invoice_nine = RentalInvoice.create( invoice_date: "2001-11-30",  cc_number: "1234567890123450", cc_type: "visa", cc_expiration_date: "1-Dec-02", rental: rental_one, note: "Rental Invoice" )
 
-rental_invoice_ten = RentalInvoice.create( invoice_date: "2001-05-21", invoice_due: nil,  cc_number: "3343567890123450", cc_type: "mastercard", cc_expiration_date: "1-Oct-03", rental: rental_two )
-rental_invoice_eleven = RentalInvoice.create( invoice_date: "2001-06-30", invoice_due: nil,  cc_number: "3343567890123450", cc_type: "mastercard", cc_expiration_date: "1-Oct-03", rental: rental_two )
-rental_invoice_twelve = RentalInvoice.create( invoice_date: "2001-07-30", invoice_due: nil,  cc_number: "3343567890123450", cc_type: "mastercard", cc_expiration_date: "1-Oct-03", rental: rental_two )
-rental_invoice_thirteen = RentalInvoice.create( invoice_date: "2001-08-30", invoice_due: nil,  cc_number: "3343567890123450", cc_type: "mastercard", cc_expiration_date: "1-Oct-03", rental: rental_two )
-rental_invoice_fourteen = RentalInvoice.create( invoice_date: "2001-09-30", invoice_due: nil,  cc_number: "3343567890123450", cc_type: "mastercard", cc_expiration_date: "1-Oct-03", rental: rental_two )
-rental_invoice_fifteen = RentalInvoice.create( invoice_date: "2001-10-30", invoice_due: nil,  cc_number: "3343567890123450", cc_type: "mastercard", cc_expiration_date: "1-Oct-03", rental: rental_two )
-rental_invoice_sixteen = RentalInvoice.create( invoice_date: "2001-11-30", invoice_due: nil,  cc_number: "3343567890123450", cc_type: "mastercard", cc_expiration_date: "1-Oct-03", rental: rental_two )
+rental_invoice_ten = RentalInvoice.create( invoice_date: "2001-05-21",  cc_number: "3343567890123450", cc_type: "mastercard", cc_expiration_date: "1-Oct-03", rental: rental_two, note: "Rental Invoice" )
+rental_invoice_eleven = RentalInvoice.create( invoice_date: "2001-06-30",  cc_number: "3343567890123450", cc_type: "mastercard", cc_expiration_date: "1-Oct-03", rental: rental_two, note: "Rental Invoice" )
+rental_invoice_twelve = RentalInvoice.create( invoice_date: "2001-07-30",  cc_number: "3343567890123450", cc_type: "mastercard", cc_expiration_date: "1-Oct-03", rental: rental_two, note: "Rental Invoice" )
+rental_invoice_thirteen = RentalInvoice.create( invoice_date: "2001-08-30",  cc_number: "3343567890123450", cc_type: "mastercard", cc_expiration_date: "1-Oct-03", rental: rental_two, note: "Rental Invoice" )
+rental_invoice_fourteen = RentalInvoice.create( invoice_date: "2001-09-30",  cc_number: "3343567890123450", cc_type: "mastercard", cc_expiration_date: "1-Oct-03", rental: rental_two, note: "Rental Invoice" )
+rental_invoice_fifteen = RentalInvoice.create( invoice_date: "2001-10-30",  cc_number: "3343567890123450", cc_type: "mastercard", cc_expiration_date: "1-Oct-03", rental: rental_two, note: "Rental Invoice" )
+rental_invoice_sixteen = RentalInvoice.create( invoice_date: "2001-11-30",  cc_number: "3343567890123450", cc_type: "mastercard", cc_expiration_date: "1-Oct-03", rental: rental_two, note: "Rental Invoice" )
 
-rental_invoice_seventeen = RentalInvoice.create( invoice_date: "2001-10-12", invoice_due: nil,  cc_number: "8654567890123290", cc_type: "discover", cc_expiration_date: "1-Nov-03", rental: rental_three )
-rental_invoice_eighteen = RentalInvoice.create( invoice_date: "2001-11-30", invoice_due: nil,  cc_number: "8654567890123290", cc_type: "discover", cc_expiration_date: "1-Nov-03", rental: rental_three )
+rental_invoice_seventeen = RentalInvoice.create( invoice_date: "2001-10-12",  cc_number: "8654567890123290", cc_type: "discover", cc_expiration_date: "1-Nov-03", rental: rental_three, note: "Rental Invoice" )
+rental_invoice_eighteen = RentalInvoice.create( invoice_date: "2001-11-30",  cc_number: "8654567890123290", cc_type: "discover", cc_expiration_date: "1-Nov-03", rental: rental_three, note: "Rental Invoice" )
 
-rental_invoice_nineteen = RentalInvoice.create( invoice_date: "2002-03-06", invoice_due: nil,  cc_number: "7766567890123200", cc_type: "visa", cc_expiration_date: "1-Sep-03", rental: rental_four )
-rental_invoice_twenty = RentalInvoice.create( invoice_date: "2002-04-30", invoice_due: nil,  cc_number: "7766567890123200", cc_type: "visa", cc_expiration_date: "1-Sep-03", rental: rental_four )
-rental_invoice_twentyone = RentalInvoice.create( invoice_date: "2002-05-30", invoice_due: nil,  cc_number: "7766567890123200", cc_type: "visa", cc_expiration_date: "1-Sep-03", rental: rental_four )
-rental_invoice_twentytwo = RentalInvoice.create( invoice_date: "2002-06-30", invoice_due: nil,  cc_number: "7766567890123200", cc_type: "visa", cc_expiration_date: "1-Sep-03", rental: rental_four )
-rental_invoice_twentythree = RentalInvoice.create( invoice_date: "2002-07-30", invoice_due: nil,  cc_number: "7766567890123200", cc_type: "visa", cc_expiration_date: "1-Sep-03", rental: rental_four )
+rental_invoice_nineteen = RentalInvoice.create( invoice_date: "2002-03-06",  cc_number: "7766567890123200", cc_type: "visa", cc_expiration_date: "1-Sep-03", rental: rental_four, note: "Rental Invoice" )
+rental_invoice_twenty = RentalInvoice.create( invoice_date: "2002-04-30",  cc_number: "7766567890123200", cc_type: "visa", cc_expiration_date: "1-Sep-03", rental: rental_four, note: "Rental Invoice" )
+rental_invoice_twentyone = RentalInvoice.create( invoice_date: "2002-05-30",  cc_number: "7766567890123200", cc_type: "visa", cc_expiration_date: "1-Sep-03", rental: rental_four, note: "Rental Invoice" )
+rental_invoice_twentytwo = RentalInvoice.create( invoice_date: "2002-06-30",  cc_number: "7766567890123200", cc_type: "visa", cc_expiration_date: "1-Sep-03", rental: rental_four, note: "Rental Invoice" )
+rental_invoice_twentythree = RentalInvoice.create( invoice_date: "2002-07-30",  cc_number: "7766567890123200", cc_type: "visa", cc_expiration_date: "1-Sep-03", rental: rental_four, note: "Rental Invoice" )
 
-rental_invoice_twentyfour = RentalInvoice.create( invoice_date: "2002-04-15", invoice_due: nil,  cc_number: "6599567890126210", cc_type: "discover", cc_expiration_date: "1-Dec-03", rental: rental_five )
-rental_invoice_twentyfive = RentalInvoice.create( invoice_date: "2002-05-30", invoice_due: nil,  cc_number: "6599567890126210", cc_type: "discover", cc_expiration_date: "1-Dec-03", rental: rental_five )
-rental_invoice_twentysix = RentalInvoice.create( invoice_date: "2002-06-30", invoice_due: nil,  cc_number: "6599567890126210", cc_type: "discover", cc_expiration_date: "1-Dec-03", rental: rental_five )
-rental_invoice_twentyseven = RentalInvoice.create( invoice_date: "2002-07-30", invoice_due: nil,  cc_number: "6599567890126210", cc_type: "discover", cc_expiration_date: "1-Dec-03", rental: rental_five )
+rental_invoice_twentyfour = RentalInvoice.create( invoice_date: "2002-04-15",  cc_number: "6599567890126210", cc_type: "discover", cc_expiration_date: "1-Dec-03", rental: rental_five , note: "Rental Invoice")
+rental_invoice_twentyfive = RentalInvoice.create( invoice_date: "2002-05-30",  cc_number: "6599567890126210", cc_type: "discover", cc_expiration_date: "1-Dec-03", rental: rental_five , note: "Rental Invoice")
+rental_invoice_twentysix = RentalInvoice.create( invoice_date: "2002-06-30",  cc_number: "6599567890126210", cc_type: "discover", cc_expiration_date: "1-Dec-03", rental: rental_five , note: "Rental Invoice")
+rental_invoice_twentyseven = RentalInvoice.create( invoice_date: "2002-07-30",  cc_number: "6599567890126210", cc_type: "discover", cc_expiration_date: "1-Dec-03", rental: rental_five, note: "Rental Invoice" )
 
 # Generate Testimonial
 testimonial_one = Testimonial.create( date_entered: "31-Mar-02", content: "I really like TEAM1OARS Online Apartment Rental System!", tenant: tenant_one )
@@ -152,7 +152,7 @@ testimonial_three = Testimonial.create( date_entered: "25-Apr-02", content: "I b
 
 # Generate Apartments
 apartment_types = [studio, one_bedroom, two_bedrooms, three_bedrooms]
-0.times do |i|
+30.times do |i|
   apartment = Apartment.create(
     #apartment_type: rand(0..3),
     status: Apartment.statuses[:vacant],
@@ -192,11 +192,10 @@ apartment_types = [studio, one_bedroom, two_bedrooms, three_bedrooms]
     rental: rental
   )
 
-  RentalInvoice.create(invoice_date: Date.today, invoice_due: Date.today, rental: rental, amount: rental.deposit_amount, note: "Initial Deposit")
+  RentalInvoice.create(invoice_date: Date.today, rental: rental, amount: rental.deposit_amount, note: "Initial Deposit")
 
   rental_invoice = RentalInvoice.create(
     invoice_date: rental.lease_start,
-    invoice_due: "2015-01-#{format('%02d', i)}",
     cc_number: Faker::Business.credit_card_number,
     cc_type: Faker::Business.credit_card_type,
     cc_expiration_date: Faker::Business.credit_card_expiry_date,

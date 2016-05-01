@@ -1,5 +1,5 @@
 class RentalInvoice < ActiveRecord::Base
-  enum card_type: { visa: 0, master_card: 1, discover: 2 }
+  enum card_type: { visa: 0, master_card: 1, discover: 2}
   belongs_to :rental
   before_save :validate_payment
   before_save :set_default_dates
@@ -23,7 +23,6 @@ class RentalInvoice < ActiveRecord::Base
   end
 
   def set_default_dates
-    self.invoice_due = Date.today + 7 unless !self.invoice_due.nil?
     self.invoice_date = Date.today unless !self.invoice_date.nil?
     true
   end

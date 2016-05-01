@@ -43,7 +43,7 @@ class RentalsController < ApplicationController
     respond_to do |format|
       if @rental.save
 
-        RentalInvoice.create(invoice_date: Date.today, invoice_due: Date.today, rental: @rental, amount: @rental.deposit_amount, note: "Initial Deposit")
+        RentalInvoice.create(invoice_date: Date.today, rental: @rental, amount: @rental.deposit_amount, note: "Initial Deposit")
 
         format.html { redirect_to @rental, notice: 'Rental was successfully created.' }
         format.json { render :show, status: :created, location: @rental }

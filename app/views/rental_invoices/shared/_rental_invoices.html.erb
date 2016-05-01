@@ -10,7 +10,6 @@
         <th>Apartment Number</th>
         <th>Tenant Name</th>
         <th>Invoice Date</th>
-        <th>Invoice Due</th>
         <th>Invoice Status</th>
         <th>Invoice Note</th>
         <th colspan="3"></th>
@@ -22,10 +21,9 @@
           <td><%= rental_invoice.id %></td>
           <td><%= rental_invoice.rental.id %></td>
           <td><%= rental_invoice.rental.apartment.id %></td>
-          <td><%= number_to_currency rental_invoice.amount %></td>
+          <td><%= number_to_currency  rental_invoice.amount %></td>
           <td><%= rental_invoice.rental.tenant.full_name %></td>
           <td><%= rental_invoice.invoice_date %></td>
-          <td><%= rental_invoice.invoice_due %></td>
           <td><%= rental_invoice.status.titlecase %></td>
           <td><%= rental_invoice.note unless rental_invoice.note.nil? %></td>
           <td><%= link_to 'Show', rental_invoice %></td>

@@ -15,7 +15,6 @@
     <% end %>
     <hr>
     <h4>Invoice Date: <%= @rental_invoice.invoice_date %></h4>
-    <h4>Invoice Due: <%= @rental_invoice.invoice_due %></h4>
     <h4>Invoice Amount: <%= number_to_currency(@rental_invoice.rental.rent_amount) %></h4>
   </div>
   <div class="col-md-6">
