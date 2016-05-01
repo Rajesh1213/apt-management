@@ -88,8 +88,9 @@
                       <% end %>
 
                       <% if user_role == "supervisor" && !current_user.staff.nil? %>
-                      <li><a href="#">Feature 1</a></li>
-                      <li><a href="#">Feature 2</a></li>
+                      <li><a href="<%= complaints_path %>">Complaints</a></li>
+                      <li><a href="<%= staffs_path %>">Staff Summary</a></li>
+                      <li><a href="<%= rentals_path %>">Rental Summary</a></li>
                       <% end %>
 
                       <% if user_role == "assistant" && !current_user.staff.nil? %>
