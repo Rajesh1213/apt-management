@@ -1,0 +1,11 @@
+<!-- Start Testimonial Search Bar -->
+<%= form_for :testimonials,url: testimonials_path,  method: :get, class: "form-horizontal col-md-12" do |f| %>
+  <div class="input-group input-group-lg">
+    <%= label_tag :keywords, nil, class: "sr-only" %>
+    <%= text_field_tag :keywords,nil, placeholder: "Search Testimonials by Keyword", class: "form-control input-lg" %>
+    <span class="input-group-btn">
+      <%= submit_tag "Search Testimonials", class: "btn btn-primary btn-lg" %>
+    </span>
+  </div>
+<% end %>
+<!-- End Testimonial Search Bar -->

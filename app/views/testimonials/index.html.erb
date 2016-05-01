@@ -11,61 +11,57 @@
 <!-- End Jumbotron: Testimonial Call To Action -->
 
 <div class="row testimonials-search">
-	<form class="form-horizontal col-md-12 ng-pristine ng-valid">
-		<div class="form-group-lg">
-			<input class="form-control pull-left" placeholder="Seach for Testimonials by Keyword or All" style="width: 80%;" type="text">
-			<div class="input-group-btn"></div>
-		</div>
-	</form>
+	<%= render partial: 'testimonials/shared/search_bar' %>
 </div>
 
-<div class="featured-testimonial row ng-scope">
+<div class="featured-testimonials row">
 	<div class="col-xs-12 col-md-12">
-		<h3>Featured Testimonial</h3>
+		<% if params[:keywords].nil? %>
+		<h3>Featured Testimonials</h3>
+		<% else %>
+		<h3>Testimonials Search Results</h3>
+		<% end %>
 	</div>
-	<!-- Start Featured Testimonial Item -->
-	<div class="featured-testimonial-item">
-		<div class="featured-image col-xs-4">
-			<img alt="FeaturedTestimonial" src="<%= image_path 'testimonials/testimonials-featured-00.jpg' %>" style="width: 100%;">
-		</div>
-		<div class="col-xs-8">
-			<blockquote>
-				<span class="primary-quote">One of the most exquisite places that I've ever stayed at.</span>
-				<footer>
-					- Xoxo The Cat, "Breathing Intensifies"
-				</footer>
-			</blockquote>
-		</div>
-	</div>
-	<!-- End Featured Testimonial Item -->
-</div>
+	<% if params[:keywords].nil? %>
+	<%= render partial: 'testimonials/shared/featured_testimonial', locals: { testimonial: nil } %>
+	<% end %>
 
-<% if !@testimonials.blank? %>
-<div class="testimonials row">
-	<div class="col-xs-12">
-		<h3>Other Testimonials</h3>
-	</div>
 	<% @testimonials.each do |testimonial| %>
-		<div class="col-xs-12 col-md-6 col-lg-3">
-			<div class="testimonial-item" data-entered="<%= testimonial.date_entered %>">
-
-				<h3>John Doe</h3>
-				<blockquote>
-					<span class="primary-quote"><%= testimonial.content %></span>
-					<footer>
-						- John Doe
-					</footer>
-				</blockquote>
-				<% if user_signed_in? && current_user.role.name == "supervisor" %>
-				<div class="testimonial-admin-options">
-					<%= link_to 'Edit', edit_testimonial_path(testimonial), class: 'btn btn-sm btn-primary', style: "color: #FFF;" %>
-					<%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-primary', style: "color: #FFF;" %>
-				</div>
-				<% end %>
+		<% if !@testimonials.blank? %>
+			<!-- Start Featured Testimonial Item -->
+			<div class="featured-testimonial-item testimonial-item col-md-6">
+			  <div class="featured-image col-xs-4" style="padding: 0;">
+			    <img alt="FeaturedTestimonial" src="<%= image_path 'like_image.jpg' %>" style="width: 100%;">
+			  </div>
+			  <div class="col-xs-8">
+			    <blockquote>
+			      <span class="primary-quote"><%= testimonial.content %></span>
+			      <footer>
+			        <%= testimonial.tenant.full_name %>
+			      </footer>
+			    </blockquote>
+					<% if user_signed_in? && current_user.role.name == "supervisor" %>
+					<div class="testimonial-admin-options">
+						<%= link_to 'Edit', edit_testimonial_path(testimonial), class: 'btn btn-sm btn-primary', style: "color: #FFF;" %>
+						<%= link_to 'Destroy', testimonial, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-primary', style: "color: #FFF;" %>
+					</div>
+					<% end %>
+			  </div>
 			</div>
+			<!-- End Featured Testimonial Item -->
+		<% end %>
+	<% end %>
+
+	<% if !params[:keywords].nil? && @testimonials.empty? %>
+	<div class="col-md-12">
+		<div class="well well-lg">
+			<h3 class="text-center">No Tesitmonials Found for <%= params[:keywords] %></h3>
 		</div>
+	</div>
+
 	<% end %>
 </div>
-<% end %>
+
+
 
 <%= render "static/shared/featured_apartments" %>

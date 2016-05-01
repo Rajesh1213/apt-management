@@ -1,12 +1,26 @@
 class TestimonialsController < ApplicationController
   before_action :set_testimonial, only: [:show, :edit, :update, :destroy]
-  before_action :force_profile
+  before_action :force_profile, except: [:index]
   skip_before_filter :authenticate_user!
 
   # GET /testimonials
   # GET /testimonials.json
   def index
-    @testimonials = Testimonial.all
+    if params[:keywords].present?
+      @keywords = params[:keywords]
+      testimonial_search_term = SearchTerm.new(@keywords, { search_types: ['content'] })
+      @testimonials = Testimonial.where(
+          testimonial_search_term.where_clause,
+          testimonial_search_term.where_args).
+        order(testimonial_search_term.order)
+
+      logger.debug testimonial_search_term.where_clause
+      logger.debug testimonial_search_term.where_args
+
+      logger.debug "Testing"
+    else
+      @testimonials = Testimonial.all
+    end
   end
 
   # GET /testimonials/1

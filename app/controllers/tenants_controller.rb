@@ -4,7 +4,19 @@ class TenantsController < ApplicationController
   # GET /tenants
   # GET /tenants.json
   def index
-    @tenants = Tenant.all
+    if params[:keywords].present? && current_user.role.name
+      @keywords = params[:keywords]
+      tenant_search_term = SearchTerm.new(@keywords)
+      @tenants = Tenant.where(
+          tenant_search_term.where_clause,
+          tenant_search_term.where_args).
+        order(tenant_search_term.order)
+
+      logger.debug tenant_search_term.where_clause
+      logger.debug "Testing"
+    else
+      @tenants = Tenant.all
+    end
   end
 
   # GET /tenants/1

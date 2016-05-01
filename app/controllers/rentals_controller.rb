@@ -5,20 +5,9 @@ class RentalsController < ApplicationController
   # GET /rentals
   # GET /rentals.json
   def index
-    if params[:keywords].present?
-      @keywords = params[:keywords]
-      rental_search_term = RentalSearchTerm.new(@keywords)
-      @rentals = Rental.where(
-          rental_search_term.where_clause,
-          rental_search_term.where_args).
-        order(rental_search_term.order)
-      logger.debug rental_search_term.where_clause
-      logger.debug "Testing"
-    else
-      @rentals = Rental.all
-      if current_user.role.name == "tenant"
-        @rentals = Rental.all.where( tenant: @current_user.tenant)
-      end
+    @rentals = Rental.all
+    if current_user.role.name == "tenant"
+      @rentals = Rental.all.where( tenant: @current_user.tenant)
     end
   end
 

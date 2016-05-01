@@ -6,6 +6,7 @@ class Tenant < ActiveRecord::Base
 
   has_many :rentals
   has_many :apartments, through: :rentals
+  has_one :testimonial
 
   def full_name
     "#{self.first_name} #{self.last_name}"
