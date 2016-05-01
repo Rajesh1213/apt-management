@@ -1,5 +1,18 @@
-<h1>New Tenant Auto</h1>
+<%= link_to 'See Rental', rental_path(@rental) %>
 
-<%= render partial: 'tenant_autos/shared/form', locals: { rental: @rental, tenant_auto: TenantAuto.new}  %>
+<div class="col-md-4">
 
-<%= link_to 'Back', rental_tenant_autos_path %>
+  <div>
+    <%= render partial: "tenants/shared/tenant", locals: { tenant: @rental.tenant } %>
+  </div>
+
+  <div>
+    <%= render partial: "rentals/shared/rental", locals: { rental: @rental } %>
+  </div>
+
+</div>
+
+<div class="col-md-6">
+  <h1>New Tenant Auto</h1>
+  <%= render partial: 'tenant_autos/shared/form', locals: { rental: @rental, tenant_auto: TenantAuto.new}  %>
+</div>

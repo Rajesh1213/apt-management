@@ -41,10 +41,10 @@ class TestimonialsController < ApplicationController
   # POST /testimonials.json
   def create
     @testimonial = Testimonial.new(testimonial_params)
-
+    @testimonial.tenant = current_user.tenant
     respond_to do |format|
       if @testimonial.save
-        format.html { redirect_to @testimonial, notice: 'Testimonial was successfully created.' }
+        format.html { redirect_to tenant_path(current_user.tenant), notice: 'Thank you for your feedback!' }
         format.json { render :show, status: :created, location: @testimonial }
       else
         format.html { render :new }

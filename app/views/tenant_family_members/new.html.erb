@@ -1,5 +1,21 @@
-<h1>New Tenant Family Member</h1>
 
-<%= render partial: 'tenant_family_members/shared/form', locals: { rental: @rental, tenant_family_member: @tenant_family_member } %>
+<%= link_to 'See Rental', rental_path(@rental) %>
 
-<%= link_to 'Back', :back %>
+<div class="col-md-4">
+
+  <div>
+    <%= render partial: "tenants/shared/tenant", locals: { tenant: @rental.tenant } %>
+  </div>
+
+  <div>
+    <%= render partial: "rentals/shared/rental", locals: { rental: @rental } %>
+  </div>
+
+</div>
+
+<div class="col-md-8">
+  <h1>New Tenant Family Member</h1>
+
+  <%= render partial: 'tenant_family_members/shared/form', locals: { rental: @rental, tenant_family_member: @tenant_family_member } %>
+
+</div>

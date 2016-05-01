@@ -1,13 +1,14 @@
 <h3>Rental Information</h3>
 <h5>Rental ID: <%= rental.id %></h5>
-<h4>Apartment #<%= rental.apartment.id %> : <%= rental.lease_start %> to <%= rental.lease_end %></h4>
-<h4><%= rental.lease_type.titlecase %> Lease</h4>
-
-<h4>Apartment: <%= rental.apartment.id %> / Lease Type: <%= rental.lease_type.titlecase %></h4>
-<h4>Rent: <%= number_to_currency(rental.rent_amount) %> | Deposit: <%= number_to_currency(rental.deposit_amount) %></h4>
+<h5>Apartment #<%= rental.apartment.id %> : <%= rental.lease_start %> to <%= rental.lease_end %></h5>
+<h5>Rent: <%= number_to_currency(rental.rent_amount) %></h5> <h5>Deposit: <%= number_to_currency(rental.deposit_amount) %></h5>
+<hr>
+<h5><strong>Lease Type:</strong> <%= rental.lease_type.titlecase %> Lease</h5>
 <h5>Has Utility: <%= rental.has_utility.to_s.titlecase %></h5>
-<h5>Status: <%= rental.status.to_s.titlecase %> / Signed Date: <%= rental.sign_date %></h5>
-<h6>Cancel Date: <%= rental.cancel_date %> </h6>
+<h5>Status: <%= rental.status.to_s.titlecase %></h5>
+<h5>Signed Date: <%= rental.sign_date %></h5>
+<h5>Cancel Date: <%= rental.cancel_date %> </h5>
+<hr/>
 <span>Lease Start: <%= rental.lease_start %></span><br/>
 <span>Lease End: <%= rental.lease_end %> </span><br/>
 <span>Renewal Date: <%= rental.renewal_date %> </span><br/>

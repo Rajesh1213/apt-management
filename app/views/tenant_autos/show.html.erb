@@ -1,10 +1,17 @@
+<%= link_to 'Edit Registration', edit_rental_tenant_auto_path(@rental, @tenant_auto) %> | <%= link_to 'See Rental', rental_path(@rental) %>
 
-<%= render partial: "tenants/shared/tenant", locals: { tenant: @tenant_auto.rental.tenant } %>
+<div class="col-md-4">
 
-<%= render partial: "rentals/shared/rental", locals: { rental: @tenant_auto.rental } %>
+  <div>
+    <%= render partial: "tenants/shared/tenant", locals: { tenant: @tenant_auto.rental.tenant } %>
+  </div>
 
-<%= render partial: "tenant_autos/shared/tenant_auto", locals: { tenant_auto: @tenant_auto } %>
+  <div>
+    <%= render partial: "rentals/shared/rental", locals: { rental: @tenant_auto.rental } %>
+  </div>
 
+</div>
 
-<%= link_to 'Edit', edit_rental_tenant_auto_path(@rental, @tenant_auto) %> |
-<%= link_to 'Back', rental_tenant_autos_path %>
+<div class="col-md-6">
+  <%= render partial: "tenant_autos/shared/tenant_auto", locals: { tenant_auto: @tenant_auto } %>
+</div>

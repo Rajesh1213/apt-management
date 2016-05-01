@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160501044215) do
+ActiveRecord::Schema.define(version: 20160501074056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(version: 20160501044215) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "user_id"
+    t.string   "ssn"
   end
 
   add_index "tenants", ["marital_status"], name: "index_tenants_on_marital_status", using: :btree
@@ -150,13 +151,10 @@ ActiveRecord::Schema.define(version: 20160501044215) do
   create_table "testimonials", force: :cascade do |t|
     t.date     "date_entered"
     t.text     "content"
-    t.integer  "rental_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "tenant_id"
   end
-
-  add_index "testimonials", ["rental_id"], name: "index_testimonials_on_rental_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
