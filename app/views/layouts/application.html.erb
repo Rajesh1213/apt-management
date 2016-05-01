@@ -51,6 +51,17 @@
               <% if user_signed_in? %>
               <ul class="nav navbar-nav col-md-3">
                 <li>
+                  <%= form_for :rentals, method: :get do |f| %>
+                  <div class="input-group input-group-lg">
+                    <%= label_tag :keywords, nil, class: "sr-only" %>
+                    <%= text_field_tag :keywords,nil, placehoder: "Apartment Number, ID", class: "form-control.input-lg" %>
+                    <span class="input-group-btn">
+                      <%= submit_tag "Find Rentals", class: "btn btn btn-primary btn-lg" %>
+                    </span>
+                  </div>
+                  <% end %>
+                </li>
+                <li>
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search for...">
                     <span class="input-group-btn">
