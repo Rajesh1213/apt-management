@@ -64,6 +64,8 @@ GEM
     execjs (2.6.0)
     faker (1.6.3)
       i18n (~> 0.5)
+    faker-medical (0.5.2)
+      faker
     git-version-bump (0.15.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
@@ -191,6 +193,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise (= 4.0.0)
   faker
+  faker-medical
   jbuilder (~> 2.0)
   jquery-rails
   meta_request

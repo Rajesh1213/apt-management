@@ -1,4 +1,4 @@
-<%= form_for(@apartment) do |f| %>
+<%= form_for @apartment, class: "form" do |f| %>
   <% if @apartment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@apartment.errors.count, "error") %> prohibited this apartment from being saved:</h2>
@@ -11,15 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :apartment_type %><br>
-    <%= f.number_field :apartment_type %>
+  <div class="form-group">
+    <%= f.label :apartment_id, "Apartment ID" %>
+    <%= @apartment.id %>
   </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.number_field :status %>
+
+  <div class="form-group">
+    <%= f.label :apartment_type, "Apartment Type" %><br>
+    <%= f.collection_select :apartment_type_id, ApartmentType.all, :id, :name, {}, { class: "form-control" } %>
+  </div>
+  <div class="form-group">
+    <%= f.label :status, "Status" %><br>
+    <%= f.collection_select :status, Apartment.statuses.map { |s| [s.first, s.first.titlecase ] }, :first, :last, {}, { class: "form-control" } %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Update Apartment", class: "form-control" %>
   </div>
 <% end %>

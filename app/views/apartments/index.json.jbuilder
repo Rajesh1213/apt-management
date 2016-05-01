@@ -1,4 +1,4 @@
 json.array!(@apartments) do |apartment|
-  json.extract! apartment, :id, :apartment_type, :status
+  json.extract! apartment, :id, :apartment_type_id, :status
   json.url apartment_url(apartment, format: :json)
 end

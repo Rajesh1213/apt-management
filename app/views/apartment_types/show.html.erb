@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @apartment_type.name %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @apartment_type.code %>
+</p>
+
+<p>
+  <strong>Initial deposit:</strong>
+  <%= @apartment_type.initial_deposit %>
+</p>
+
+<p>
+  <strong>Monthly rent:</strong>
+  <%= @apartment_type.monthly_rent %>
+</p>
+
+<%= link_to 'Edit', edit_apartment_type_path(@apartment_type) %> |
+<%= link_to 'Back', apartment_types_path %>

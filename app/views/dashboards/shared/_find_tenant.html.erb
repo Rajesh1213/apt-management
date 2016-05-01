@@ -1,0 +1,13 @@
+<ul class="nav navbar-nav col-md-3" style="margin-top: 12px;">
+  <li>
+    <%= form_for :tenants,url: tenants_path,  method: :get do |f| %>
+    <div class="input-group input-group-md">
+      <%= label_tag :keywords, nil, class: "sr-only" %>
+      <%= text_field_tag :keywords,nil, placehoder: "Apartment Number, ID", class: "form-control input-md" %>
+      <span class="input-group-btn">
+        <%= submit_tag "Find Tenant", class: "btn btn-primary btn-md" %>
+      </span>
+    </div>
+    <% end %>
+  </li>
+</ul>

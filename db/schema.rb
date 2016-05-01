@@ -11,16 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160501074056) do
+ActiveRecord::Schema.define(version: 20160501082001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "apartment_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.decimal  "initial_deposit"
+    t.decimal  "monthly_rent"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "apartments", force: :cascade do |t|
     t.integer  "apartment_type"
     t.integer  "status"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "apartment_type_id"
   end
 
   add_index "apartments", ["apartment_type"], name: "index_apartments_on_apartment_type", using: :btree

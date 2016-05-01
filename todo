@@ -39,7 +39,7 @@ Final Countdown:
 Add SSN to Tenant
 Add SSN to Staff
 Create an Apartment Type Model and Controller
-  rails g model ApartmentType name:string code:string initial_deposit:decimal
+  rails g model ApartmentType name:string code:string initial_deposit:decimal monthly_rent:decimal
 
   tie it to apartments
 

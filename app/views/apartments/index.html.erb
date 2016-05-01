@@ -19,15 +19,15 @@
       <% @apartments.each do |apartment| %>
       <tr class="<%= apartment.status %>">
         <td><%= apartment.id %></td>
-        <td><%= apartment.apartment_type.titlecase %></td>
+        <td><%= apartment.apartment_type.name.titlecase %></td>
         <td><%= apartment.status.titlecase %> </td>
-        <td><%= apartment.rentals.last.lease_start %></td>
-        <td><%= apartment.rentals.last.lease_end %></td>
+        <td><%= apartment.rentals.last.lease_start.nil? ? "NA" : apartment.rentals.last.lease_start unless apartment.rentals.last.nil? %></td>
+        <td><%= apartment.rentals.last.lease_end.nil? ? "NA" : apartment.rentals.last.lease_end unless apartment.rentals.last.nil? %></td>
         <td>
-          <span class="tenant-name"><%= apartment.tenants.last.full_name %><br/>
-          <span class="label label-sm label-default">jane</span> <span class="label label-sm label-default">jane@mail.com</span> </td>
+          <span class="tenant-name"><%= apartment.tenants.last.full_name unless apartment.rentals.last.nil? %><br/>
+          <span class="label label-sm label-default"><%= apartment.tenants.last.user.username unless apartment.tenants.last.nil? %></span> <span class="label label-sm label-default"><%= apartment.tenants.last.user.email unless apartment.tenants.last.nil? %></span> </td>
         <td>
-          <span><%= link_to 'View Rental', rental_path(apartment.rentals.last) %></span><br/>
+          <span><%= link_to 'View Rental', rental_path(apartment.rentals.last) unless apartment.rentals.last.nil?  %></span><br/>
           <span><%= link_to 'Edit Apartment', edit_apartment_path(apartment) %></span><br/>
           <span><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></span>
         </td>

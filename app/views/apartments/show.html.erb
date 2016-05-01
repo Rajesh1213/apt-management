@@ -1,12 +1,7 @@
-<p>
-  <strong>Apartment type:</strong>
-  <%= @apartment.apartment_type %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @apartment.status %>
-</p>
+<span><strong>Apartment ID:</strong> <%= @apartment.id %></span>
+<span><strong>Apartment Type:</strong><%= @apartment.apartment_type.name %></span><br/>
+<span><strong>Status:</strong><%= @apartment.status %>
+</span>
 
 
 <%= link_to 'Edit', edit_apartment_path(@apartment) %> |

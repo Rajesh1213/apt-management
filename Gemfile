@@ -19,6 +19,7 @@ gem 'devise', '4.0.0'
 gem "bower-rails", "~> 0.10.0"
 
 gem 'faker'
+gem 'faker-medical'
 
 gem 'byebug'
 

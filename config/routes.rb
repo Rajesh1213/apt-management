@@ -43,8 +43,9 @@ Rails.application.routes.draw do
   resources :apartments do
     resources :complaints, module: :apartments
   end
-  
+
   resources :staffs
+  resources :apartment_types
 
 
   # The priority is based upon order of creation: first created -> highest priority.
