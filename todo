@@ -46,3 +46,8 @@ Create an Apartment Type Model and Controller
 
 Workflow for paying rental invoices
   when the user pays for the amount lower than usual, he will be given a secondary invoice...
+
+remove invoice_due from rental invoice
+add amount and note to rental invoice
+add number to apartment
+add number to invoice
