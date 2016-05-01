@@ -40,6 +40,7 @@ class RentalInvoicesController < ApplicationController
   # PATCH/PUT /rental_invoices/1
   # PATCH/PUT /rental_invoices/1.json
   def update
+    @rental_invoice.cc_amount_charged = @rental_invoice.amount
     respond_to do |format|
       if @rental_invoice.update(rental_invoice_params)
         format.html { redirect_to @rental_invoice, notice: 'Rental invoice was successfully updated.' }

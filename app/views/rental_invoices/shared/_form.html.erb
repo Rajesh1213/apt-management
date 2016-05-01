@@ -11,21 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :cc_number, "Credit Card Number" %><br>
-    <%= f.text_field :cc_number %>
+    <%= f.text_field :cc_number, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :cc_type, "Type" %><br>
-    <%= f.text_field :cc_type %>
+    <%= f.collection_select :cc_type, RentalInvoice.card_types.map { |ct| [ ct.first, ct.first.titlecase ] }, :first, :last, {}, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :cc_expiration_date, "Expiration Date" %><br>
-    <%= f.text_field :cc_expiration_date %>
+    <%= f.text_field :cc_expiration_date, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :cc_amount_charged, "Amount Paid" %><br>
-    <%= f.text_field :cc_amount_charged %>
+  <div class="form-group">
+    <%= f.label :cc_amount_charged, "Amount To Be Paid" %><br>
+    <%= f.text_field :cc_amount_charged, value: rental_invoice.amount, disabled: true, class: "form-control" %>
   </div>
   <div class="actions">
     <%= f.submit "Pay Invoice", class: "btn btn-lg btn-success" %>

@@ -1,4 +1,5 @@
 class RentalInvoice < ActiveRecord::Base
+  enum card_type: { visa: 0, master_card: 1, discover: 2 }
   belongs_to :rental
   before_save :validate_payment
   before_save :set_default_dates
@@ -16,7 +17,7 @@ class RentalInvoice < ActiveRecord::Base
   end
   private
   def validate_payment
-    if self.cc_amount_charged == self.rental.rent_amount
+    if self.cc_amount_charged == self.amount
       self.is_paid = true
     end
   end

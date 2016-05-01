@@ -129,13 +129,17 @@ apartment_types = [studio, one_bedroom, two_bedrooms, three_bedrooms]
     rental: rental
   )
 
+  RentalInvoice.create(invoice_date: Date.today, invoice_due: Date.today, rental: rental, amount: rental.deposit_amount, note: "Initial Deposit")
+
   rental_invoice = RentalInvoice.create(
     invoice_date: rental.lease_start,
     invoice_due: "2015-01-#{format('%02d', i)}",
     cc_number: Faker::Business.credit_card_number,
     cc_type: Faker::Business.credit_card_type,
     cc_expiration_date: Faker::Business.credit_card_expiry_date,
-    rental: rental
+    rental: rental,
+    amount: rental.deposit_amount,
+    note: "First Rental Invoice"
   )
 end
 

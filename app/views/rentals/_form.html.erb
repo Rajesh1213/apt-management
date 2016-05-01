@@ -79,22 +79,6 @@
       <%= f.label :has_utility %><br>
       <%= f.check_box :has_utility, class: "form-control" %>
     </div>
-    <div class="form-group">
-      <%= f.label :deposit_amount %><br>
-      <%= f.text_field :deposit_amount, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :rent_amount %><br>
-      <%= f.text_field :rent_amount, class: "form-control" %>
-    </div>
-
-    <%= f.fields_for :tenant_autos do |ff| %>
-      <div>
-        <%= ff.label :auto_make %>
-        <%= ff.text_field :auto_make %>
-
-      </div>
-    <% end %>
 
     <div class="actions">
       <%= f.submit %>

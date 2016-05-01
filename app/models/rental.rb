@@ -8,6 +8,7 @@ class Rental < ActiveRecord::Base
   has_many :rental_invoices
   has_many :tenant_autos
   has_many :tenant_family_members
-  
+
   has_many :complaints, as: :complaintable
+  belongs_to :staff
 end
