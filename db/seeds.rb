@@ -911,7 +911,8 @@ apartment_types = [studio, one_bedroom, two_bedrooms, three_bedrooms]
     deposit_amount: apartment.apartment_type.initial_deposit,
     rent_amount: apartment.apartment_type.monthly_rent,
     tenant: tenants[rand(0..tenants.count-1)],
-    apartment: apartment
+    apartment: apartment,
+    staff: Staff.find_by_id(210)
   )
 
   tenant_family_member = TenantFamilyMember.create(

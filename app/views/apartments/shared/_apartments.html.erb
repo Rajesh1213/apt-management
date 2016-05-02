@@ -1,0 +1,38 @@
+<div class="col-md-12">
+  <table class="table table-striped table-hover table-condensed">
+    <thead>
+      <tr>
+        <th>Apt ID</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Lease Starts</th>
+        <th>Lease Ends</th>
+        <th>Tenant Info</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% apartments.each do |apartment| %>
+      <tr class="<%= apartment.status %>">
+        <td><%= apartment.id %></td>
+        <td><%= apartment.apartment_type.name.titlecase %></td>
+        <td><%= apartment.status.titlecase %> </td>
+        <td><%= apartment.rentals.last.lease_start.nil? ? "NA" : apartment.rentals.last.lease_start unless apartment.rentals.last.nil? %></td>
+        <td><%= apartment.rentals.last.lease_end.nil? ? "NA" : apartment.rentals.last.lease_end unless apartment.rentals.last.nil? %></td>
+        <td>
+          <span class="tenant-name"><%= apartment.tenants.last.full_name unless apartment.rentals.last.nil? %><br/>
+          <span class="label label-sm label-default"><%= apartment.tenants.last.user.username unless apartment.tenants.last.nil? %></span> <span class="label label-sm label-default"><%= apartment.tenants.last.user.email unless apartment.tenants.last.nil? %></span> </td>
+        <td>
+          <span><%= link_to 'View Rental', rental_path(apartment.rentals.last) unless apartment.rentals.last.nil?  %></span><br/>
+          <span><%= link_to 'Edit Apartment', edit_apartment_path(apartment) %></span><br/>
+          <span><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+<%= link_to 'New Apartment', new_apartment_path %>

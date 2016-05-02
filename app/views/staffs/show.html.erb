@@ -1,44 +1,11 @@
+<h3>Staff</h3>
 
+<%= render partial: "staffs/shared/staff", locals: { staff: @staff } %>
 
-<p>
-  <strong>First name:</strong>
-  <%= @staff.first_name %>
-</p>
+<h3>Rentals Created</h3>
+<%= render partial: "rentals/shared/rentals", locals: { rentals: @staff.rentals } %>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @staff.last_name %>
-</p>
-
-<p>
-  <strong>Position:</strong>
-  <%= @staff.position %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @staff.gender %>
-</p>
-
-<p>
-  <strong>Dob:</strong>
-  <%= @staff.dob %>
-</p>
-
-<p>
-  <strong>Salary:</strong>
-  <%= @staff.salary %>
-</p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @staff.user.username %>
-</p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @staff.user.password %>
-</p>
-
+<h3>Complaints Made</h3>
+<%= render partial: "complaints/shared/complaints", locals: { complaints: Complaint.where(user: Staff.find_by_id(230).user) } %>
 <%= link_to 'Edit', edit_staff_path(@staff) %> |
 <%= link_to 'Back', staffs_path %>
