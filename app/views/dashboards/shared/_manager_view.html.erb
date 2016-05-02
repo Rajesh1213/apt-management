@@ -29,6 +29,32 @@
   </div>
 
   <div class="col-md-12">
+    <div class="row">
+
+      <div class="col-md-6">
+        <h3>Projected Income by Month</h3>
+        <table class="table table-striped table-hover table-condensed">
+          <thead>
+            <th>Month</th>
+            <th>Amount Gathered</th>
+            <th>Amount Projected</th>
+            <th>Amount Projected If Full</th>
+          </thead>
+          <tbody>
+            <% Date::ABBR_MONTHNAMES.slice(1,12).each do |month| %>
+            <tr>
+              <td><%= month %></td>
+              <td><%= number_to_currency RentalInvoice.paid.where( 'extract(month from invoice_date) = ?', Date.parse(month).month).sum(:cc_amount_charged) %></td>
+              <td><%= number_to_currency RentalInvoice.paid.where( 'extract(month from invoice_date) = ?', Date.parse(month).month).sum(:cc_amount_charged) %></td>
+              <td><%= number_to_currency Apartment.all.joins(:apartment_type).sum(:monthly_rent) %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
     <h3>Leases Overview</h3>
   </div>
   <div class="col-md-12">
@@ -122,21 +148,7 @@
   </div>
   <div class="col-md-4">
     <h3>Auto Makes Tracker</h3>
-    <table class="table table-striped table-hover table-condensed">
-      <thead>
-        <tr>
-          <th>Apartment ID</th>
-          <th>Apartment Number</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Ford</td>
-          <td>10</td>
-        </tr>
-      </tbody>
-    </table>
+    <%= render partial: "tenant_autos/shared/auto_make_list", locals: { tenant_autos: TenantAuto.all } %>
   </div>
 </div>
 

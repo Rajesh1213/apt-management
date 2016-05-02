@@ -25,8 +25,7 @@
       <p>
         <span><strong>Total Rentals</strong> <%= tenant.rentals.count %></span><br/>
         <% if tenant.user.complaints.present? %><span><strong>Pending Complaints</strong> <%= tenant.user.complaints.count %></span><br/><% end %>
-        <span><strong>Upcoming Invoices</strong> <%= current_user.tenant.rentals.joins("LEFT JOIN rental_invoices ON rental_invoices.rental_id = rentals.id AND rental_invoices.is_paid = false").count %></span><br/>
-        <span><strong>Status</strong> It's Lit Fam!</span>
+        <span><strong>Upcoming Invoices</strong> <%= current_user.tenant.rentals.joins("LEFT JOIN rental_invoices ON rental_invoices.rental_id = rentals.id AND rental_invoices.is_paid = false").count %></span>
       </p>
     </div>
   </div>

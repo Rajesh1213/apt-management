@@ -1,0 +1,32 @@
+
+  <table class="table table-striped table-hover table-condensed">
+    <thead>
+      <tr>
+        <th>Total Autos</th>
+        <th>Unique Models</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= tenant_autos.count %></td>
+        <td><%= tenant_autos.distinct.count(:auto_make) %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-striped table-hover table-condensed">
+    <thead>
+      <tr>
+        <th>Auto Make</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tenant_autos.select("auto_make").group(:auto_make).count.each do |key, value|  %>
+        <tr>
+          <td><%= key %></td>
+          <td><%= value %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

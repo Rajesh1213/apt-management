@@ -1,0 +1,44 @@
+<table class="table table-striped table-hover table-condensed">
+  <thead>
+    <tr>
+      <th>Rental ID</th>
+      <th>Apartment ID</th>
+      <th>Apartment Type</th>
+      <th>Sign Date</th>
+      <th>Status</th>
+      <th>Cancel Date</th>
+      <th>Lease type</th>
+      <th>Lease Start</th>
+      <th>Lease End</th>
+      <th>Renewal date</th>
+      <th>Utility</th>
+      <th>Deposit amount</th>
+      <th>Rent amount</th>
+      <th>Rented By Staff</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% rentals.each do |rental| %>
+    <tr>
+      <td><%= rental.id %></td>
+      <td><%= rental.apartment.id %></td>
+      <td><%= rental.apartment.apartment_type.name %></td>
+      <td><%= rental.sign_date %></td>
+      <td><%= rental.status.titlecase %></td>
+      <td><%= rental.cancel_date %></td>
+      <td><%= rental.lease_type.titlecase %></td>
+      <td><%= rental.lease_start %></td>
+      <td><%= rental.lease_end %></td>
+      <td><%= rental.renewal_date %></td>
+      <td><%= rental.has_utility.to_s.titlecase %></td>
+      <td><%= number_to_currency rental.deposit_amount %></td>
+      <td><%= number_to_currency rental.rent_amount %></td>
+      <th><%= rental.staff.full_name unless rental.staff.nil? %></th>
+      <td><%= link_to 'View Details', rental %></td>
+      <td><%= link_to 'Edit', edit_rental_path(rental) unless current_user.role.name == "tenant" %></td>
+      <td><%= link_to 'Destroy', rental, method: :delete, data: { confirm: 'Are you sure?' } unless current_user.role.name == "tenant" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
