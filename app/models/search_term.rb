@@ -43,9 +43,12 @@ private
 
   def build_for_content_search(search_term)
     @where_clause << case_insensitive_search(:content)
-    @where_args[:content]  = starts_with(search_term)
+    @where_args[:content]  = contains(search_term)
   end
 
+  def contains(search_term)
+    "%" + search_term + "%"
+  end
   def starts_with(search_term)
     search_term + "%"
   end
