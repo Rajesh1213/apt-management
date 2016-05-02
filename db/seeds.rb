@@ -530,7 +530,7 @@ tenant_auto_seven = TenantAuto.create(
 
 # Generate Family
 tenant_family_member_one = TenantFamilyMember.create(
-  ss: "444-663-434",
+  ssn: "444-663-434",
 	name: "Kay Robin",
 	member_type: TenantFamilyMember.member_types[:spouse],
 	marital_status: TenantFamilyMember.marital_statuses[:married],
@@ -540,7 +540,7 @@ tenant_family_member_one = TenantFamilyMember.create(
 )
 
 tenant_family_member_two = TenantFamilyMember.create(
-  ss: "222-664-343",
+  ssn: "222-664-343",
 	name: "Saria Reddy",
 	member_type: TenantFamilyMember.member_types[:spouse],
 	marital_status: TenantFamilyMember.marital_statuses[:married],
@@ -550,7 +550,7 @@ tenant_family_member_two = TenantFamilyMember.create(
 )
 
 tenant_family_member_two = TenantFamilyMember.create(
-  ss: "222-663-434",
+  ssn: "222-663-434",
 	name: "Anjali Reddy",
 	member_type: TenantFamilyMember.member_types[:child],
 	marital_status: TenantFamilyMember.marital_statuses[:married],
@@ -560,7 +560,7 @@ tenant_family_member_two = TenantFamilyMember.create(
 )
 
 tenant_family_member_two = TenantFamilyMember.create(
-  ss: "111-444-663",
+  ssn: "111-444-663",
 	name: "Terry Williams",
 	member_type: TenantFamilyMember.member_types[:spouse],
 	marital_status: TenantFamilyMember.marital_statuses[:married],
@@ -570,7 +570,7 @@ tenant_family_member_two = TenantFamilyMember.create(
 )
 
 tenant_family_member_two = TenantFamilyMember.create(
-  ss: "232-446-634",
+  ssn: "232-446-634",
 	name: "Tom Williams",
 	member_type: TenantFamilyMember.member_types[:spouse],
 	marital_status: TenantFamilyMember.marital_statuses[:married],
@@ -916,7 +916,7 @@ apartment_types = [studio, one_bedroom, two_bedrooms, three_bedrooms]
   )
 
   tenant_family_member = TenantFamilyMember.create(
-    ss: "000-00-000",
+    ssn: "000-00-000",
     name: Faker::Name.name,
     member_type: TenantFamilyMember.member_types[:relative],
     marital_status: TenantFamilyMember.marital_statuses[:single],
