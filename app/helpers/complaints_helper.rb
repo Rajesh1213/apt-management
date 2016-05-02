@@ -8,4 +8,15 @@ module ComplaintsHelper
     end
   end
 
+  def status_class(complaint)
+    case complaint.status
+    when Complaint.statuses.to_hash.key(Complaint.statuses[:not_determined])
+      " warning"
+    when Complaint.statuses.to_hash.key(Complaint.statuses[:fixed])
+      " success"
+    when Complaint.statuses.to_hash.key(Complaint.statuses[:pending])
+      " danger"
+    end
+  end
+
 end

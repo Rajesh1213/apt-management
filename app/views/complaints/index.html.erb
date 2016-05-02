@@ -15,7 +15,7 @@
 
   <tbody>
     <% @complaints.each do |complaint| %>
-      <tr>
+      <tr class="<%= status_class(complaint) %>">
         <td><%= complaint.id %></td>
         <td><%= complaint.complaintable_type %></td>
         <td><%= complaint.complaintable_id %></td>
