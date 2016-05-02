@@ -94,6 +94,14 @@
            <% end %>
         </div>
     </div>
+
+    <div class="container">
+      <% if user_signed_in? && current_user.role.name == "tenant" && current_user.tenant.present? %>
+      <div class="container">
+        <%= render partial: "tenants/shared/tenant_preview", locals: { tenant: current_user.tenant } %>
+      </div>
+      <% end %>
+    </div>
     <div class="container">
       <div class="row">
         <div class="alert alert-success" role="alert">
@@ -106,6 +114,7 @@
     </div>
 </div>
 <div class="container">
+
 <%= yield %>
 </div>
 

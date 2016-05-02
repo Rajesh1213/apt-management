@@ -5,10 +5,12 @@ class Tenant < ActiveRecord::Base
   belongs_to :user
 
   has_many :rentals
+  has_many :rental_invoices, through: :rentals
   has_many :apartments, through: :rentals
   has_one :testimonial
 
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
+
 end

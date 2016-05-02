@@ -1,20 +1,23 @@
-
 <table class="table table-hover table-striped table-condensed">
   <thead>
     <th>Complaint ID</th>
-    <th>Status</th>
-    <th>Date/Time</th>
+    <th>Complaint For</th>
+    <th>Association ID</th>
+    <th>Complaint By</th>
+    <th>Date Filed</th>
     <th>Complaint</th>
-    <th>Complaintee</th>
+    <th>Status</th>
   </thead>
   <tbody>
     <% Complaint.where(user: current_user).each do |complaint| %>
     <tr>
-      <th><%= complaint.id %></th>
-      <th><%= complaint.status %></th>
-      <th><%= complaint.created_at %></th>
-      <th colspan="3"><%= complaint.content %></th>
-      <th><%= complaint.user %></th>
+      <td><%= complaint.id %></td>
+      <td><%= complaint.complaintable_type %></td>
+      <td><%= complaint.complaintable_id %></td>
+      <td><%= complaint.user.email %></td>
+      <td><%= complaint.date_filed %></td>
+      <td colspan="3"><%= complaint.content %></td>
+      <td><%= complaint.status.titlecase %></td>
     </tr>
     <% end %>
   </tbody>

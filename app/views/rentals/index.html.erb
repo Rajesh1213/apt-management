@@ -8,14 +8,15 @@
       <tr>
         <th>Rental ID</th>
         <th>Apartment ID</th>
-        <th>Sign date</th>
+        <th>Apartment Type</th>
+        <th>Sign Date</th>
         <th>Status</th>
-        <th>Cancel date</th>
+        <th>Cancel Date</th>
         <th>Lease type</th>
-        <th>Lease start</th>
-        <th>Lease end</th>
+        <th>Lease Start</th>
+        <th>Lease End</th>
         <th>Renewal date</th>
-        <th>Has utility</th>
+        <th>Utility</th>
         <th>Deposit amount</th>
         <th>Rent amount</th>
         <th>Rented By Staff</th>
@@ -27,6 +28,7 @@
       <tr>
         <td><%= rental.id %></td>
         <td><%= rental.apartment.id %></td>
+        <td><%= rental.apartment.apartment_type.name %></td>
         <td><%= rental.sign_date %></td>
         <td><%= rental.status.titlecase %></td>
         <td><%= rental.cancel_date %></td>

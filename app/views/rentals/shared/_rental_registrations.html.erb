@@ -4,6 +4,7 @@
     <tr>
       <th>Rental ID</th>
       <th>Apartment ID</th>
+      <th>Apartment Type</th>
       <th>Status</th>
       <th>Lease Type</th>
       <th>Lease Starts</th>
@@ -16,12 +17,20 @@
     <tr>
         <td><%= rental.id %></td>
         <td><%= rental.apartment.id %></td>
+        <td><%= rental.apartment.apartment_type.name %></td>
         <td><%= rental.status %></td>
         <td><%= rental.lease_type %></td>
         <td><%= rental.lease_start %></td>
         <td><%= rental.lease_end %></td>
         <td><%= link_to 'View Rental', rental %></td>
         <td><%= link_to 'Edit Rental', edit_rental_path(rental) %></td>
+        <tr class="active">
+          <td colspan="1"></td>
+          <td colspan="7">
+            <h5 style="line-height: 2em; border-bottom: 4px solid #000;">Invoices for Rental</h5>
+            <%= render partial: "rental_invoices/shared/simple_rental_invoices", locals: { rental_invoices: rental.rental_invoices } %>
+          </td>
+        </tr>
         <tr class="active">
           <td colspan="1"></td>
           <td colspan="7">

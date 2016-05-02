@@ -8,6 +8,7 @@
         <th>Invoice ID</th>
         <th>Rental ID</th>
         <th>Apartment Number</th>
+        <th>Amount Due</th>
         <th>Tenant Name</th>
         <th>Invoice Date</th>
         <th>Invoice Status</th>
@@ -24,11 +25,10 @@
           <td><%= number_to_currency  rental_invoice.amount %></td>
           <td><%= rental_invoice.rental.tenant.full_name %></td>
           <td><%= rental_invoice.invoice_date %></td>
-          <td><%= rental_invoice.status.titlecase %></td>
+          <td><%= display_rental_status(rental_invoice) %></td>
           <td><%= rental_invoice.note unless rental_invoice.note.nil? %></td>
-          <td><%= link_to 'Show', rental_invoice %></td>
-          <td><%= link_to 'Edit', edit_rental_invoice_path(rental_invoice) %></td>
-          <td><%= link_to 'Destroy', rental_invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to rental_invoice_action_text(rental_invoice), rental_invoice %></td>
+          <% if current_user.role.name != "tenant" %><td><%= link_to 'Destroy', rental_invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
         </tr>
       <% end %>
     </tbody>

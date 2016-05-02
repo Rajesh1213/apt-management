@@ -448,6 +448,7 @@ complaint_five = Complaint.create(
 complaint_six = Complaint.create(
   date_filed: "2002-10-20",
 	complaintable_id: apartment_three.id,
+  complaintable_type: apartment_three.class.to_s,
 	content: "delay in payment",
 	status: Complaint.statuses[:fixed],
 	user: user_tenant_two

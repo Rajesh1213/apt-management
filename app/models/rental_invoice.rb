@@ -3,6 +3,8 @@ class RentalInvoice < ActiveRecord::Base
   belongs_to :rental
   before_save :validate_payment
   before_save :set_default_dates
+  scope :paid, -> { where(is_paid: true) }
+  scope :unpaid, -> { where("is_paid is NULL or false") }
 
   def paid?
     if self.is_paid.nil? || self.is_paid == false
@@ -26,4 +28,5 @@ class RentalInvoice < ActiveRecord::Base
     self.invoice_date = Date.today unless !self.invoice_date.nil?
     true
   end
+
 end

@@ -1,0 +1,32 @@
+  <div class="row">
+    <div class="col-md-3">
+      <h5>Welcome back, <%= tenant.full_name %>!</h5>
+      <p>You've got pending invoices.</p>
+    </div>
+    <div class="col-md-3">
+      <h5><%= tenant.full_name %> <span class="label label-default">Tenant</span></h5>
+      <p>
+        <%= tenant.user.email %><br/>
+        SSN: <%= tenant.ssn %>
+      </p>
+    </div>
+
+    <div class="col-md-3">
+      <address>
+        <strong><%= tenant.employer %>.</strong><br>
+        DOB: <%= tenant.dob %><br>
+        Gender: <%= tenant.gender.titlecase %><br>
+        <abbr title="Home Phone">H:</abbr> <%= tenant.home_phone %><br/>
+        <abbr title="Work Phone">W:</abbr> <%= tenant.work_phone %>
+      </address>
+    </div>
+
+    <div class="col-md-3">
+      <p>
+        <span><strong>Total Rentals</strong> <%= tenant.rentals.count %></span><br/>
+        <% if tenant.user.complaints.present? %><span><strong>Pending Complaints</strong> <%= tenant.user.complaints.count %></span><br/><% end %>
+        <span><strong>Upcoming Invoices</strong> <%= current_user.tenant.rentals.joins("LEFT JOIN rental_invoices ON rental_invoices.rental_id = rentals.id AND rental_invoices.is_paid = false").count %></span><br/>
+        <span><strong>Status</strong> It's Lit Fam!</span>
+      </p>
+    </div>
+  </div>

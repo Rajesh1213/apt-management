@@ -6,6 +6,7 @@
       <th>Complaint ID</th>
       <th>Complaint For</th>
       <th>Association ID</th>
+      <th>Complaint By</th>
       <th>Date filed</th>
       <th>Complaint</th>
       <th>Status</th>
@@ -19,6 +20,7 @@
         <td><%= complaint.id %></td>
         <td><%= complaint.complaintable_type %></td>
         <td><%= complaint.complaintable_id %></td>
+        <td><%= complaint.user.email %></td>
         <td><%= complaint.date_filed %></td>
         <td><%= complaint.content %></td>
         <td><%= complaint.status.titlecase %></td>

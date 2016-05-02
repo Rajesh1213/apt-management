@@ -3,7 +3,7 @@
 <%= render partial: "staffs/shared/staff", locals: { staff: @staff } %>
 
 <h3>Rentals Created</h3>
-<%= render partial: "rentals/shared/rentals", locals: { rentals: @staff.rentals } %>
+<%= render partial: "rentals/shared/simple_rentals", locals: { rentals: @staff.rentals } %>
 
 <h3>Complaints Made</h3>
 <%= render partial: "complaints/shared/complaints", locals: { complaints: Complaint.where(user: Staff.find_by_id(230).user) } %>

@@ -27,4 +27,34 @@ module RentalInvoicesHelper
       html_classes += "warning"
     end
   end
+
+  def status_text(rental_invoice)
+    if rental_invoice.paid?
+      ""
+    elsif rental_invoice.invoice_date < Date.today
+      "Overdue"
+    else
+      "Due Soon"
+    end
+  end
+
+  def rental_invoice_action_text(rental_invoice)
+    if rental_invoice.paid?
+      "View Receipt"
+    else
+      "Pay Invoice"
+    end
+  end
+
+  def rental_invoice_action(rental_invoice)
+    if rental_invoice.paid?
+      "Payment Record"
+    else
+      "Pay Invoice"
+    end
+  end
+
+  def display_rental_status(rental_invoice)
+    "#{rental_invoice.status.titlecase} #{status_text(rental_invoice)}"
+  end
 end

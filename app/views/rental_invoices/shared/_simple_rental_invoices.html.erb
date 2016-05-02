@@ -1,0 +1,31 @@
+<table class="table table-striped table-hover table-condensed">
+  <thead>
+    <tr>
+      <th>Invoice ID</th>
+      <th>Rental ID</th>
+      <th>Apartment Number</th>
+      <th>Amount Due</th>
+      <th>Tenant Name</th>
+      <th>Invoice Date</th>
+      <th>Invoice Status</th>
+      <th>Invoice Note</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% rental_invoices.each do |rental_invoice| %>
+      <tr class="<%= status_row_class( rental_invoice ) %>">
+        <td><%= rental_invoice.id %></td>
+        <td><%= rental_invoice.rental.id %></td>
+        <td><%= rental_invoice.rental.apartment.id %></td>
+        <td><%= number_to_currency rental_invoice.amount %></td>
+        <td><%= rental_invoice.rental.tenant.full_name %></td>
+        <td><%= rental_invoice.invoice_date %></td>
+        <td><%= display_rental_status(rental_invoice) %></td>
+        <td><%= rental_invoice.note unless rental_invoice.note.nil? %></td>
+        <td><%= link_to rental_invoice_action_text(rental_invoice), rental_invoice %></td>
+        <% if current_user.role.name != "tenant" %><td><%= link_to 'Destroy', rental_invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

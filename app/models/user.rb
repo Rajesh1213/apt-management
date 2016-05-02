@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   belongs_to :role
   has_one :staff
   has_one :tenant
+  has_many :complaints
 
   before_create :set_default_role
 
