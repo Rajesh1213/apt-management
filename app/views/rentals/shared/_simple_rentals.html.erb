@@ -7,7 +7,8 @@
       <th>Sign Date</th>
       <th>Status</th>
       <th>Cancel Date</th>
-      <th>Lease type</th>
+      <th>Lease Type</th>
+      <th>Lease Length</th>
       <th>Lease Start</th>
       <th>Lease End</th>
       <th>Renewal date</th>
@@ -28,6 +29,7 @@
       <td><%= rental.status.titlecase %></td>
       <td><%= rental.cancel_date %></td>
       <td><%= rental.lease_type.titlecase %></td>
+      <td><%= (rental.lease_end - rental.lease_start).to_i unless rental.lease_end.nil? || rental.lease_start.nil? %> day(s)</td>
       <td><%= rental.lease_start %></td>
       <td><%= rental.lease_end %></td>
       <td><%= rental.renewal_date %></td>

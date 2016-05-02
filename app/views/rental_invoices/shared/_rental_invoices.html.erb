@@ -6,6 +6,7 @@
     <thead>
       <tr>
         <th>Invoice ID</th>
+        <th>Invoice No</th>
         <th>Rental ID</th>
         <th>Apartment Number</th>
         <th>Amount Due</th>
@@ -20,6 +21,7 @@
       <% rental_invoices.each do |rental_invoice| %>
         <tr class="<%= status_row_class( rental_invoice ) %>">
           <td><%= rental_invoice.id %></td>
+          <td><%= rental_invoice.number unless rental_invoice.number.nil? %></td>
           <td><%= rental_invoice.rental.id %></td>
           <td><%= rental_invoice.rental.apartment.id %></td>
           <td><%= number_to_currency  rental_invoice.amount %></td>

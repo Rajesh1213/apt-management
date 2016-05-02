@@ -20,6 +20,9 @@ class RentalsController < ApplicationController
   # GET /rentals/new
   def new
     @rental = Rental.new(params[:apartment])
+    if params[:apartment_id].present?
+      @rental.apartment_id = params[:apartment_id]
+    end
     @apartments = Apartment.all.where( status: Apartment.statuses[:vacant])
     @tenants = Tenant.all
     @rental.lease_start = Date.today
@@ -45,7 +48,7 @@ class RentalsController < ApplicationController
 
         RentalInvoice.create(invoice_date: Date.today, rental: @rental, amount: @rental.deposit_amount, note: "Initial Deposit")
 
-        format.html { redirect_to @rental, notice: 'Rental was successfully created.' }
+        format.html { redirect_to @rental, notice: 'Rental Confirmation Details are below. Please pay rental deposit immediately.' }
         format.json { render :show, status: :created, location: @rental }
       else
         format.html { render :new }

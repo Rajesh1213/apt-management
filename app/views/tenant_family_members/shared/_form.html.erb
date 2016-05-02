@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :dob, "Date of Birth" %><br>
-    <%= f.date_select :dob %>
+    <%= f.date_select :dob, start_year: 1900, end_year: Date.today.year, class: "form-control" %>
   </div>
   <div class="actions">
     <%= f.submit "Add Family Member", class: "btn btn-default" %>

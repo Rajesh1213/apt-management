@@ -72,8 +72,8 @@
                       <% end %>
 
                       <% if user_role == "manager" && !current_user.staff.nil? %>
-                      <li><a href="#">Feature 1</a></li>
-                      <li><a href="#">Feature 2</a></li>
+                      <li><a href="<%= rentals_path %>">Rentals/Leases</a></li>
+                      <li><a href="<%= apartments_path %>">Apartments</a></li>
                       <% end %>
 
                       <% if user_role == "supervisor" && !current_user.staff.nil? %>

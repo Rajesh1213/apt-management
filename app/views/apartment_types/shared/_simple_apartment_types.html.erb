@@ -1,0 +1,27 @@
+<table class="table table-hover table-striped table-condensed">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Initial Deposit</th>
+      <th>Monthly Rent</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% apartment_types.each do |apartment_type| %>
+      <tr>
+        <td><%= apartment_type.name %></td>
+        <td><%= apartment_type.code %></td>
+        <td><%= apartment_type.initial_deposit %></td>
+        <td><%= apartment_type.monthly_rent %></td>
+        <% if current_user.role.name == "supervisor" %>
+        <td><%= link_to 'Show', apartment_type %></td>
+        <td><%= link_to 'Edit', edit_apartment_type_path(apartment_type) %></td>
+        <td><%= link_to 'Destroy', apartment_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

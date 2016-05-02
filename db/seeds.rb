@@ -894,10 +894,10 @@ date_entered: "25-Apr-02", content: "I believe that the Tenants and Visitors wil
 
 # Generate Apartments
 apartment_types = [studio, one_bedroom, two_bedrooms, three_bedrooms]
-0.times do |i|
+30.times do |i|
   apartment = Apartment.create(
     #apartment_type: rand(0..3),
-    status: Apartment.statuses[:vacant],
+    status: Apartment.statuses[:rented],
     apartment_type: apartment_types.sample
   )
 

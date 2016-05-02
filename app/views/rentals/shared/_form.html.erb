@@ -1,0 +1,87 @@
+<div class="row">
+  <%= form_for rental, html: { class: 'form col-md-12' } do |f| %>
+
+    <div class="row">
+      <% if rental.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(rental.errors.count, "error") %> prohibited this rental from being saved:</h2>
+          <ul>
+          <% rental.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-xs-12">
+        <%= f.label :tenant, "Tenant" %>
+        <%= f.collection_select( :tenant_id, @tenants.map { |t| [t.id, "#{t.id} : #{t.first_name} #{t.last_name} #{t.home_phone}"] }, :first, :last, { prompt: true }, { class: "form-control" } ) %>
+      </div>
+      <div class="col-md-12">
+        <%= f.label :apartment, "Apartment"%>
+        <%= f.collection_select( :apartment_id, @apartments.map { |a| [ a.id, "##{a.id} : #{a.status.titlecase}" ] }, :first, :last, {prompt: true}, { class: "form-control" }) %>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-xs-3 col-md-3">
+        <%= f.label :status %><br>
+        <select name="rental[status]" class="form-control">
+          <option value="">Please select</option>
+          <option value="signed_not_occupied" selected="selected">Signed Not Occupied</option>
+          <option value="occupied">Occupied</option>\
+        </select>
+        </div>
+
+      <div class="col-xs-3 col-md-4">
+        <%= f.label :lease_type %><br>
+        <select name="rental[lease_type]" class="form-control">
+          <option value="">Please select</option>
+          <option value="one_year" selected="selected">One Year</option>
+          <option value="six_months">Six Months</option>\
+        </select>
+      </div>
+
+      <div class="col-xs-3">
+        <%= f.label :sign_date %><br>
+        <%= f.date_select :sign_date, class: "form-control" %>
+      </div>
+
+      <div class="col-xs-3">
+        <%= f.label :cancel_date %><br>
+        <%= f.date_select :cancel_date, class: "form-control"  %>
+      </div>
+
+    </div>
+
+    <div class="row form-group">
+      <div class="col-xs-4">
+        <%= f.label :lease_end %><br>
+        <%= f.date_select :lease_end, class: "form-control"  %>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-xs-4">
+        <%= f.label :renewal_date %><br>
+        <%= f.date_select :renewal_date, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :lease_start %><br>
+      <%= f.date_select :lease_start, class: "form-control" %>
+    </div>
+
+
+    <div class="form-group">
+      <%= f.label :has_utility %><br>
+      <%= f.check_box :has_utility, class: "form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

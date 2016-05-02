@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502081620) do
+ActiveRecord::Schema.define(version: 20160502114723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20160502081620) do
   end
 
   create_table "apartments", force: :cascade do |t|
-    t.integer  "apartment_type"
     t.integer  "status"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
@@ -34,7 +33,6 @@ ActiveRecord::Schema.define(version: 20160502081620) do
     t.integer  "number"
   end
 
-  add_index "apartments", ["apartment_type"], name: "index_apartments_on_apartment_type", using: :btree
   add_index "apartments", ["status"], name: "index_apartments_on_status", using: :btree
 
   create_table "complaints", force: :cascade do |t|

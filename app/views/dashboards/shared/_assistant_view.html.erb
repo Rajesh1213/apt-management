@@ -1,0 +1,12 @@
+<div class="row">
+
+  <div class="col-md-6">
+    <h3>Available Rates</h3>
+    <%= render partial: "apartment_types/shared/simple_apartment_types", locals: { apartment_types: ApartmentType.all } %>
+  </div>
+  <div class="col-md-6">
+    <h3>Vacant Apartments</h3>
+    <%= render partial: "apartments/shared/simple_apartments", locals: { apartments: Apartment.vacant } %>
+  </div>
+
+</div>

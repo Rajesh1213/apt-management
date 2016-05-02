@@ -1,184 +1,49 @@
 
 <div class="row">
   <div class="col-md-12">
-    <h3>Potential Income At A Glance</h3>
-  </div>
-  <div class="col-md-12">
-    <table class="table table-striped table-hover table-condensed">
-      <thead>
-        <tr>
-          <th>Location</th>
-          <th>Capacity</th>
-          <th>Full House Intake</th>
-          <th>Current Occupied</th>
-          <th>Current Intake</th>
-          <th>Current Vacant</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Hanover At Rice</td>
-          <td>300</td>
-          <td>$420,000</td>
-          <td>100</td>
-          <td>$140,000</td>
-          <td>200</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="col-md-12">
     <div class="row">
-
-      <div class="col-md-6">
-        <h3>Projected Income by Month</h3>
+      <div class="col-md-12">
+        <h3>Projected Income for <%= Date.today.year %> by Month</h3>
         <table class="table table-striped table-hover table-condensed">
           <thead>
             <th>Month</th>
-            <th>Amount Gathered</th>
+            <th>Amount Paid</th>
             <th>Amount Projected</th>
-            <th>Amount Projected If Full</th>
+            <th>Amount Unpaid</th>
+            <th>Amount Projected If Full House</th>
           </thead>
           <tbody>
             <% Date::ABBR_MONTHNAMES.slice(1,12).each do |month| %>
             <tr>
               <td><%= month %></td>
-              <td><%= number_to_currency RentalInvoice.paid.where( 'extract(month from invoice_date) = ?', Date.parse(month).month).sum(:cc_amount_charged) %></td>
-              <td><%= number_to_currency RentalInvoice.paid.where( 'extract(month from invoice_date) = ?', Date.parse(month).month).sum(:cc_amount_charged) %></td>
+              <td><%= number_to_currency RentalInvoice.paid.on_year( Date.today.year).on_month(Date.parse(month).month).sum(:cc_amount_charged) %></td>
+              <td><%= number_to_currency RentalInvoice.on_year( Date.today.year).on_month(Date.parse(month).month).sum(:amount) %></td>
+              <td><%= number_to_currency RentalInvoice.unpaid.on_year( Date.today.year).on_month(Date.parse(month).month).sum(:amount) %></td>
               <td><%= number_to_currency Apartment.all.joins(:apartment_type).sum(:monthly_rent) %></td>
             </tr>
             <% end %>
           </tbody>
         </table>
       </div>
+
+
     </div>
   </div>
-  <div class="col-md-12">
-    <h3>Leases Overview</h3>
-  </div>
-  <div class="col-md-12">
-    <table class="table table-striped table-hover table-condensed">
-      <thead>
-        <tr>
-          <th>Apt ID/Number</th>
-          <th>Location</th>
-          <th>Days Leased</th>
-          <th>Total Paid</th>
-          <th>Status</th>
-          <th>Left To Pay</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1/200</td>
-          <td>Hanover At Rice</td>
-          <td>200 days</td>
-          <td>$22,400</td>
-          <td>On Time</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>1/200</td>
-          <td>Hanover At Rice</td>
-          <td>200 days</td>
-          <td>$22,400</td>
-          <td>On Time</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>1/200</td>
-          <td>Hanover At Rice</td>
-          <td>200 days</td>
-          <td>$22,400</td>
-          <td>On Time</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>1/200</td>
-          <td>Hanover At Rice</td>
-          <td>200 days</td>
-          <td>$22,400</td>
-          <td>On Time</td>
-          <td>0</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
 </div>
+
 <div class="row">
-  <div class="vacant-apartments col-md-8">
+  <div class="col-md-6">
     <h3>Vacant Apartments</h3>
-    <table class="table table-striped table-hover table-condensed">
-      <thead>
-        <tr>
-          <th>Apartment ID</th>
-          <th>Apartment Number</th>
-          <th>Apartment Location</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>200</td>
-          <td>Complex A At Hanover Rice</td>
-          <td><a href="#" class="btn btn-default btn-small">Rent Apartment &rsaquo;</span></td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>200</td>
-          <td>Complex A At Hanover Rice</td>
-          <td><a href="#" class="btn btn-default btn-small">Rent Apartment &rsaquo;</span></td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>200</td>
-          <td>Complex A At Hanover Rice</td>
-          <td><a href="#" class="btn btn-default btn-small">Rent Apartment &rsaquo;</span></td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>200</td>
-          <td>Complex A At Hanover Rice</td>
-          <td><a href="#" class="btn btn-default btn-small">Rent Apartment &rsaquo;</span></td>
-        </tr>
-      </tbody>
-    </table>
+    <%= render partial: "apartments/shared/simple_apartments", locals: { apartments: Apartment.vacant } %>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-6">
     <h3>Auto Makes Tracker</h3>
     <%= render partial: "tenant_autos/shared/auto_make_list", locals: { tenant_autos: TenantAuto.all } %>
   </div>
 </div>
-
 <div class="row">
   <div class="col-md-12">
-    <h3>Open Leases</h3>
-  </div>
-  <div class="col-md-12">
-    <table class="table table-striped table-hover table-condensed">
-      <thead>
-        <tr>
-          <th>Apartment ID</th>
-          <th>Apartment Number</th>
-          <th>Apartment Location</th>
-          <th>Lease Length</th>
-          <th>Lease End Date</th>
-          <th>Days Until Lease Ends</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>20</td>
-          <td>200</td>
-          <td>Hanover at Rice</td>
-          <td>360 days</td>
-          <td>Lease End Date</td>
-          <td>30 days</td>
-
-        </tr>
-      </tbody>
-    </table>
+    <h3>All Leases</h3>
+    <%= render partial: "rentals/shared/simple_rentals", locals: { rentals: Rental.all } %>
   </div>
 </div>

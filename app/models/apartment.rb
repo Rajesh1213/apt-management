@@ -5,5 +5,8 @@ class Apartment < ActiveRecord::Base
   has_many :tenants, through: :rentals
   has_many :complaints, as: :complaintable
 
+  scope :vacant, -> { where( status: self.statuses[:vacant]) }
+  scope :rented, -> { where( status: self.statuses[:rented]) }
+
   belongs_to :apartment_type
 end

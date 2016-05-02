@@ -5,6 +5,8 @@ class RentalInvoice < ActiveRecord::Base
   before_save :set_default_dates
   scope :paid, -> { where(is_paid: true) }
   scope :unpaid, -> { where("is_paid is NULL or false") }
+  scope :on_month, -> (month) { where( 'extract(month from invoice_date) = ?', month) }
+  scope :on_year, -> (year) { where( 'extract(year from invoice_date) = ?', year) }
 
   def paid?
     if self.is_paid.nil? || self.is_paid == false
