@@ -23,6 +23,14 @@ class User < ActiveRecord::Base
     !confirmed?
   end
 
+  def staff?
+    self.staff.present? && current_user.role.name != "tenant"
+  end
+
+  def tenant?
+    self.tenant.present?
+  end
+
   private
 
   def set_default_role

@@ -402,7 +402,7 @@ rental_six = Rental.create(
 # Generate Complaints
 complaint_one = Complaint.create(
   date_filed: "2001-06-21",
-	complaintable_id: apartment_nine,
+	complaintable_id: apartment_nine.id,
   complaintable_type: apartment_nine.class.to_s,
 	content: "kitchen sink clogged",
 	status:  Complaint.statuses[:fixed],
@@ -411,7 +411,7 @@ complaint_one = Complaint.create(
 
 complaint_two = Complaint.create(
   date_filed: "2001-08-17",
-	complaintable_id: apartment_five,
+	complaintable_id: apartment_five.id,
   complaintable_type: apartment_five.class.to_s,
 	content: "water heater not working",
 	status: Complaint.statuses[:fixed],
@@ -420,7 +420,7 @@ complaint_two = Complaint.create(
 
 complaint_three = Complaint.create(
   date_filed: "2002-07-17",
-	complaintable_id: apartment_five,
+	complaintable_id: apartment_five.id,
   complaintable_type: apartment_five.class.to_s,
 	content: "room heater problem",
 	status: Complaint.statuses[:fixed],
@@ -430,7 +430,7 @@ complaint_three = Complaint.create(
 complaint_four = Complaint.create(
   date_filed: "2002-07-21",
 	content: "air conditioning not working",
-  complaintable_id: Apartment.find_by_number(103),
+  complaintable_id: Apartment.find_by_number(103).id,
   complaintable_type: Apartment.to_s,
 	status: Complaint.statuses[:not_determined],
 	user: supervisor
@@ -438,7 +438,7 @@ complaint_four = Complaint.create(
 
 complaint_five = Complaint.create(
   date_filed: "2002-10-20",
-	complaintable_id: apartment_nine,
+	complaintable_id: apartment_nine.id,
   complaintable_type: apartment_nine.class.to_s,
 	content: "car parking not proper",
 	status: Complaint.statuses[:not_determined],
@@ -447,7 +447,7 @@ complaint_five = Complaint.create(
 
 complaint_six = Complaint.create(
   date_filed: "2002-10-20",
-	complaintable_id: apartment_three,
+	complaintable_id: apartment_three.id,
 	content: "delay in payment",
 	status: Complaint.statuses[:fixed],
 	user: user_tenant_two
@@ -456,7 +456,7 @@ complaint_six = Complaint.create(
 complaint_seven = Complaint.create(
   date_filed: "2002-10-20",
 	content: "utility not working",
-  complaintable_id: Apartment.find_by_number(202),
+  complaintable_id: Apartment.find_by_number(202).id,
   complaintable_type: Apartment.to_s,
 	status: Complaint.statuses[:not_determined],
 	user: supervisor

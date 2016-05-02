@@ -1,28 +1,30 @@
-<p>
-  <strong>Date filed:</strong>
-  <%= @complaint.created_at %>
-</p>
+<%= link_to 'Edit', edit_polymorphic_path([get_parent(@complaint), @complaint]) %> | <%= link_to 'Back', complaints_path %>
 
-<p>
-  <strong>Complaint:</strong>
-  <%= @complaint.content %>
-</p>
+<div class="col-md-3">
+  <% if @complaint.complaintable_type == "Apartment" %>
+  <% @apartment = Apartment.find_by_id(@complaint.complaintable_id) %>
+  <%= render partial: "apartments/shared/apartment", locals: { apartment: @apartment } %>
+  <% end %>
+  
+  <hr>
 
-<p>
-  <strong>Status:</strong>
-  <%= @complaint.status %>
-</p>
+  <% if @complaint.user.tenant? %>
+  <h3>Tenant</h3>
+  <%= render partial: "tenants/shared/tenant", locals: { tenant: @complaint.user.tenant } %>
+  <% end %>
 
-<p>
-  <strong>Complaintable id:</strong>
-  <%= @complaint.complaintable.id %>
-</p>
-
-<p>
-  <strong>Complaintable type:</strong>
-  <%= @complaint.complaintable_type %>
-</p>
+  <% if @complaint.complaintable_type == "Apartment" && @complaint.user.tenant? %>
+  <%= render partial: "rentals/shared/rental", locals: { rental: @complaint.user.tenant.rentals.where(apartment: @apartment ).first } %>
+  <% end %>
 
 
-<%= link_to 'Edit', edit_complaint_path(@complaint) %> |
-<%= link_to 'Back', complaints_path %>
+</div>
+<div class="col-md-6">
+  <h3>Complaint</h3>
+  <span><strong>Date filed:</strong> <%= @complaint.created_at %></span><br/>
+
+  <span><strong>Complaint:</strong> <%= @complaint.content %></span><br/>
+
+  <span><strong>Status:</strong> <%= @complaint.status %></span><br/>
+
+</div>

@@ -3,6 +3,22 @@
 <span><strong>Status:</strong><%= @apartment.status %>
 </span>
 
+<div class="row">
+  <div class="col-md-12">
+    <h3>Pending Complaints for Apartment</h3>
+  </div>
+  <div class="col-md-12">
+    <%= render partial: "complaints/shared/associated_complaints", locals: {complaintable: @apartment} %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h3>File A Complaint</h3>
+  </div>
+    <%= render partial: "complaints/shared/form", locals: {complaintable: @apartment} %>
+</div>
+
 
 <%= link_to 'Edit', edit_apartment_path(@apartment) %> |
 <%= link_to 'Back', apartments_path %>

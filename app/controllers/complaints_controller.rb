@@ -45,7 +45,7 @@ class ComplaintsController < ApplicationController
   def update
     respond_to do |format|
       if @complaint.update(complaint_params)
-        format.html { redirect_to @complaint, notice: 'Complaint was successfully updated.' }
+        format.html { redirect_to complaints_path, notice: 'Complaint was successfully updated.' }
         format.json { render :show, status: :ok, location: @complaint }
       else
         format.html { render :edit }
